@@ -1,17 +1,20 @@
 import React from 'react'; // const React = require('react)
 import'./style.css'
-
+import Logo from './Logo';
 export default class Main extends React.Component{
 render(){
   return(
     <React.Fragment>
    <body>
     <nav>
-      <ul id="main">
-        <li><a href="#">Browse</a></li>
-        <li><a href="#about-us">Collection</a></li>
-        <li><a href="#">Add</a></li>
-      </ul>
+    
+      <div id="main">
+       <a href="#"><Logo LogoFile={require('./logo_bl.png')}/> </a>
+        <a href="#">Browse</a>
+        <a href="#about-us">Collection</a>
+        <a href="#">Add</a>
+      </div>
+
     </nav>
     <section id="hero">
       <div id="cta">
