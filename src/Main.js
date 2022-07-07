@@ -1,59 +1,42 @@
 import React from 'react'; // const React = require('react)
 import'./style.css'
 import Logo from './Logo';
+
+// import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
+
 export default class Main extends React.Component{
+
+
 render(){
-  return(
+return(
+
     <React.Fragment>
-   <body>
+  
+  <Navbar collapseOnSelect expand="lg"
+  //  bg="dark" variant="dark"
+  id="main"
+   >
+  {/* <Container> */}
+  <Navbar.Brand href="#" className="nav-bar" ><Logo LogoFile={require('./logo_bl.png')}/></Navbar.Brand>
+  <Navbar.Toggle id="nav-button" aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className=" ms-auto">
+      <Nav.Link className="nav-tab" href="#">Browse</Nav.Link>
+      <Nav.Link className="nav-tab" href="#">Collection</Nav.Link>
+      <Nav.Link className="nav-tab" href="#">Add</Nav.Link> 
+    </Nav>
 
-   {/* <nav className="navbar navbar-expand-sm navbar-light " style={{"background-color:white;"}}>
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#"
-        style=" font-size: 2rem;">
-        <img src="images/fortune_logo.png" style="width:95px" className=" d-inline-block align-text-middle mt-1" />
-      </a>
-
-
-      <a  className="register btn btn-primary ms-auto me-4 d-none d-md-block d-lg-none" href="#">Register</a>  
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link" href="#">About Us</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="products.html">Products</a>
-          </li>
-            <li className="nav-item">
-            <a className="nav-link" href="recipe.html">Recipes</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="contactus.html">Contact Us</a>
-          </li>
-        </ul>
-
-        <div className="nav-item text-center ms-auto m-2 d-md-block d-lg-block">
-         
-          
-          <a className="register btn btn-danger" href="member.html" target="_blank">Join Us</a>
-        
-        </div>
-
-   
-        
-      </div>
-
-      
-
-    </div>
-  </nav> */}
+  </Navbar.Collapse>
+  {/* </Container> */}
+</Navbar>
 
 
-
+{/* 
     <nav>
     
       <div id="main">
@@ -64,7 +47,8 @@ render(){
       </div>
 
     </nav>
-    <section id="hero">
+      */}
+    <section id="ref">
       <div id="cta">
         <a href="#">
           Browse Our Collection 
@@ -73,10 +57,25 @@ render(){
     </section>
     <section id="about">
       <div className="content">
-        <h1>Your way to a better skin. Customise your own skin soap now !</h1>
+        <h1 >Your way to a better skin. Customise your own skin soap now !</h1>
       </div>
     </section>
-  </body>
+  {/* footer */}
+  <footer>
+    <div className="footer col-12">
+      <div style={{"backgroundColor":"#212529"}}>
+
+        <div className="d-inline-block justify-items-center p-2" style={{color:"#ebd8b8",fontSize: "1rem", fontFamily:"Jost, sans-serif",marginLeft:"10px"}}>
+
+          Copyright@2022 | For Educational Purposes | <i class="fab fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+  {/* <!-- end of footer --> */}
+ 
     </React.Fragment>
   )
 }}
