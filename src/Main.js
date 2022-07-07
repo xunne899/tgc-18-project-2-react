@@ -2,6 +2,7 @@ import React from 'react'; // const React = require('react)
 import'./style.css'
 import Logo from './Logo';
 
+
 // import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -67,9 +68,10 @@ return(
 
         <div className="d-inline-block justify-items-center p-2" style={{color:"#ebd8b8",fontSize: "1rem", fontFamily:"Jost, sans-serif",marginLeft:"10px"}}>
 
-          Copyright@2022 | For Educational Purposes | <i class="fab fa-facebook"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i>
+           Copyright@2022 | For Educational Purposes | <i class="fab fa-facebook"></i> 
+           <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i> 
+       
         </div>
       </div>
     </div>
