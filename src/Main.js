@@ -68,9 +68,9 @@ return(
 
         <div className="d-inline-block justify-items-center p-2" style={{color:"#ebd8b8",fontSize: "1rem", fontFamily:"Jost, sans-serif",marginLeft:"10px"}}>
 
-           Copyright@2022 | For Educational Purposes | <i class="fab fa-facebook"></i> 
-           <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i> 
+           Copyright@2022 | For Educational Purposes | <i className="fab fa-facebook"></i> 
+           <i className="fab fa-instagram"></i>
+          <i className="fab fa-twitter"></i> 
        
         </div>
       </div>

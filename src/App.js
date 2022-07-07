@@ -1,5 +1,6 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
+import 'font-awesome/css/font-awesome.min.css';
 import Main from './Main'
 export default function App() {
   return <React.Fragment>
