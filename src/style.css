@@ -6,6 +6,106 @@
 
 
 
+
+
+
+@media screen and (min-width:195px) {
+
+  body {
+      padding: 0;
+      margin: 0;
+    }
+    
+    #main {
+      background-color: #212529;
+      padding: 5px;
+      padding-bottom: 0px;
+      margin:  0;
+    }
+    
+    #main li{
+      display: inline-block;
+      justify-content: end;
+      margin: 0 5px;
+      padding: 0;
+    }
+    
+    #main a {
+      text-decoration: none;
+      display:inline-block;
+      color: #ebd8b8;
+      padding: 8px;
+      font-family:Jost, sans-serif;
+    }
+    
+    #main a:hover {
+      background-color:#212529;
+    }
+    
+    #hero {
+      background-image: url(../public/bar_soap.jpg);
+      width: 100%;
+      height: calc(100vh - 20px); 
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    
+    
+    #cta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      height:140px;
+      border-radius: 12px;
+      background-color: rgba(26, 13, 13, 0.46);
+      text-align:center;
+      transform: translate(-50%, -50%);
+      border:1px black solid;
+      padding-top:20px;
+    }
+    
+    #cta a{
+      text-decoration: none;
+      color: #ebd8b8;
+      font-size: 32px;
+      font-family: Jost, sans-serif;
+    }
+    
+    #about {
+      background-image:url(../public/bar_soap.jpg);
+      width: 100%;
+      height: 90vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0; 
+      padding: 0.5px;
+      
+    }
+    
+    #about .content {
+      background-color: rgba(0,0,0,0.5);
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0.1px; /* margin collapse! */
+    }
+    
+    #about .content h1 {
+      color: #ebd8b8    ;
+      font-family: Jost, sans-serif;
+      padding-left: 1em;
+    }
+  
+  }
+
+
+
+
+
+
 @media screen and (min-width:768px) {
 
 body {
