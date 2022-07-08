@@ -2,6 +2,9 @@ import React from 'react'; // const React = require('react)
 import'./style.css'
 import Logo from './Logo';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 
 // import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -68,7 +71,7 @@ return(
 
         <div className="d-inline-block justify-items-center p-2" style={{color:"#ebd8b8",fontSize: "1rem", fontFamily:"Jost, sans-serif",marginLeft:"10px"}}>
 
-           Copyright@2022 | For Educational Purposes | <i className="fab fa-facebook"></i> 
+           Copyright@2022 | For Educational Purposes | <FontAwesomeIcon icon={faCoffee} />
            <i className="fab fa-instagram"></i>
           <i className="fab fa-twitter"></i> 
        
