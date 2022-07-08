@@ -70,27 +70,27 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   margin: 0; 
   padding: 0.5px;
   
 }
 
 
-
+/* 
 #about {
-  background-image:url(../public/bar_soap.jpg);
+  background-image:url(../public/bar_soap.jpg); */
   /* width: 100%;
   height: 40vh;
   background-repeat: no-repeat;
   background-size: cover; */
   /* background-attachment: fixed; */
-  margin: 0; 
+  /* margin: 0; 
   padding: 0.5px;
   background-image: cover;
   height: 70%;
   
-}
+} */
 
 #about .content {
   background-color: rgba(0,0,0,0.5);

@@ -3,7 +3,8 @@ import'./style.css'
 import Logo from './Logo';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook,faTwitter,faWhatsapp,faInstagram } from "@fortawesome/free-brands-svg-icons"
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 // import Container from 'react-bootstrap/Container';
@@ -71,9 +72,11 @@ return(
 
         <div className="d-inline-block justify-items-center p-2" style={{color:"#ebd8b8",fontSize: "1rem", fontFamily:"Jost, sans-serif",marginLeft:"10px"}}>
 
-           Copyright@2022 | For Educational Purposes | <FontAwesomeIcon icon={faCoffee} />
-           <i className="fab fa-instagram"></i>
-          <i className="fab fa-twitter"></i> 
+           Copyright@2022 | For Educational Purposes | <FontAwesomeIcon icon={faFacebook}/>&nbsp;
+           <FontAwesomeIcon icon={faWhatsapp}/>&nbsp;
+           <FontAwesomeIcon icon={faTwitter}/>&nbsp;
+           <FontAwesomeIcon icon={faInstagram}/>
+
        
         </div>
       </div>
