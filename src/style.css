@@ -39,7 +39,7 @@
 #ref {
   background-image: url(../public/bar_soap.jpg);
   background-image: cover;
-  height: 510px;
+  height: 495px;
   position: relative;
 }
 
@@ -67,54 +67,51 @@
 #about {
   background-image:url(../public/bar_soap.jpg);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-attachment: fixed; */
-  margin: 0; 
-  padding: 0.5px;
+  background-attachment: fixed; 
+  margin: 0;  
+  padding: 0px;
   
 }
 
+.displayCards{
+  background-color: #ebd8b8;
+  height:40%;
+  width: 40%;
+}
 
-/* 
-#about {
-  background-image:url(../public/bar_soap.jpg); */
-  /* width: 100%;
-  height: 40vh;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* background-attachment: fixed; */
-  /* margin: 0; 
-  padding: 0.5px;
-  background-image: cover;
-  height: 70%;
-  
-} */
 
 #about .content {
   background-color: rgba(0,0,0,0.5);
-  height: 60vh;
+  height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0.1px; /* margin collapse! */
+  padding: 0px; 
 }
 
 #about .content h1 {
   color: #ebd8b8    ;
   font-family: Jost, sans-serif;
-  padding-left: 1em;
+  /* padding-left: 1em; */
+  margin-left:10px;
   font-size:1.2rem;
   padding: 8px;
+  text-align: center;
 }
 
 
 .footer{
-  /* position: absolute;  */
-   bottom:0;
+   
+   position:fixed;
+   bottom: 0;
+   text-align: center;
 }
 
-
+.copyright{
+  font-size:0.7rem;
+}
 /* } */
 
 
@@ -167,7 +164,10 @@
       position: relative;
     }
     
-    
+    .AddForm{
+      margin-left: 13px
+    }
+
     #cta {
       position: absolute;
       top: 50%;
@@ -189,6 +189,14 @@
       font-family: Jost, sans-serif;
     }
     
+    
+    
+    .displayCards{
+      background-color: #ebd8b8;
+      height: 18rem;
+      width: 18rem;
+    }
+
     #about {
       background-image:url(../public/bar_soap.jpg);
       width: 100%;
@@ -197,7 +205,8 @@
       background-size: cover;
       background-attachment: fixed;
       margin: 0; 
-      padding: 0.5px;
+      padding: 0px;
+      text-align: center;
       
     }
     
@@ -206,21 +215,27 @@
       height: 100%;
       width: 100%;
       margin: 0;
-      padding: 0.1px; /* margin collapse! */
+      padding: 0; /* margin collapse! */
     }
     
     #about .content h1 {
       color: #ebd8b8    ;
       font-family: Jost, sans-serif;
       padding: 12px;
-      font-size:2rem
+      font-size:2rem;
+      text-align: center;
     }
   
 
     .footer{
-     position :relative;
-     bottom:0;
-     
+     position:sticky;
+     bottom:0px;
+     text-align: center;
+
+    }
+
+    .copyright{
+      font-size:1rem;
     }
   }
 
