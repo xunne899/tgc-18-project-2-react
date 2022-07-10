@@ -20,32 +20,65 @@ export default class Listing extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div  style={{ background: "#ebd8b8" }}>
+                <div style={{ background: "#ebd8b8" }}>
                     <h1 className="AddForm">All Collections</h1>
-                    <ul className="list-group">
+                    <ul className="list-group item">
                         {
                             this.state.collection.map(r => <React.Fragment key={r._id}>
-                                <li className="list-group-item" style={{ background: "#ebd8b8" }}>
-                                    <h3>Soap Name: {r.soap_label}</h3>
-                                    <h3>Country Origin: {r.country_origin}</h3>
+                                <li className="list-group-item  border border-dark border-3 r-3 m-2"  style={{ background: "#ebd8b8" }}>
+                                    <div>Soap Name: <span className="badge bg-primary mx-1">{r.soap_label}</span></div>
+                                    <div>Country Origin: <span className="badge bg-primary mx-1">{r.country_origin}</span></div>
+                                    <div>Color</div>
                                     {
                                         r.color.map(i => <span key={i} className="badge bg-primary mx-1">
-                                            Color:{i}
+                                            {i}
                                         </span>)
 
                                     }
+                                    {/* <h3>SkinType</h3>
                                     {
                                         r.skin_type.map(i => <span key={i} className="badge bg-danger mx-1">
-                                            SkinType:{i}
+                                            {i}
                                         </span>)
 
-                                    }
+                                    } */}
+
                                     {
-                                        Object.keys(r.ingredients).map((iType) =>
+                                        Object.keys(r.skin_type).map((i) =>
+                                        <div>Skin_type:<span className="badge bg-success mx-1" key={`${i}`}>  {r.skin_type[i]}</span></div>
+                                                )
+                                            
+                                            
+                                            
+                                            }  
+
+                                
+
+                                    
+
+                                    {
+                                            Object.keys(r.ingredients).map((iType) =>
+                                            (
+                                                <>
+                                                    {console.log('data=>', iType)}
+                                                    <div>Ingredients: {iType}</div>
+
+                                                    {r.ingredients[iType].map((info, i) => <span key={`${iType}_${i}`} className="badge bg-success mx-1">
+                                                        {info}
+                                                    </span>)}
+
+                                                </>)
+                                            )
+                                        }
+
+
+
+                                        {/* {
+                                        Object.keys(r.suitability).map((iType) =>
                                         (
                                             <>
                                                 {console.log('data=>', iType)}
-                                                <div>Skin Type: {iType}</div>
+                                                <div>: {iType}</div>
 
                                                 {r.ingredients[iType].map((info, i) => <span key={`${iType}_${i}`} className="badge bg-danger mx-1">
                                                     {info}
@@ -53,7 +86,7 @@ export default class Listing extends React.Component {
 
                                             </>)
                                         )
-                                    }
+                                    } */}
                                 </li>
                             </React.Fragment>)
                         }

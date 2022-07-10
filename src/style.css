@@ -49,6 +49,11 @@
   position: relative;
 }
 
+.AddForm{
+  margin-left: 13px;
+  text-align : center
+}
+
 #cta {
   position: absolute;
   top: 50%;
@@ -121,7 +126,17 @@
   padding: 8px;
   text-align: center;
 }
+.AddBtn{
 
+  border-radius: 24px;
+  padding: 5px 30px;
+  font-size: 14px;
+  background-color:#212529;
+ justify-content: center;
+
+  
+
+}
 
 .footer{
    
@@ -187,7 +202,13 @@
     }
     
     .AddForm{
-      margin-left: 13px
+      margin-left: 13px;
+      text-align : center
+    }
+
+    .item{
+      height:150px;
+      width:500px
     }
 
     #cta {
@@ -265,10 +286,20 @@
       font-size:2rem;
       text-align: center;
     }
+  .AddBtn{
+
+      border-radius: 24px;
+      padding: 5px 30px;
+      font-size: 14px;
+      background-color:#212529;
+      /* align-content: center;
+      display: flex; */
+      
   
+  }
 
     .footer{
-     position:sticky;
+     position:fixed;
      bottom:0px;
      text-align: center;
 

@@ -14,11 +14,13 @@ import Browse from './pages/Browse';
 export default class Main extends React.Component {
 
   state = {
-    active: 'home'
+    current: 'home'
   }
 
-  getTabLink(pageName) {
-    if (pageName === this.state.active ) {
+  TabLink() {
+    let pageName = this.state.current
+
+    if (pageName) {
       return "nav-link active nav-tab" 
     } else {
       return "nav-link nav-tab"
@@ -26,23 +28,24 @@ export default class Main extends React.Component {
   }
  
  
-  switchContent = (inpage) => {
+  changeContent = (inpage) => {
     this.setState({
-      active: inpage
+      current: inpage
     })
   }
 
-  renderContentpage = () => {
-    if (this.state.active === 'home') {
+  showContentpage = () => {
+    
+    if (this.state.current === 'home') {
       return <Home/>}
-      else if (this.state.active === 'search') {
-        return <Browse changePage={this.switchContent} />
+      else if (this.state.current === 'search') {
+        return <Browse goTo={this.changeContent} />
       }
-      else if (this.state.active === 'collection') {
-        return <Listing changePage={this.switchContent} />
+      else if (this.state.current === 'collection') {
+        return <Listing gTo={this.changeContent} />
       }
-     else if (this.state.active === 'add') {
-      return <AddNew changePage={this.switchContent} />
+     else if (this.state.current === 'add') {
+      return <AddNew goTo={this.changeContent} />
     } 
   }
 
@@ -57,25 +60,25 @@ export default class Main extends React.Component {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className=" ms-auto">
             
-                <Nav.Link className={this.getTabLink('home')} onClick={() => {
-                this.switchContent('home')}}>Home</Nav.Link>
+                <Nav.Link className={this.TabLink('home')} onClick={() => {
+                this.changeContent('home')}}>Home</Nav.Link>
                 
              
-                <Nav.Link className={this.getTabLink('search')} onClick={() => {
-                this.switchContent('search')}}>Browse</Nav.Link>
+                <Nav.Link className={this.TabLink('search')} onClick={() => {
+                this.changeContent('search')}}>Browse</Nav.Link>
                   
              
-                <Nav.Link  className={this.getTabLink('collection')} onClick={() => {
-                this.switchContent('collection')}}>Collection</Nav.Link>
+                <Nav.Link  className={this.TabLink('collection')} onClick={() => {
+                this.changeContent('collection')}}>Collection</Nav.Link>
             
-                <Nav.Link  className={this.getTabLink('add')} onClick={() => {
-                this.switchContent('add')}}>Add</Nav.Link>
+                <Nav.Link  className={this.TabLink('add')} onClick={() => {
+                this.changeContent('add')}}>Add</Nav.Link>
         
               </Nav>
        
             </Navbar.Collapse>
           </Navbar>
-         {this.renderContentpage()}
+         {this.showContentpage()}
          <Footer/>
       </React.Fragment>
     )
