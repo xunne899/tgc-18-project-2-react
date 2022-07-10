@@ -3,7 +3,13 @@
 
 /* 
 @media (max-width: 768px){ */
-  
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #ebd8b8;
+  }
+
+
   #main {
   
     background-color: #212529;
@@ -66,8 +72,8 @@
 
 #about {
   background-image:url(../public/bar_soap.jpg);
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 150vh; */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; 
@@ -76,13 +82,28 @@
   
 }
 
-.displayCards{
-  background-color: #ebd8b8;
-  height:40%;
-  width: 40%;
+.formNames{
+  font-family:Jost, sans-serif;
 }
 
 
+.displayCards{
+  background-color: transparent;
+  /* background-color: #ebd8b8; */
+  height:40%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:#ebd8b8
+}
+
+.cardSize{
+  height:80px;
+  width: 80px;
+
+}
 #about .content {
   background-color: rgba(0,0,0,0.5);
   height: 100%;
@@ -104,7 +125,7 @@
 
 .footer{
    
-   position:fixed;
+   /* position:fixed; */
    bottom: 0;
    text-align: center;
 }
@@ -119,6 +140,7 @@
   body {
       padding: 0;
       margin: 0;
+      background-color: #ebd8b8;
     }
     
     #main {
@@ -140,7 +162,7 @@
       
     }
 
-
+   
     
     #main .nav-tab{
       text-decoration: none;
@@ -190,11 +212,29 @@
     }
     
     
+    .formNames{
+      font-family:Jost, sans-serif;
+      
+
+    }
+   
+    .cardSize{
+      height:80px;
+      width: 80px;
+  
     
+    }
+
     .displayCards{
-      background-color: #ebd8b8;
-      height: 18rem;
+      background-color: transparent;
+      /* background-color: #ebd8b8; */
+      height: 19rem;
       width: 18rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:#ebd8b8
+      
     }
 
     #about {
