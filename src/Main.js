@@ -17,16 +17,13 @@ export default class Main extends React.Component {
     current: 'home'
   }
 
-  TabLink() {
+  connectTab=()=>{
     let pageName = this.state.current
-
-    if (pageName) {
-      return "nav-link active nav-tab" 
-    } else {
-      return "nav-link nav-tab"
-    }
-  }
+    return( pageName ? "nav-link home nav-tab" :"nav-link nav-tab")
+    } 
+  
  
+
  
   changeContent = (inpage) => {
     this.setState({
@@ -54,24 +51,26 @@ export default class Main extends React.Component {
     return (
 
       <React.Fragment>
+        <div id="page-container">
+        <div id="content-wrap">
           <Navbar collapseOnSelect expand="lg" id="main">
             <Navbar.Brand href="#" className="nav-bar" ><Logo LogoFile={require('./logo_bl.png')} /></Navbar.Brand>
             <Navbar.Toggle id="nav-button" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className=" ms-auto">
+              <Nav className="ms-auto">
             
-                <Nav.Link className={this.TabLink('home')} onClick={() => {
+                <Nav.Link className={this.connectTab('home')} onClick={() => {
                 this.changeContent('home')}}>Home</Nav.Link>
                 
              
-                <Nav.Link className={this.TabLink('search')} onClick={() => {
+                <Nav.Link className={this.connectTab('search')} onClick={() => {
                 this.changeContent('search')}}>Browse</Nav.Link>
                   
              
-                <Nav.Link  className={this.TabLink('collection')} onClick={() => {
+                <Nav.Link  className={this.connectTab('collection')} onClick={() => {
                 this.changeContent('collection')}}>Collection</Nav.Link>
             
-                <Nav.Link  className={this.TabLink('add')} onClick={() => {
+                <Nav.Link  className={this.connectTab('add')} onClick={() => {
                 this.changeContent('add')}}>Add</Nav.Link>
         
               </Nav>
@@ -79,7 +78,9 @@ export default class Main extends React.Component {
             </Navbar.Collapse>
           </Navbar>
          {this.showContentpage()}
+         </div>
          <Footer/>
+         </div>
       </React.Fragment>
     )
   }

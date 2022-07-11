@@ -1,203 +1,48 @@
-
-
-
 /* 
 @media (max-width: 768px){ */
-  body {
-    padding: 0;
-    margin: 0;
-    background-color: #ebd8b8;
-  }
-
-
-  #main {
-  
-    background-color: #212529;
-    padding: 0px;
-    padding-bottom: 0px;
-    margin:  0;
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: #ebd8b8;
+      }
     
-  }
-
-  #main .nav-tab{
-    text-decoration: none;
-    display:inline-block;
-    color: #ebd8b8;
-    padding: 8px;
-    font-family:Jost, sans-serif;
-    font-size: 1.2rem;
-  }
-
-.nav-link{
-  text-align: center;
-  /* color:grey! important; */
-  /* font-size:14px;
-  font-weight:300 */
-}
-
-#nav-button{
-  margin-right: 20px;
-  color: #f5ecdc;
-  background-color :#ebd8b8;
+    
+      #main {
       
-}
-
-#ref {
-  background-image: url(../public/bar_soap.jpg);
-  background-image: cover;
-  height: 495px;
-  position: relative;
-}
-
-.AddForm{
-  margin-left: 13px;
-  text-align : center
-}
-
-#cta {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height:100px;
-  border-radius: 12px;
-  background-color: rgba(26, 13, 13, 0.46);
-  text-align:center;
-  transform: translate(-50%, -50%);
-  border:1px black solid;
-  padding-top:20px;
-}
-
-#cta a{
-  text-decoration: none;
-  color: #ebd8b8;
-  font-size: 20px;
-  font-family: Jost, sans-serif;
-}
-
-#about {
-  background-image:url(../public/bar_soap.jpg);
-  /* width: 100%;
-  height: 150vh; */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; 
-  margin: 0;  
-  padding: 0px;
-  
-}
-
-.formNames{
-  font-family:Jost, sans-serif;
-}
-
-
-.displayCards{
-  background-color: transparent;
-  /* background-color: #ebd8b8; */
-  height:40%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color:#ebd8b8
-}
-
-.cardSize{
-  height:80px;
-  width: 80px;
-
-}
-#about .content {
-  background-color: rgba(0,0,0,0.5);
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0px; 
-}
-
-#about .content h1 {
-  color: #ebd8b8    ;
-  font-family: Jost, sans-serif;
-  /* padding-left: 1em; */
-  margin-left:10px;
-  font-size:1.2rem;
-  padding: 8px;
-  text-align: center;
-}
-.AddBtn{
-
-  border-radius: 24px;
-  padding: 5px 30px;
-  font-size: 14px;
-  background-color:#212529;
- justify-content: center;
-
-  
-
-}
-
-.footer{
-   
-   /* position:fixed; */
-   bottom: 0;
-   text-align: center;
-}
-
-.copyright{
-  font-size:0.7rem;
-}
-/* } */
-
-
-@media (min-width: 768px){
-  body {
-      padding: 0;
-      margin: 0;
-      background-color: #ebd8b8;
+        background-color: #212529;
+        padding: 0px;
+        padding-bottom: 0px;
+        margin:  0;
+        
+      }
+    
+      #main .nav-tab{
+        text-decoration: none;
+        display:inline-block;
+        color: #ebd8b8;
+        padding: 8px;
+        font-family:Jost, sans-serif;
+        font-size: 1.2rem;
+      }
+    
+    .nav-link{
+      text-align: center;
+      /* color:grey! important; */
+      /* font-size:14px;
+      font-weight:300 */
     }
     
-    #main {
-      background-color: #212529;
-      padding: 5px;
-      /* padding-bottom: 0px; */
-      margin:  0;
-      
-    }
-    .nav-bar {
-      margin-left: 10px
-    }
-
-    .nav-tab{
-      /* display: inline-block;
-      justify-content: end; */
-     margin-left: 10px;
-     margin-right: 40px;
-      
-    }
-
-   
-    
-    #main .nav-tab{
-      text-decoration: none;
-      display:inline-block;
-      color: #ebd8b8;
-      padding: 8px;
-      font-family:Jost, sans-serif;
-      font-size: 1.1rem;
-    }
-    
-    #main .nav-tab:hover {
-       color:#f5ecdc;
+    #nav-button{
+      margin-right: 20px;
+      color: #f5ecdc;
+      background-color :#ebd8b8;
+          
     }
     
     #ref {
       background-image: url(../public/bar_soap.jpg);
-      width: 100%;
-      height: calc(100vh - 20px); 
-      background-repeat: no-repeat;
-      background-size: cover;
+      background-image: cover;
+      height: 495px;
       position: relative;
     }
     
@@ -205,18 +50,13 @@
       margin-left: 13px;
       text-align : center
     }
-
-    .item{
-      height:150px;
-      width:500px
-    }
-
+    
     #cta {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 280px;
-      height:140px;
+      width: 200px;
+      height:100px;
       border-radius: 12px;
       background-color: rgba(26, 13, 13, 0.46);
       text-align:center;
@@ -228,90 +68,242 @@
     #cta a{
       text-decoration: none;
       color: #ebd8b8;
-      font-size: 32px;
+      font-size: 20px;
       font-family: Jost, sans-serif;
     }
     
+    #about {
+      background-image:url(../public/bar_soap.jpg);
+      /* width: 100%;
+      height: 150vh; */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed; 
+      margin: 0;  
+      padding: 0px;
+      
+    }
     
     .formNames{
       font-family:Jost, sans-serif;
-      
-
     }
-   
-    .cardSize{
-      height:80px;
-      width: 80px;
-  
     
-    }
-
+    
     .displayCards{
       background-color: transparent;
       /* background-color: #ebd8b8; */
-      height: 19rem;
-      width: 18rem;
+      height:40%;
+      width: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      color:#ebd8b8
-      
-    }
-
-    #about {
-      background-image:url(../public/bar_soap.jpg);
-      width: 100%;
-      height: 90vh;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      margin: 0; 
-      padding: 0px;
       text-align: center;
-      
+      color:#ebd8b8
     }
     
+    .cardSize{
+      height:80px;
+      width: 80px;
+    
+    }
     #about .content {
       background-color: rgba(0,0,0,0.5);
       height: 100%;
       width: 100%;
       margin: 0;
-      padding: 0; /* margin collapse! */
+      padding: 0px; 
     }
     
     #about .content h1 {
       color: #ebd8b8    ;
       font-family: Jost, sans-serif;
-      padding: 12px;
-      font-size:2rem;
+      /* padding-left: 1em; */
+      margin-left:10px;
+      font-size:1.2rem;
+      padding: 8px;
       text-align: center;
     }
-  .AddBtn{
-
+    .AddBtn{
+    
       border-radius: 24px;
       padding: 5px 30px;
       font-size: 14px;
       background-color:#212529;
-      /* align-content: center;
-      display: flex; */
+     justify-content: center;
+    
       
-  
-  }
-
+    
+    }
+    
     .footer{
-     position:fixed;
-     bottom:0px;
-     text-align: center;
-
+/*        
+       position:fixed; */
+       bottom: 0;
+       text-align: center;
     }
-
+    
     .copyright{
-      font-size:1rem;
+      font-size:0.7rem;
     }
-  }
-
-
-
-
-
-
+    /* } */
+    
+    
+    @media (min-width: 768px){
+      body {
+          padding: 0;
+          margin: 0;
+          background-color: #ebd8b8;
+        }
+        
+        #main {
+          background-color: #212529;
+          padding: 5px;
+          /* padding-bottom: 0px; */
+          margin:  0;
+          
+        }
+        .nav-bar {
+          margin-left: 10px
+        }
+    
+        .nav-tab{
+          /* display: inline-block;
+          justify-content: end; */
+         margin-left: 10px;
+         margin-right: 40px;
+          
+        }
+    
+       
+        
+        #main .nav-tab{
+          text-decoration: none;
+          display:inline-block;
+          color: #ebd8b8;
+          padding: 8px;
+          font-family:Jost, sans-serif;
+          font-size: 1.1rem;
+        }
+        
+        #main .nav-tab:hover {
+           color:#f5ecdc;
+        }
+        
+        #ref {
+          background-image: url(../public/bar_soap.jpg);
+          width: 100%;
+          height: calc(100vh - 20px); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: relative;
+        }
+        
+        .AddForm{
+          margin-left: 13px;
+          text-align : center
+        }
+    
+        .item{
+          /* height:150px; */
+          width:500px
+        }
+    
+        #cta {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 280px;
+          height:140px;
+          border-radius: 12px;
+          background-color: rgba(26, 13, 13, 0.46);
+          text-align:center;
+          transform: translate(-50%, -50%);
+          border:1px black solid;
+          padding-top:20px;
+        }
+        
+        #cta a{
+          text-decoration: none;
+          color: #ebd8b8;
+          font-size: 32px;
+          font-family: Jost, sans-serif;
+        }
+        
+        
+        .formNames{
+          font-family:Jost, sans-serif;
+          
+    
+        }
+       
+        .cardSize{
+          height:80px;
+          width: 80px;
+      
+        
+        }
+    
+        .displayCards{
+          background-color: transparent;
+          /* background-color: #ebd8b8; */
+          height: 19rem;
+          width: 18rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color:#ebd8b8
+          
+        }
+    
+        #about {
+          background-image:url(../public/bar_soap.jpg);
+          width: 100%;
+          height: 90vh;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed;
+          margin: 0; 
+          padding: 0px;
+          text-align: center;
+          
+        }
+        
+        #about .content {
+          background-color: rgba(0,0,0,0.5);
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0; /* margin collapse! */
+        }
+        
+        #about .content h1 {
+          color: #ebd8b8    ;
+          font-family: Jost, sans-serif;
+          padding: 12px;
+          font-size:2rem;
+          text-align: center;
+        }
+      .AddBtn{
+    
+          border-radius: 24px;
+          padding: 5px 30px;
+          font-size: 14px;
+          background-color:#212529;
+          /* align-content: center;
+          display: flex; */
+          
+      
+      }
+    
+        .footer{
+         /* position:absolute; */
+         bottom:0px;
+         text-align: center;
+    
+        }
+    
+        .copyright{
+          font-size:1rem;
+        }
+      }
+    
