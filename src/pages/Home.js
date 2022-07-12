@@ -43,7 +43,7 @@ export default class Home extends React.Component {
                                     <Card.Text>
                                        Click below to go to our collection page
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:"#ebd8b8"}}>Collection</Button>
+                                    <Button variant="dark" style={{color:"#ebd8b8"}} >Collection</Button>
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >

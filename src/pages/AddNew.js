@@ -355,9 +355,11 @@ showTreatment = (e) => {
     render() {
         // console.log(this.state);
         return <React.Fragment>
-            <div class="flexwrapper100">
-            <div className="formNames border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
+            <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
+            <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
                 <h2 className="title d-flex justify-content-center">Add New Soap</h2>
+                
+                <div className=" col-12 col-lg-6">
                 <div>
                     <label>Name</label>
                     <input name="newName" type="text" value={this.state.newName}
@@ -389,9 +391,14 @@ showTreatment = (e) => {
                         className="form-control" />
                 </div>
                 <div>
-                    <label>Color</label>
-                    {this.showColors()}
+                    <label>Cost</label>
+                    <input name="newCost" type="number" value={this.state.newCost}
+                        onChange={this.updateFormField}
+                        className="form-control" />
                 </div>
+                </div>
+                
+                <div className="col-12 col-lg-6">
                 <div>
                     <label>Country Origin</label>
                     <select name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
@@ -399,11 +406,11 @@ showTreatment = (e) => {
                     </select>
                 </div>
                 <div>
-                    <label>Cost</label>
-                    <input name="newCost" type="number" value={this.state.newCost}
-                        onChange={this.updateFormField}
-                        className="form-control" />
+                    <label>Color</label>
+                    {this.showColors()}
                 </div>
+                
+                
                 <div>
                     <label>Skin Type</label>
                     { this.skinType.map(eachOne=>{
@@ -501,6 +508,7 @@ showTreatment = (e) => {
                     <input name="newDate" type="text" value={this.state.newDate}
                         onChange={this.updateFormField}
                         className="form-control" />
+                </div>
                 </div>
 
                 <br/>
