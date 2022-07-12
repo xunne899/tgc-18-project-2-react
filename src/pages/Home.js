@@ -6,9 +6,10 @@ import React from 'react'
 import { Button, Card} from 'react-bootstrap';
 import HomeImage from '../HomeImage';
 
-export default class Home extends React.Component {
+export default function Home(props){
 
-    render() {
+ 
+
         return (
             <React.Fragment>
               <HomeImage bgC="#ebd8b8" msg="Browse Our Collection"/>
@@ -33,7 +34,9 @@ export default class Home extends React.Component {
                                     <Card.Text>
                                        Search for your soap collection? Click on the button Below
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:"#ebd8b8"}}>Browse</Button>
+                                    <Button variant="dark"  
+                                   onClick={()=>props.goTo=('search')} 
+                                    style={{color:"#ebd8b8"}}>Browse</Button>
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >
@@ -43,7 +46,9 @@ export default class Home extends React.Component {
                                     <Card.Text>
                                        Click below to go to our collection page
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:"#ebd8b8"}} >Collection</Button>
+                                    <Button variant="dark" 
+                                    onClick={()=>props.goTo=('collection')}
+                                     style={{color:"#ebd8b8"}} >Collection</Button>
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >
@@ -53,7 +58,9 @@ export default class Home extends React.Component {
                                     <Card.Text>
                                         Click on the button below to add on to our soap collection
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:"#ebd8b8"}}>Add here</Button>
+                                    <Button variant="dark"
+                                     onClick={()=>props.goTo=('add')}
+                                     style={{color:"#ebd8b8"}}>Add here</Button>
                                 </Card.Body>
                             </Card>
                        </div>
@@ -63,5 +70,5 @@ export default class Home extends React.Component {
             </React.Fragment>
 
         )
-    }
+                                    
 }

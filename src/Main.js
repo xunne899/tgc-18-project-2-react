@@ -41,7 +41,7 @@ export default class Main extends React.Component {
       else if (this.state.current === 'collection') {
         return <Listing gTo={this.changeContent} />
       }
-     else  {
+     else if (this.state.current === 'add') {
       return <AddNew goTo={this.changeContent} />
     } 
   }

@@ -1,10 +1,20 @@
-/* 
-@media (max-width: 768px){ */
+
+
     body {
         padding: 0;
         margin: 0;
         background-color: #ebd8b8;
       }
+
+      #page-container {
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      /* #content-wrap {
+        padding-bottom: 3rem;   
+      } */
+      
     
     
       #main {
@@ -86,13 +96,14 @@
     
     .formNames{
       font-family:Jost, sans-serif;
+    
     }
     
     
     .displayCards{
       background-color: transparent;
       /* background-color: #ebd8b8; */
-      height:40%;
+      height:36%;
       width: 50%;
       display: flex;
       justify-content: center;
@@ -102,8 +113,8 @@
     }
     
     .cardSize{
-      height:80px;
-      width: 80px;
+      height:70px;
+      width: 70px;
     
     }
     #about .content {
@@ -136,17 +147,202 @@
     }
     
     .footer{
-/*        
-       position:fixed; */
-       bottom: 0;
-       text-align: center;
+      
+      position:absolute;
+      bottom:0px;
+      text-align: center;
+      height:0.75rem; 
     }
     
     .copyright{
       font-size:0.7rem;
     }
-    /* } */
+   
+  /* // tablet */
+@media only screen and  (min-width: 600px) { 
+ 
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #ebd8b8;
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  /* #content-wrap {
+    padding-bottom: 3rem;   
+  } */
+  
+
+
+  #main {
+  
+    background-color: #212529;
+    padding: 0px;
+    padding-bottom: 0px;
+    margin:  0;
     
+  }
+
+  #main .nav-tab{
+    text-decoration: none;
+    display:inline-block;
+    color: #ebd8b8;
+    padding: 8px;
+    font-family:Jost, sans-serif;
+    font-size: 1.2rem;
+  }
+
+.nav-link{
+  text-align: center;
+  /* color:grey! important; */
+  /* font-size:14px;
+  font-weight:300 */
+}
+
+#nav-button{
+  margin-right: 20px;
+  color: #f5ecdc;
+  background-color :#ebd8b8;
+      
+}
+
+#ref {
+  background-image: url(../public/bar_soap.jpg);
+  background-image: cover;
+  height: 495px;
+  position: relative;
+}
+
+.AddForm{
+  margin-left: 13px;
+  text-align : center
+}
+
+#cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height:100px;
+  border-radius: 12px;
+  background-color: rgba(26, 13, 13, 0.46);
+  text-align:center;
+  transform: translate(-50%, -50%);
+  border:1px black solid;
+  padding-top:20px;
+}
+
+#cta a{
+  text-decoration: none;
+  color: #ebd8b8;
+  font-size: 20px;
+  font-family: Jost, sans-serif;
+}
+
+#about {
+  background-image:url(../public/bar_soap.jpg);
+  /* width: 100%;
+  height: 150vh; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+  margin: 0;  
+  padding: 0px;
+  
+}
+
+.formNames{
+  font-family:Jost, sans-serif;
+
+}
+
+
+.displayCards{
+  background-color: transparent;
+  /* background-color: #ebd8b8; */
+  height:36%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:#ebd8b8
+}
+
+.cardSize{
+  height:70px;
+  width: 70px;
+
+}
+#about .content {
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0px; 
+}
+
+#about .content h1 {
+  color: #ebd8b8    ;
+  font-family: Jost, sans-serif;
+  /* padding-left: 1em; */
+  margin-left:10px;
+  font-size:1.2rem;
+  padding: 8px;
+  text-align: center;
+}
+.AddBtn{
+
+  border-radius: 24px;
+  padding: 5px 30px;
+  font-size: 14px;
+  background-color:#212529;
+ justify-content: center;
+
+  
+
+}
+
+.footer{
+  
+  position:absolute;
+  bottom:0px;
+  text-align: center;
+  height:0.75rem; 
+}
+
+.copyright{
+  font-size:0.7rem;
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     @media (min-width: 768px){
       body {
@@ -154,6 +350,17 @@
           margin: 0;
           background-color: #ebd8b8;
         }
+
+
+        #page-container {
+          position: relative;
+          min-height: 100vh;
+        }
+        
+        #content-wrap {
+          padding-bottom: 2.5rem;   
+        }
+        
         
         #main {
           background-color: #212529;
@@ -232,7 +439,7 @@
         
         .formNames{
           font-family:Jost, sans-serif;
-          
+ 
     
         }
        
@@ -296,9 +503,10 @@
       }
     
         .footer{
-         /* position:absolute; */
+         position:absolute;
          bottom:0px;
          text-align: center;
+         height: 2.5rem;  
     
         }
     
