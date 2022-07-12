@@ -543,9 +543,10 @@ export default class AddNew extends React.Component {
                         </div>
                     </div>
 
-                    <br />
-                    <div className=" text-center ms-auto">
-                        <a className="AddBtn btn btn-dark my-1" style={{ color: "#ebd8b8" }} onClick={this.addNew}>Add</a>
+                    <br/>
+                    <br/>
+                    <div className="text-center ms-auto">
+                        <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.addNew}>Add</a>
                     </div>
                 </div>
             </div>
