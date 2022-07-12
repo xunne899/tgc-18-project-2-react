@@ -34,39 +34,39 @@ export default class AddNew extends React.Component {
     colors = [
 
         {
-            'display': 'Green',
+            'show': 'Green',
             'value': 'green'
         },
         {
-            'display': 'Blue',
+            'show': 'Blue',
             'value': 'blue'
         },
         {
-            'display': 'Red',
+            'show': 'Red',
             'value': 'red'
         },
         {
-            'display': 'Yellow',
+            'show': 'Yellow',
             'value': 'yellow'
         },
         {
-            'display': 'Brown',
+            'show': 'Brown',
             'value': 'brown'
         },
         {
-            'display': 'Black',
+            'show': 'Black',
             'value': 'black'
         },
         {
-            'display': 'Orange',
+            'show': 'Orange',
             'value': 'orange'
         },
         {
-            'display': 'Purple',
+            'show': 'Purple',
             'value': 'purple'
         },
         {
-            'display': 'White',
+            'show': 'White',
             'value': 'white'
         }
     ]
@@ -75,35 +75,35 @@ export default class AddNew extends React.Component {
         
    
         {
-            'display': 'Germany',
+            'show': 'Germany',
             'value': 'germany'
         },
         {
-            'display': 'Russia',
+            'show': 'Russia',
             'value': 'russia'
         },
         {
-            'display': 'Italy',
+            'show': 'Italy',
             'value': 'italy'
         },
         {
-            'display': 'Uk',
+            'show': 'Uk',
             'value': 'uk'
         },
         {
-            'display': 'Japan',
+            'show': 'Japan',
             'value': 'japan'
         },
         {
-            'display': 'South Korea',
+            'show': 'South Korea',
             'value': 'southkorea'
         },
         {
-            'display': 'France',
+            'show': 'France',
             'value': 'france'
         },
         {
-            'display': 'Singapore',
+            'show': 'Singapore',
             'value': 'singapore'
         }
        
@@ -113,15 +113,15 @@ export default class AddNew extends React.Component {
     
     skinType = [
         {
-            'display':'Sensitive',
+            'show':'Sensitive',
             'value':'sensitive'
         },
         {
-            'display':'Dry',
+            'show':'Dry',
             'value':'dry'
         },
         {
-            'display':'Oily',
+            'show':'Oily',
             'value':'oily'
         }
     ]
@@ -129,19 +129,19 @@ export default class AddNew extends React.Component {
 
     treat = [
         {
-            'display':'Irritable skin',
+            'show':'Irritable skin',
             'value':'irritable_skin'
         },
         {
-            'display':'Inflammation',
+            'show':'Inflammation',
             'value':'inflammation'
         },
         {
-            'display':'Skin Abrasion',
+            'show':'Skin Abrasion',
             'value':'skin_Abrasion'
         },
         {
-            'display':'Skin Cuts',
+            'show':'Skin Cuts',
             'value':'skin_cut'
         }
     ]
@@ -169,7 +169,7 @@ export default class AddNew extends React.Component {
             'image_url': this.state.newImageUrl,
             'color':this.state.newColor,
             'country_origin': this.state.newCountry,
-            'cost': this.state.newCost,
+            'cost': parseInt(this.state.newCost),
             'skin_type': this.state.newSkinType,
             'ingredients': {
                 'oil_ingredient':this.state.oilIngredients,
@@ -201,7 +201,7 @@ export default class AddNew extends React.Component {
                     onChange={this.updateFormField}
                     checked={this.state.newColor === eachOne.value} 
                 />
-                <span>{eachOne.display}</span>
+                <span>{eachOne.show}</span>
             </React.Fragment>
 
 
@@ -215,7 +215,7 @@ export default class AddNew extends React.Component {
     showCountries = () => {
 
         let selectedCountry = this.countries.map(eachOne => {
-            return <option key={eachOne.value} value={eachOne.value}>{eachOne.display}</option>
+            return <option key={eachOne.value} value={eachOne.value}>{eachOne.show}</option>
         })
         return selectedCountry;
     }
@@ -359,7 +359,7 @@ showTreatment = (e) => {
             <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
                 <h2 className="title d-flex justify-content-center">Add New Soap</h2>
                 
-                <div className=" col-12 col-lg-6">
+                <div className="col-12 col-lg-6">
                 <div>
                     <label>Name</label>
                     <input name="newName" type="text" value={this.state.newName}
@@ -392,7 +392,7 @@ showTreatment = (e) => {
                 </div>
                 <div>
                     <label>Cost</label>
-                    <input name="newCost" type="number" value={this.state.newCost}
+                    <input name="newCost" type="number" value={parseInt(this.state.newCost)}
                         onChange={this.updateFormField}
                         className="form-control" />
                 </div>
@@ -421,7 +421,7 @@ showTreatment = (e) => {
                                 onChange={this.showSkin}
                                 checked={this.state.newSkinType.includes(eachOne.value)}
                         />
-                        <span>{eachOne.display}</span>
+                        <span>{eachOne.show}</span>
                     </React.Fragment>
                 })}
                 </div>
@@ -493,7 +493,7 @@ showTreatment = (e) => {
                                 onChange={this.showTreatment}
                                 checked={this.state.newTreat.includes(eachOne.value)}
                         />
-                        <span>{eachOne.display}</span>
+                        <span>{eachOne.show}</span>
                         </React.Fragment>
                 })}
                 </div>

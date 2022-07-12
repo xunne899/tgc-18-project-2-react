@@ -80,7 +80,7 @@ export default class Listing extends React.Component {
                                         )
                                     } */}
                                     <div className="ms-auto text-end">
-                                        <a className="More  btn btn-secondary my-1" onClick={this.addNew}>More</a>
+                                        <a className="More btn btn-secondary my-1" onClick={this.addNew}>More</a>
                                     </div>
                                 </li>
 
