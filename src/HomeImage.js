@@ -9,9 +9,9 @@ return(
 <div style={{'background': props.bgC}}>
 <section id="ref">
     <div id="cta">
-        <a href="#">
+        <a  href="#">
            { props.msg}
-        </a>
+        </a >
     </div>
 </section>
 </div>

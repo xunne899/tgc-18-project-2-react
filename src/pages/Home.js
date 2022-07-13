@@ -12,7 +12,9 @@ export default function Home(props){
 
         return (
             <React.Fragment>
+            <a onClick={()=>props.goTo('collection')}>
               <HomeImage bgC="#ebd8b8" msg="Browse Our Collection"/>
+              </a>
                     <section id="about">
                         <div className="content row justify-content-center ">
                             <h1>Your way to a better skin. Customise your own skin soap now !</h1>
