@@ -18,7 +18,7 @@ const options = [
 
 export default class AddNew extends React.Component {
 
-    url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us53.gitpod.io/"
+    url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/"
 
 
 

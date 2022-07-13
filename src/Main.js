@@ -44,7 +44,11 @@ export default class Main extends React.Component {
      else if (this.state.current === 'add') {
       return <AddNew goTo={this.changeContent} />
     } 
+
+
   }
+
+
 
 
   render() {
@@ -74,18 +78,25 @@ export default class Main extends React.Component {
                 this.changeContent('add')}}>Add</Nav.Link> */}
 
                 <Nav.Link className={this.connectTab('home')} onClick={() => {
-                this.changeContent('home')}}>Home</Nav.Link>
+                   this.setState({
+                    current: 'home'
+                  })}}>Home</Nav.Link>
                 
              
                 <Nav.Link className={this.connectTab('search')} onClick={() => {
-                this.changeContent('search')}}>Browse</Nav.Link>
+                  this.setState({
+                    current: 'search'
+                    })}}>Browse</Nav.Link>
                   
              
                 <Nav.Link  className={this.connectTab('collection')} onClick={() => {
-                this.changeContent('collection')}}>Collection</Nav.Link>
+                this.setState({
+                  current:'collection'
+                })}}>Collection</Nav.Link>
             
                 <Nav.Link  className={this.connectTab('add')} onClick={() => {
-                this.changeContent('add')}}>Add</Nav.Link>
+                 this.setState({
+                  current:'add'})}}>Add</Nav.Link>
         
               </Nav>
        

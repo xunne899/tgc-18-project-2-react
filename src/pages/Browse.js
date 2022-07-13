@@ -47,7 +47,7 @@ export default class Browse extends React.Component {
   render() {
     return (
       <React.Fragment>
-
+       <div className="m-3 border border-dark border-3 rounded-2 p-3">
         <div>
           <label>Color</label>
           <input type="checkbox" onChange={this.newColor} className="form-check-input" name="color" value="white" />
@@ -153,7 +153,7 @@ export default class Browse extends React.Component {
 
         </div>
 
-
+        </div>
       </React.Fragment>
     )
   }
