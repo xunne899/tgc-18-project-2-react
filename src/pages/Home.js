@@ -17,7 +17,7 @@ export default function Home(props){
                         <div className="content row justify-content-center ">
                             <h1>Your way to a better skin. Customise your own skin soap now !</h1>
                             {/* <div className="m-2"> */}
-                            <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4">
+                            <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3">
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
                                 <Card.Body>
                                     <Card.Title>Add Soap Information</Card.Title>
@@ -27,19 +27,20 @@ export default function Home(props){
                                     <Button variant="dark" style={{color:"#ebd8b8"}}>Learn here</Button>
                                 </Card.Body>
                             </Card>
-                            <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >
+                            <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
                                 <Card.Body>
                                     <Card.Title>Browse</Card.Title>
                                     <Card.Text>
                                        Search for your soap collection? Click on the button Below
                                     </Card.Text>
+                                   {/* <Link to=""> */}
                                     <Button variant="dark"  
-                                   onClick={()=>props.goTo=('search')} 
+                                   onClick={()=>props.goTo('search')} 
                                     style={{color:"#ebd8b8"}}>Browse</Button>
                                 </Card.Body>
                             </Card>
-                            <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >
+                            <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
                                 <Card.Body>
                                     <Card.Title>Collection</Card.Title>
@@ -47,11 +48,11 @@ export default function Home(props){
                                        Click below to go to our collection page
                                     </Card.Text>
                                     <Button variant="dark" 
-                                    onClick={()=>props.goTo=('collection')}
+                                    onClick={()=>props.goTo('collection')}
                                      style={{color:"#ebd8b8"}} >Collection</Button>
                                 </Card.Body>
                             </Card>
-                            <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-4" >
+                            <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
                                 <Card.Body>
                                     <Card.Title>Add</Card.Title>
@@ -59,7 +60,7 @@ export default function Home(props){
                                         Click on the button below to add on to our soap collection
                                     </Card.Text>
                                     <Button variant="dark"
-                                     onClick={()=>props.goTo=('add')}
+                                     onClick={()=>props.goTo('add')}
                                      style={{color:"#ebd8b8"}}>Add here</Button>
                                 </Card.Body>
                             </Card>
