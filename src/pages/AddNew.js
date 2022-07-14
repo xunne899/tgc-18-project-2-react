@@ -365,6 +365,13 @@ export default class AddNew extends React.Component {
     return inputlength < 3 ? "Input should have more than 3 characters" : null;
   };
 
+
+
+//   showTreatError =()=>{
+
+// let result = Array.isArray(this.state.newTreat);
+// return result.includes() === ''? "At least one check box should be ticked" : null;
+//   }
   // clickBarColor = (ev)=>{
   //     this.setState({
   //         "barColor": ev.value
@@ -570,6 +577,13 @@ export default class AddNew extends React.Component {
                     </React.Fragment>
                   );
                 })}
+                    {/* {this.showTreatError() && this.state.submitted ? (
+                  <div style={{ color: "red" }} className="error">
+                    {this.showTreatError()}
+                  </div>
+                ) : (
+                  ""
+                )} */}
               </div>
               <div>
                 <label>Oil Ingredients</label>
