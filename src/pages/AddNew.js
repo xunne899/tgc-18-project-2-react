@@ -276,13 +276,16 @@ export default class AddNew extends React.Component {
   };
 
   updateBaseIngredients = (i) => {
+    let key = i.key
+    let code = i.code
+    let value = i.target.value
     if (
-      (i.key === "Enter" || i.code === "Enter") &&
-      i.target.value.trim() !== ""
+      (key === "Enter" || code === "Enter") &&
+      value.trim() !== ""
     ) {
       console.log(this.state.baseIngredients);
       const testList = [...this.state.baseIngredients];
-      testList.push(i.target.value.trim());
+      testList.push(value.trim());
       console.log(i);
       console.log(testList);
       this.setState({ baseIngredients: testList });
