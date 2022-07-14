@@ -253,13 +253,16 @@ export default class AddNew extends React.Component {
   };
 
   updateOilIngredients = (i) => {
+    let key = i.key
+    let code = i.code
+    let value = i.target.value
     if (
-      (i.key === "Enter" || i.code === "Enter") &&
-      i.target.value.trim() !== ""
+      (key === "Enter" || code === "Enter") &&
+      value.trim() !== ""
     ) {
       console.log(this.state.oilIngredients);
       const testList = [...this.state.oilIngredients];
-      testList.push(i.target.value.trim());
+      testList.push(value.trim());
       console.log(i);
       console.log(testList);
       this.setState({ oilIngredients: testList });
@@ -302,13 +305,16 @@ export default class AddNew extends React.Component {
   };
 
   updateMilkIngredients = (i) => {
+    let key = i.key
+    let code = i.code
+    let value = i.target.value
     if (
-      (i.key === "Enter" || i.code === "Enter") &&
-      i.target.value.trim() !== ""
+      (key === "Enter" || code === "Enter") &&
+      value.trim() !== ""
     ) {
       console.log(this.state.milkIngredients);
       const testList = [...this.state.milkIngredients];
-      testList.push(i.target.value.trim());
+      testList.push(value.trim());
       console.log(i);
       console.log(testList);
       this.setState({ milkIngredients: testList });
