@@ -16,7 +16,8 @@ export default class Browse extends React.Component {
     minprice: 0,
     maxprice: 1000,
     searchColor:"",
-    searchSkin:[]
+    searchSkin:[],
+    searchOil:[]
   };
   countries = [
     {
@@ -60,7 +61,7 @@ export default class Browse extends React.Component {
 
     let query = "";
     // add here
-    const { searchInput, searchCountry, minprice, maxprice,searchSkin,searchColor } = this.state;
+    const { searchInput, searchCountry, minprice, maxprice,searchSkin,searchColor,searchOil } = this.state;
     let inserted = 0;
     if (searchInput != "") {
       query += `search=${searchInput}`;
@@ -98,6 +99,15 @@ export default class Browse extends React.Component {
       query+=`skin_type[]=${searchSkin}`;
       inserted+=1;
     }
+
+    if(searchOil!= ""){
+      if(inserted > 0){
+        query+="&"
+      }
+      query+=`oil_ingredient[]=${searchOil}`;
+      inserted+=1;
+    }
+
 
     const response = await axios.get(this.url + "soap_listings?" + query);
     console.log(response);
@@ -200,6 +210,39 @@ export default class Browse extends React.Component {
       }
 
 
+      updateOil = (e) => {
+        if (this.state.searchOil.includes(e.target.value)) {
+          // case 1: the array already  have the value
+    
+          // 1. clone
+          let clone = this.state.searchOil.slice();
+    
+          // 2. modify the clone
+          let indexToRemove = this.state.searchOil.findIndex(function (o) {
+            return o === e.target.value; // <-- evt.target.value is the value of the checkbox that has been just checked
+          });
+          clone.splice(indexToRemove, 1);
+    
+          // 3 replace
+          this.setState({
+            searchOil: clone
+          });
+        } else {
+          // case 2: the array don't have the value
+          // 1. make a clone of the original array
+          let clone = this.state.searchOil.slice();
+    
+          // 2. change the clone
+          clone.push(e.target.value);
+    
+          // 3. replace the array in the state with the clone
+          this.setState({
+            searchOil: clone
+          });
+        }
+      }
+
+
 
 
 
@@ -289,6 +332,15 @@ export default class Browse extends React.Component {
                 <div>
                   <label>Cost</label>
                   <div>
+                  <label>Min Amount</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="minprice"
+                      value={this.state.minprice}
+                      placeholder="Min"
+                      onChange={this.updateSearchFormField}
+                    />
                     <label>Max Amount</label>
                     <input
                       className="form-control"
@@ -296,15 +348,6 @@ export default class Browse extends React.Component {
                       name="maxprice"
                       value={this.state.maxprice}
                       placeholder="Max"
-                      onChange={this.updateSearchFormField}
-                    />
-                    <label>Min Amount</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="minprice"
-                      value={this.state.minprice}
-                      placeholder="Min"
                       onChange={this.updateSearchFormField}
                     />
                   </div>
@@ -347,26 +390,26 @@ export default class Browse extends React.Component {
                   <label>Oil Ingredients</label>
                   <input
                     type="checkbox"
-                    onChange={this.newOil}
+                    onChange={this.updateOil}
                     className="form-check-input"
-                    name="color"
+                    name="searchOil"
                     value="coconut oil"
                   />
                   <label class="form-check-label">Coconut oil</label>
                   <input
                     type="checkbox"
-                    onChange={this.newOil}
+                    onChange={this.updateOil}
                     className="form-check-input"
-                    name="color"
+                    name="searchOil"
                     value="butter oil"
                   />
                   <label class="form-check-label">Butter oil</label>
                   <input
                     type="checkbox"
-                    onChange={this.newOil}
+                    onChange={this.updateOil}
                     className="form-check-input"
-                    name="color"
-                    value="butter oil"
+                    name="searchOil"
+                    value="grapeseed oil"
                   />
                   <label class="form-check-label">Grapeseed oil</label>
                 </div>
@@ -442,7 +485,7 @@ export default class Browse extends React.Component {
                 className=" mt-3 "
                 style={{ background: "#ebd8b8", height: "95%" }}
               >
-                <h1 className="AddForm">All Collections</h1>
+                {/* <h1 className="AddForm">All Collections</h1> */}
                 <div className="row justify-content-center col-sm col-md col-lg">
                   {/* <ul className="list-group  item"> */}
                   {this.state.collection.map((r) => (

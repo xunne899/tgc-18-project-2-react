@@ -354,6 +354,8 @@ font-size:0.7rem;
       padding: 0;
       margin: 0;
       background-color: #ebd8b8;
+      overflow-x: hidden !important;
+ 
     }
 
 
@@ -509,6 +511,17 @@ font-size:0.7rem;
       display: flex; */
       
   
+  }
+
+  .addbg{
+    height: 600px;
+    /* background-repeat: no-repeat; */
+    background-size: contain;
+    /* background-attachment: fixed; */
+    /* margin: 0; 
+    padding: 0px; */
+    /* overflow-x: hidden !important; */
+    /* margin-right: 200px;  */
   }
 
     .footer{

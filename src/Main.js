@@ -34,15 +34,20 @@ export default class Main extends React.Component {
   showContentpage = () => {
     
     if (this.state.current === 'home') {
-      return <Home goTo={this.changeContent}/>}
+      return <Home goTo={this.changeContent}
+                   color="#ebd8b8"/>
+      }
       else if (this.state.current === 'search') {
-        return <Browse goTo={this.changeContent} />
+        return <Browse goTo={this.changeContent}
+                       color="#ebd8b8" />
       }
       else if (this.state.current === 'collection') {
-        return <Listing goTo={this.changeContent} />
+        return <Listing goTo={this.changeContent} 
+                        color="#ebd8b8"/>
       }
      else if (this.state.current === 'add') {
-      return <AddNew goTo={this.changeContent} />
+      return <AddNew goTo={this.changeContent} 
+                    color="#ebd8b8"/>
     } 
 
 

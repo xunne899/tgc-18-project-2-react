@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-
+import '../components/InfoModal/index.css'
 // import '../style.css'
 
-import InfoModal from "./InfoModal";
+import InfoModal from "../components/InfoModal";
 
 
 export default class Listing extends React.Component {
@@ -14,6 +14,8 @@ export default class Listing extends React.Component {
         deletecollection:null,
         // collectionDeleted: null,
         submitted: false,
+        selectedData: {},
+        isViewVisible: false
     }
 
 
@@ -126,7 +128,15 @@ export default class Listing extends React.Component {
     //   };
 
 
+view = (r)=> {
+    this.setState({selectedData: r})
+}
 
+setIsViewVisible =() => {
+    this.setState({
+        isViewVisible: !this.state.isViewVisible
+    })
+}
 
       processDeleteCollection = async (r) => {
         // let index = this.state.collection.findIndex(e=> e._id === p._id)
@@ -195,7 +205,8 @@ export default class Listing extends React.Component {
                         {
                             this.state.collection.map(r => <React.Fragment key={r._id}>
                                 <li className="list-group-item  item  rounded-3 m-3" style={{ background: "#ebd8b8" }}>
-                                 <span className=" mx-1"> <img style={{height:"250px",width:"350px"}}src={r.image_url}alt="new"/></span>
+                                <div className="infoImage mx-1"> <img style={{height:"250px",width:"350px"}} src={r.image_url}alt="new"/></div>
+                                 {/* <span className=" mx-1"> <img style={{height:"250px",width:"350px"}}src={r.image_url}alt="new"/></span> */}
                                     <div><strong>Soap Name: </strong><span className="badge rounded-pill bg-dark mx-1" style={{color:"#ebd8b8"}}>{r.soap_label}</span></div>
                                     <div><strong>Country Origin: </strong><span className="badge rounded-pill bg-dark mx-1" style={{color:"#ebd8b8"}}>{r.country_origin}</span></div>
                                     <div><strong>Color: </strong><span className="badge rounded-pill bg-dark mx-1" style={{color:"#ebd8b8"}}>{r.color}</span></div>
@@ -257,7 +268,14 @@ export default class Listing extends React.Component {
                                         )
                                     } */}
                                     <div className="ms-auto text-end">
-                                        <InfoModal/>
+                                        {/* <InfoModal data={this.state}/> */}
+                                        <button className=" btn btn-dark my-1" style={{color:"#ebd8b8"}} 
+                                        onClick={()=>
+                                            {
+                                                this.view(r);
+                                                this.setState({isViewVisible: true});
+                                            }}
+                                        >More</button>
                                         <button className=" btn btn-dark my-1" style={{color:"#ebd8b8"}} onClick={()=>{this.processDeleteCollection(r)}}>Delete</button>
                                     </div>
 
@@ -270,6 +288,7 @@ export default class Listing extends React.Component {
                         }
                     {/* </ul> */}
                     </div>
+                    <InfoModal selectedData={this.state.selectedData} isViewVisible={this.state.isViewVisible} setIsViewVisible={this.setIsViewVisible}/>
                 </div>
             </React.Fragment>
 

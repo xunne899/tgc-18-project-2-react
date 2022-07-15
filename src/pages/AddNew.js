@@ -1,13 +1,13 @@
 import axios from "axios";
 import React from "react";
 
-import Select from "react-select";
+// import Select from "react-select";
 
-const skinOptions = [
-  { value: "sensitive", label: "Sensitive" },
-  { value: "dry", label: "Dry" },
-  { value: "oily", label: "Oily" },
-];
+// const skinOptions = [
+//   { value: "sensitive", label: "Sensitive" },
+//   { value: "dry", label: "Dry" },
+//   { value: "oily", label: "Oily" },
+// ];
 
 // import Select from 'react-select';
 
@@ -149,10 +149,9 @@ export default class AddNew extends React.Component {
     });
 
     //let newSkinType = this.state.newSkinType.map(s=>s.value)
-    let newSkinType = this.state.selectedSkin.map((s) => s.value);
+    // let newSkinType = this.state.selectedSkin.map((s) => s.value);
 
-    //console.log(newSkinType);
-    console.log(newSkinType);
+   
     await axios.post(this.url + "soap_listings", {
       name: this.state.newName,
       email: this.state.newEmail,
@@ -162,7 +161,7 @@ export default class AddNew extends React.Component {
       color: this.state.newColor,
       country_origin: this.state.newCountry,
       cost: parseInt(this.state.newCost),
-      skin_type: newSkinType,
+      skin_type: this.state.newSkinType,
       ingredients: {
         oil_ingredient: this.state.oilIngredients,
         base_ingredient: this.state.baseIngredients,
@@ -384,7 +383,11 @@ export default class AddNew extends React.Component {
     // const { selectedSkin } = this.state;
     return (
       <React.Fragment>
+          <div className="row d-flex col-sm col-md col-lg">
+          <img className="addbg"  src={require ('../coconutsoap.jpg')} /> 
+          </div>
         <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
+  
           <div
             className="formNames row border border-dark border-2 m-2 rounded-3 p-3"
             style={{ backgroundColor: "#ebd8b8" }}
@@ -394,6 +397,53 @@ export default class AddNew extends React.Component {
             </h2>
 
             <div className="col-12 col-lg-4">
+            <div>
+                <label>Image URL</label>
+                <div>
+                  {this.state.newImageUrl !== "" ? (
+                    <img
+                      src={this.state.newImageUrl}
+                      key={this.state.newImageUrl}
+                      alt="<No Image>"
+                      style={{ "max-width": "100px" }}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <input
+                  name="newImageUrl"
+                  type="text"
+                  value={this.state.newImageUrl}
+                  onChange={this.updateFormField}
+                  className="form-control"
+                />
+                {this.showImageError() && this.state.submitted ? (
+                  <div style={{ color: "red" }} className="error">
+                    {this.showImageError()}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div>
+                <label>Soap Label</label>
+                <input
+                  name="newSoapLabel"
+                  type="text"
+                  value={this.state.newSoapName}
+                  placeholder="<SOAP NAME>"
+                  onChange={this.updateFormField}
+                  className="form-control"
+                />
+                {this.showLabelError() && this.state.submitted ? (
+                  <div style={{ color: "red" }} className="error">
+                    {this.showLabelError()}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
               <div>
                 <label>Name</label>
                 <input
@@ -428,6 +478,34 @@ export default class AddNew extends React.Component {
                   ""
                 )}
               </div>
+            </div>
+
+            <div className="col-12 col-lg-4">
+            <div>
+                <label>Country Origin</label>
+                <select
+                  className="form-select form-control"
+                  name="newCountry"
+                  value={this.state.newCountry}
+                  onChange={this.updateFormField}
+                >
+                  <option key="placeholder" name="selectone">
+                    ---Select One---
+                  </option>
+                  {this.showCountries()}
+                </select>
+              </div>
+              
+              <div>
+                <label>Cost</label>
+                <input
+                  name="newCost"
+                  type="number"
+                  value={parseInt(this.state.newCost)}
+                  onChange={this.updateFormField}
+                  className="form-control"
+                />
+              </div>
               <div>
                 <label>Contact No</label>
                 <input
@@ -446,69 +524,6 @@ export default class AddNew extends React.Component {
                 )}
               </div>
               <div>
-                <label>Soap Label</label>
-                <input
-                  name="newSoapLabel"
-                  type="text"
-                  value={this.state.newSoapName}
-                  placeholder="<SOAP NAME>"
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showLabelError() && this.state.submitted ? (
-                  <div style={{ color: "red" }} className="error">
-                    {this.showLabelError()}
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-4">
-              <div>
-                <label>Image URL</label>
-                <div>
-                  {this.state.newImageUrl != "" ? (
-                    <img
-                      src={this.state.newImageUrl}
-                      key={this.state.newImageUrl}
-                      alt="<No Image>"
-                      style={{ "max-width": "100px" }}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <input
-                  name="newImageUrl"
-                  type="text"
-                  value={this.state.newImageUrl}
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showImageError() && this.state.submitted ? (
-                  <div style={{ color: "red" }} className="error">
-                    {this.showImageError()}
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div>
-                <label>Cost</label>
-                <input
-                  name="newCost"
-                  type="number"
-                  value={parseInt(this.state.newCost)}
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-              </div>
-
-
-
-              <div>
                 <label>Recommended Use</label>
                 <input
                   name="newRecommended"
@@ -518,20 +533,8 @@ export default class AddNew extends React.Component {
                   className="form-control"
                 />
               </div>
-              <div>
-                <label>Country Origin</label>
-                <select
-                  className="form-select form-control"
-                  name="newCountry"
-                  value={this.state.newCountry}
-                  onChange={this.updateFormField}
-                >
-                  <option key="placeholder" name="selectone">
-                    ---Select One---
-                  </option>
-                  {this.showCountries()}
-                </select>
-              </div>
+           
+            
               {/* <div >
                             <label>Date Posted</label>
                             <input name="newDate" type="text" value={this.state.newDate}
@@ -547,7 +550,7 @@ export default class AddNew extends React.Component {
                 {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
                 {this.showColors()}
               </div>
-              {/* <div>
+              <div>
                             <label>Skin Type</label>
                             {this.skinType.map(eachOne => {
                                 return <React.Fragment key={eachOne.value}>
@@ -560,7 +563,7 @@ export default class AddNew extends React.Component {
                                     <span>{eachOne.show}</span>
                                 </React.Fragment>
                             })}
-                        </div> */}
+                        </div>
               <div>
                 <label>Treat</label>
                 {this.treat.map((eachOne) => {
@@ -674,7 +677,7 @@ export default class AddNew extends React.Component {
                   onChange={this.updateFormField}
                 />
               </div>
-              <div>
+               {/* <div>
                 <label>Skin Type</label>
                 <Select
                   isMulti={true}
@@ -682,8 +685,8 @@ export default class AddNew extends React.Component {
                   onChange={this.handleChange}
                   options={skinOptions}
                 />
-              </div>
-            </div>
+              </div> */}
+            </div> 
 
             <br />
             <br />

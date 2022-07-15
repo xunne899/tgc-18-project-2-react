@@ -26,7 +26,7 @@ export default function Home(props){
                                     <Card.Text>
                                        Learn more about adding to our soap collection.
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:"#ebd8b8"}}>Learn here</Button>
+                                    <Button variant="dark" style={{color:props.color}}>Learn here</Button>
                                 </Card.Body>
                             </Card>
                             <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
@@ -39,7 +39,7 @@ export default function Home(props){
                                    {/* <Link to=""> */}
                                     <Button variant="dark"  
                                    onClick={()=>props.goTo('search')} 
-                                    style={{color:"#ebd8b8"}}>Browse</Button>
+                                    style={{color:props.color}}>Browse</Button>
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
@@ -51,7 +51,7 @@ export default function Home(props){
                                     </Card.Text>
                                     <Button variant="dark" 
                                     onClick={()=>props.goTo('collection')}
-                                     style={{color:"#ebd8b8"}} >Collection</Button>
+                                     style={{color:props.color}} >Collection</Button>
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
@@ -63,7 +63,7 @@ export default function Home(props){
                                     </Card.Text>
                                     <Button variant="dark"
                                      onClick={()=>props.goTo('add')}
-                                     style={{color:"#ebd8b8"}}>Add here</Button>
+                                     style={{color:props.color}}>Add here</Button>
                                 </Card.Body>
                             </Card>
                        </div>
