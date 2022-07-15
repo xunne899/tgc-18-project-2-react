@@ -11,8 +11,8 @@ export default class Listing extends React.Component {
 
     state = {
         collection: [],
-        deletecollection:[],
-        collectionDeleted: null,
+        deletecollection:null,
+        // collectionDeleted: null,
         submitted: false,
     }
 
@@ -26,12 +26,12 @@ export default class Listing extends React.Component {
         })
 
     }
-    // async componentDidMount() {
-    //     let deleteresponse = await axios.delete(this.url + 'soap_listings/:id')
-    //     this.setState({
-    //         deletecollection:deleteresponse.data,
-    //     })
-    // }
+   
+        // let deleteresponse = await axios.delete(this.url + 'soap_listings/:id')
+        // this.setState({
+        //     deletecollection:deleteresponse.data,
+        // })
+    
 
 
 
@@ -128,29 +128,35 @@ export default class Listing extends React.Component {
 
 
 
-    //   processDeleteCollection = async (p) => {
-    //     let index = this.state.collection.findIndex(e=> e._id === p._id)
-    //     console.log(index)
-    //     const cloned =[
-    //         ...this.state.collection.slice(0,index),
-    //         ...this.state.collection.slice(index+1)
-    //     ]
+      processDeleteCollection = async (r) => {
+        // let index = this.state.collection.findIndex(e=> e._id === p._id)
+        // console.log(index)
+        // const cloned =[
+        //     ...this.state.collection.slice(0,index),
+        //     ...this.state.collection.slice(index+1)
+        // ]
 
-    //     this.setState({
-    //         collection:cloned,
-    //         submitted:true
-    //     })
+        // this.setState({
+        //     collection:cloned,
+        //     submitted:true
+        // })
     
-    //     //let newSkinType = this.state.newSkinType.map(s=>s.value)
-    //     // let deleted_id = this.state.collection.map((s) => s.value);
+        //let newSkinType = this.state.newSkinType.map(s=>s.value)
+        // let deleted_id = this.state.collection.map((s) => s.value);
     
-    //     //console.log(newSkinType);
-    //     // console.log(newSkinType);
-    //     await axios.delete(this.url + "soap_listings/:id", {
-    //         '_id': this.state.collection
-    //     });
-    //     this.props.goTo("collection");
-    //   };
+        //console.log(newSkinType);
+        // console.log(newSkinType);
+        this.setState({
+            deletecollection: r
+        })
+
+        await axios.delete(this.url + `soap_listings/${this.state.deletecollection._id}`)
+        let response = await axios.get(this.url + 'soap_listings')
+        this.setState({
+            collection: response.data,
+        })
+        this.props.goTo("collection");
+      };
 
 
 
@@ -252,7 +258,7 @@ export default class Listing extends React.Component {
                                     } */}
                                     <div className="ms-auto text-end">
                                         <InfoModal/>
-                                        <button className=" btn btn-dark my-1" style={{color:"#ebd8b8"}} onClick={this.processDeleteCollection}>Delete</button>
+                                        <button className=" btn btn-dark my-1" style={{color:"#ebd8b8"}} onClick={()=>{this.processDeleteCollection(r)}}>Delete</button>
                                     </div>
 
 
