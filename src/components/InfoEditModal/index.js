@@ -1,32 +1,20 @@
+import React, { useState } from "react";
+
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal, Button, Form } from "react-bootstrap";
 import axios from "axios";
-import React from "react";
 
-// import Select from "react-select";
-
-// const skinOptions = [
-//   { value: "sensitive", label: "Sensitive" },
-//   { value: "dry", label: "Dry" },
-//   { value: "oily", label: "Oily" },
-// ];
-
-// import Select from 'react-select';
-
-// import { Form, Container, Row, Button, Card, Col } from 'react-bootstrap';
-
-export default class AddNew extends React.Component {
-  url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
-
+export default class EditInfoModal extends React.Component {
   state = {
     newName: "",
     newEmail: "",
     newContactNo: "",
     newSoapLabel: "",
     newImageUrl: "",
-    // newDescription:"",
     newColor: "",
     newCountry: "",
     newCost: 0,
-    // barColor: '#FFAAAA',
     newSkinType: [],
     oilInput: "",
     oilIngredients: [],
@@ -40,6 +28,64 @@ export default class AddNew extends React.Component {
     submitted: false,
     selectedSkin: null,
     errorMsg: {},
+  };
+
+  componentDidMount() {
+    console.log("Edit Modal showing");
+
+    this.getSingleData();
+    // const { selectedData } = this.props;
+    // console.log(selectedData);
+    // this.setState({
+    //   newName: selectedData.name,
+    //   newEmail: selectedData.email,
+    //   newContactNo: selectedData.contact_no,
+    //   newSoapLabel: selectedData.soap_label,
+    //   newImageUrl: selectedData.image_url,
+    //   newColor: selectedData.color,
+    //   newCountry: selectedData.country_origin,
+    //   newCost: selectedData.cost,
+    //   newSkinType: selectedData.skin_type,
+    //   oilIngredients: selectedData.ingredients.oil_ingredient,
+    //   baseIngredients: selectedData.ingredients.base_ingredient,
+    //   milkIngredients: selectedData.ingredients.milk_ingredient,
+    //   newTreat: selectedData.suitability.treat,
+    //   newRecommended: selectedData.suitability.recommended_use,
+    // });
+
+    console.log(this.state);
+  }
+
+  getSingleData = async () => {
+    const url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    const { selectedID } = this.props;
+    try {
+      let res = await axios.get(url + "soap_listings/" + selectedID);
+
+      console.log(res);
+      if (res.status == 200) {
+        //res.data;
+        this.setState({
+          newName: res.data.name,
+          newEmail: res.data.email,
+          newContactNo: res.data.contact_no,
+          newSoapLabel: res.data.soap_label,
+          newImageUrl: res.data.image_url,
+          newColor: res.data.color,
+          newCountry: res.data.country_origin,
+          newCost: res.data.cost,
+          newSkinType: res.data.skin_type,
+          oilIngredients: res.data.ingredients.oil_ingredient,
+          baseIngredients: res.data.ingredients.base_ingredient,
+          milkIngredients: res.data.ingredients.milk_ingredient,
+          newTreat: res.data.suitability.treat,
+          newRecommended: res.data.suitability.recommended_use,
+        });
+      }
+    } catch (e) {
+      // error hnadling
+      console.log(e);
+    }
   };
 
   handleChange = (selectedSkin) => {
@@ -149,57 +195,7 @@ export default class AddNew extends React.Component {
     this.setState({
       submitted: true,
     });
-
-    this.setState({
-      errorMsg: {},
-    });
-
-    //let newSkinType = this.state.newSkinType.map(s=>s.value)
-    // let newSkinType = this.state.selectedSkin.map((s) => s.value);
-    // if (this.showNameError()===null && this.showEmailError()===null) {
-    //   this.setState({
-    //     submitted: true,
-    //   });
-
-    // }
-    try {
-      let res = await axios.post(this.url + "soap_listings", {
-        name: this.state.newName,
-        email: this.state.newEmail,
-        contact_no: this.state.newContactNo,
-        soap_label: this.state.newSoapLabel,
-        image_url: this.state.newImageUrl,
-        // description:this.state.newDescription,
-        color: this.state.newColor,
-        country_origin: this.state.newCountry,
-        cost: parseInt(this.state.newCost),
-        skin_type: this.state.newSkinType,
-        ingredients: {
-          oil_ingredient: this.state.oilIngredients,
-          base_ingredient: this.state.baseIngredients,
-          milk_ingredient: this.state.milkIngredients,
-        },
-        suitability: {
-          treat: this.state.newTreat,
-          recommended_use: this.state.newRecommended,
-          date_posted: new Date().getTime(),
-        },
-      });
-      console.log("Response=>", res);
-
-      this.props.goTo("collection");
-    } catch (err) {
-      console.log(err);
-      if (err.response && err.response.status == 406) {
-        this.setState({
-          errorMsg: err.response.data.Errors,
-        });
-      } else {
-        alert("We are facing issue with our services, try again later.");
-      }
-    }
   };
-
   // rendering all selected colors == radiobutton
   showColors = () => {
     let radioColor = [];
@@ -336,17 +332,26 @@ export default class AddNew extends React.Component {
     }
   };
 
+
+  showError = (fieldName) => {
+    return (
+      this.state.errorMsg[fieldName] &&
+      this.state.submitted &&
+      this.state.errorMsg[fieldName].map((msg, index) => (
+        <div style={{ color: "red" }} key={index} className="error">
+          {msg}
+        </div>
+      ))
+    );
+  };
+
+
   // showNameError = () => {
-  //   console.log(this.state.errorMsg);
-  //   return this.state.errorMsg["name"];
-    // if (this.state.newName.length < 3 && this.state.newName === "") {
-    //   return "Name should have and input and should have more than 3 characters";
-    // } else {
-    //   return null;
-    // }
-    // if("name" in this.state.errorMsg){
-    //   return "Name should have and input and should have more than 3 characters";
-    // }
+  //   if (this.state.newName.length < 3 && this.state.newName === "") {
+  //     return "Name should have and input and should have more than 3 characters";
+  //   } else {
+  //     return null;
+  //   }
   // };
 
   // showEmailError = () => {
@@ -366,44 +371,75 @@ export default class AddNew extends React.Component {
   //   let inputlength = this.state.newImageUrl.length;
   //   return inputlength < 3 ? "Input should have more than 3 characters" : null;
   // };
+  handlePutSoapData = async () => {
 
-  showError = (fieldName) => {
-    return (
-      this.state.errorMsg[fieldName] &&
-      this.state.submitted &&
-      this.state.errorMsg[fieldName].map((msg, index) => (
-        <div style={{ color: "red" }} key={index} className="error">
-          {msg}
-        </div>
-      ))
-    );
-  };
+    this.setState({
+      submitted: true,
+    });
 
-  //   showTreatError =()=>{
+    this.setState({
+      errorMsg: {},
+    });
+    const {selectedID} = this.props;
+    const url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    try {
+    let res = await axios.put(url + "soap_listings/" + selectedID,{
+    // {
+  
+   
+      name: this.state.newName,
+      email: this.state.newEmail,
+      contact_no: this.state.newContactNo,
+      soap_label: this.state.newSoapLabel,
+      image_url: this.state.newImageUrl,
+      // description:this.state.newDescription,
+      color: this.state.newColor,
+      country_origin: this.state.newCountry,
+      cost: parseInt(this.state.newCost),
+      skin_type: this.state.newSkinType,
+      ingredients: {
+        oil_ingredient: this.state.oilIngredients,
+        base_ingredient: this.state.baseIngredients,
+        milk_ingredient: this.state.milkIngredients,
+      },
+      suitability: {
+        treat: this.state.newTreat,
+        recommended_use: this.state.newRecommended,
+        date_posted: new Date().getTime(),
+      },
+    });
+    console.log("Response=>", res);
+    if (res.status == 200) {
+      this.props.setIsViewVisible(false);
+    }
 
-  // let result = Array.isArray(this.state.newTreat);
-  // return result.includes() === ''? "At least one check box should be ticked" : null;
-  //   }
-  // clickBarColor = (ev)=>{
-  //     this.setState({
-  //         "barColor": ev.value
-  //     })
-  // }
-
+  } catch (err) {
+    console.log(err);
+    if (err.response && err.response.status == 406) {
+      this.setState({
+        errorMsg: err.response.data.Errors,
+      });
+    } else {
+      alert("We are facing issue with our services, try again later.");
+    }
+  }
+};
   render() {
-    // console.log(this.state);
-
-    // const { selectedSkin } = this.state;
+    const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (
-      <React.Fragment>
-        <div className="row d-flex col-sm col-md col-lg">
-          <img className="addbg" src={require("../coconutsoap.jpg")} />
-        </div>
-        <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
-          <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
-            <h2 className="title d-flex justify-content-center">Add New Soap</h2>
+      <div classname="d-flex justify-content-center">
+        <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
+          <div classname="d-flex justify-content-center">
+            {/* <div style={{ width:"800px", alignContent:"center"}}> */}
+            <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
+              <Modal.Title>View</Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{ background: "#ebd8b8" }}>
+              <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
+                <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
+                  <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
-            <div className="col-12 col-lg-4">
+                  <div className="col-12 col-lg-4">
               <div>
                 <label>Image URL</label>
                 <div>
@@ -632,16 +668,20 @@ export default class AddNew extends React.Component {
               </div> */}
             </div>
 
-            <br />
-            <br />
-            <div className="text-center ms-auto">
-              <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.addNew}>
-                Add
-              </a>
-            </div>
+                  <br />
+                  <br />
+                  <div className="text-center ms-auto">
+                    <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.handlePutSoapData}>
+                      Update
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Modal.Body>
+            <Modal.Footer style={{ background: "#ebd8b8" }}></Modal.Footer>
           </div>
-        </div>
-      </React.Fragment>
+        </Modal>
+      </div>
     );
   }
 }

@@ -1,114 +1,181 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 
-import  './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Modal, Button,Form } from "react-bootstrap";
-import axios from 'axios'
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal, Button, Form, Spinner } from "react-bootstrap";
+import axios from "axios";
 
-export default function InfoModal(props) {
- let url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/"
-  const {selectedData, isViewVisible,setIsViewVisible } = props
-  
-  const [name,setName] = useState('');
-  const handleNameChange = (e)=>{
-     setName(e.target.value);
-  }
+export default class Listing extends React.Component {
+  // export default function InfoModal(props) {
 
-  const [comment,setComment] = useState('');
-  const handleCommentChange = (e)=>{
-    setComment(e.target.value);
-  }
+  // {selectedData, isViewVisible,setIsViewVisible } = this.props
+  // const [name,setName] = useState('');
+  handleNameChange = (e) => {
+    //setName(e.target.value);
+    this.setState({ name: e.target.value });
+  };
 
+  // const [comment,setComment] = useState('');
+  handleCommentChange = (e) => {
+    // setComment(e.target.value);
+    this.setState({ comment: e.target.value });
+  };
 
-  const handlePostComment = async () => {
+  state = {
+    name: "",
+    comment: "",
+    comments: this.props.selectedData.comments,
+    isLoading: false,
+  };
 
-
-    await axios.post(url + `soap_listings/${selectedData._id}`, {
-      comments:{
-        //  "_id" : new ObjectId(),
-        //  "datePosted" : new Date(),
-        "username": selectedData.name,
-      "comment": selectedData.comment
+  handlePostComment = async () => {
+    const url =
+      "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    const { selectedData } = this.props;
+    this.setState({ isLoading: true });
+    const bodyData = {
+      username: this.state.name,
+      comment: this.state.comment,
+    };
+    let result = await axios.post(
+      url + `soap_listings/comments/${selectedData._id}`,
+      bodyData
+    );
+    console.log(result);
+    if (result.status == 201) {
+      const iniComments = [...this.state.comments];
+      bodyData["datePosted"] = new Date();
+      iniComments.push(bodyData);
+      this.setState({ comments: iniComments });
     }
-    })
+    this.setState({ isLoading: false });
 
-     props.goTo("collection");
-    // console.log("Username ", name);
-    // console.log("Comment ", comment);
-    
-  }
+    //this.props.setIsViewVisible(false);
+  };
 
-
-
-  console.log('props data=>', props)
-  const getPostedTime = (datePosted) =>{
-    let timeDiff = (new Date()) - (new Date(datePosted));
+  //console.log('props data=>', props)
+  getPostedTime = (datePosted) => {
+    let timeDiff = new Date() - new Date(datePosted);
     let output = "";
-    let days = timeDiff/86400000;
-    if(days < 1){
-      let hours = timeDiff/3600000;
-      if(hours < 1){
-        let minute = timeDiff/60000;
-        if(minute < 1){
+    let days = timeDiff / 86400000;
+    if (days < 1) {
+      let hours = timeDiff / 3600000;
+      if (hours < 1) {
+        let minute = timeDiff / 60000;
+        if (minute < 1) {
           output = "Just Posted";
-        }
-        else{
+        } else {
           output = minute.toFixed(0) + " minute(s)";
         }
-      }
-      else{
+      } else {
         output = hours.toFixed(0) + " hour(s)";
       }
-      
-    }
-    else{
+    } else {
       output = days.toFixed(0) + " day(s)";
     }
     return output;
-  }
+  };
 
-  const getCommentData = (comments) =>{
-    if(comments == undefined){
+  getCommentData = (comments) => {
+    if (comments == undefined) {
       return;
     }
 
-    return comments.map(commentInfo => 
+    return comments.map((commentInfo) => (
       <React.Fragment key={commentInfo._id}>
-        <div className="infoLabel">Name:<span>{commentInfo.username}</span></div>
-        <div className="infoLabel">Description:<span>{commentInfo.comment}</span></div>
-        <div className="infoLabel">Date:<span>{getPostedTime(commentInfo.datePosted)}</span></div>
-      </React.Fragment>)
-  }
-
-  if(selectedData == undefined && selectedData.cost){
-    return;
-  }
-  return (
-    <Modal show={isViewVisible} onHide={setIsViewVisible}>
-           <Modal.Header  style={{background:"#ebd8b8"}} closeButton>
+        <div className="infoLabel">
+          Name:<span>{commentInfo.username}</span>
+        </div>
+        <div className="infoLabel">
+          Description:<span>{commentInfo.comment}</span>
+        </div>
+        <div className="infoLabel">
+          Date:<span>{this.getPostedTime(commentInfo.datePosted)}</span>
+        </div>
+      </React.Fragment>
+    ));
+  };
+  render() {
+    const { selectedData, isViewVisible, setIsViewVisible } = this.props;
+    return (
+      <Modal show={isViewVisible} onHide={setIsViewVisible}>
+        <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
           <Modal.Title>View</Modal.Title>
-       </Modal.Header>
-        <Modal.Body style={{background:"#ebd8b8"}}>
-        <div className="infoTitle">{selectedData.soap_label}</div>
+        </Modal.Header>
+        <Modal.Body style={{ background: "#ebd8b8" }}>
+          <div className="infoTitle">{selectedData.soap_label}</div>
           <div className="infoPrice">${selectedData.cost}</div>
           <div className="infoWrapper">
-          <div className="infoImage" ><img src={selectedData.image_url} /></div>
-          
-          <div className="infoLabel">Name:<span>{}</span></div>
-          <div className="infoLabel">Comments:</div>
-          {
-            getCommentData(selectedData.comments)
-          }
+            <div className="infoImage">
+              <img src={selectedData.image_url} />
+            </div>
+            <div>Name :{selectedData.name}</div>
+            <div>Email :{selectedData.email}</div>
+            <div>Contact Number :{selectedData.contact_no}</div>
+            <div>Color :{selectedData.color}</div>
+            <div>Country Origin :{selectedData.country_origin}</div>
+            <div>Skin Type :{selectedData.skin_type}</div>
+            <div>
+              Oil Ingredient :
+              {selectedData.ingredients.oil_ingredient.map((item) => (
+                <span className="badge rounded-pill bg-dark">{item}</span>
+              ))}
+            </div>
+            <div>
+              Base Ingredient :
+              {selectedData.ingredients.base_ingredient.map((item) => (
+                <span className="badge rounded-pill bg-dark">{item}</span>
+              ))}
+            </div>
+            <div>
+              Milk Ingredient :
+              {selectedData.ingredients.milk_ingredient.map((item) => (
+                <span className="badge rounded-pill bg-dark">{item}</span>
+              ))}
+            </div>
+            <div>
+              Treat:
+              {selectedData.suitability.treat.map((item) => (
+                <span className="badge rounded-pill bg-dark">{item}</span>
+              ))}
+            </div>
+            <div>
+              Recommended Usage:{selectedData.suitability.recommended_use}
+            </div>
+            <div>Date Posted:{selectedData.suitability.date_posted}</div>
+
+            {/* 
+           <div>Name :<span className="badge rounded-pill bg-dark mx-1">{selectedData.name}</span></div>
+          <div>Email :<span className="badge rounded-pill bg-dark mx-1">{selectedData.email}</span></div>
+          <div>Contact Number :<span className="badge rounded-pill bg-dark mx-1">{selectedData.contact_no}</span></div>
+          <div>Color :<span className="badge rounded-pill bg-dark mx-1">{selectedData.color}</span></div>
+          <div>Country Origin :<span className="badge rounded-pill bg-dark mx-1">{selectedData.country_origin}</span></div>
+          <div>Skin Type :<span className="badge rounded-pill bg-dark mx-1">{selectedData.skin_type}</span></div>
+          <div>Oil Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.oil_ingredient}</span></div>
+          <div>Base Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.base_ingredient}</span></div>
+          <div>Milk Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.milk_ingredient}</span></div>
+          <div>Treat:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.treat}</span></div>
+          <div>Recommended Usage:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.recommended_use}</span></div>
+          <div>Date Posted:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.date_posted}</span></div>   */}
+
+            <div className="infoLabel">
+              UserName:<span>{}</span>
+            </div>
+            <div className="infoLabel">Comments:</div>
+            {
+              // this.getCommentData(selectedData.comments)
+              this.getCommentData(this.state.comments)
+            }
           </div>
-          
-        <Form>
+
+          <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label >Username</Form.Label>
-             <Form.Control
+              <Form.Label>Username</Form.Label>
+              <Form.Control
                 type="user"
                 placeholder="user"
-                onChange={handleNameChange}
-                value={name}
+                onChange={this.handleNameChange}
+                value={this.state.name}
                 autoFocus
               />
             </Form.Group>
@@ -117,17 +184,37 @@ export default function InfoModal(props) {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Comments</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={handleCommentChange}
-                value={comment}/>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={this.handleCommentChange}
+                value={this.state.comment}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer style={{background:"#ebd8b8"}}>
-          <Button variant="primary" onClick={handlePostComment}>
+        <Modal.Footer style={{ background: "#ebd8b8" }}>
+          {/* <Button variant="primary" onClick={this.handlePostComment}>
+          Post Comment
+         </Button> */}
+          <Button
+            variant="primary"
+            disabled={this.state.isLoading}
+            onClick={this.handlePostComment}
+          >
+            {this.state.isLoading && (
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            )}
             Post Comment
-         </Button>
+          </Button>
         </Modal.Footer>
-    </Modal>
-  )
-  
+      </Modal>
+    );
+  }
 }

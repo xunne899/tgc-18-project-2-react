@@ -26,11 +26,12 @@ export default function Home(props){
                                     <Card.Text>
                                        Learn more about adding to our soap collection.
                                     </Card.Text>
-                                    <Button variant="dark" style={{color:props.color}}>Learn here</Button>
+                                    <Button variant="dark" 
+                                    style={{color:props.color}}>Learn here</Button>
                                 </Card.Body>
                             </Card>
                             <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
-                                <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
+                                <Card.Img className="cardSize m-2"  variant="top" src={'./mag_glass.png'} />
                                 <Card.Body>
                                     <Card.Title>Browse</Card.Title>
                                     <Card.Text>
@@ -43,7 +44,7 @@ export default function Home(props){
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
-                                <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
+                                <Card.Img className="cardSize m-2"  variant="top" src={'./soapcollect.png'} />
                                 <Card.Body>
                                     <Card.Title>Collection</Card.Title>
                                     <Card.Text>
@@ -55,7 +56,7 @@ export default function Home(props){
                                 </Card.Body>
                             </Card>
                             <Card  className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
-                                <Card.Img className="cardSize m-2"  variant="top" src={'./info.png'} />
+                                <Card.Img className="cardSize m-2"  variant="top" src={'./addition.png'} />
                                 <Card.Body>
                                     <Card.Title>Add</Card.Title>
                                     <Card.Text>
