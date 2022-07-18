@@ -10,7 +10,7 @@ import EditInfoModal from "../components/InfoEditModal";
 import DeleteInfoModal from "../components/DeleteInfoModal";
 
 export default class Browse extends React.Component {
-  url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+  url = "https://project-2-soap.herokuapp.com/";
 
   state = {
     submitted: false,
@@ -384,6 +384,7 @@ export default class Browse extends React.Component {
                 <label>Search</label>
                 <div>
                   <input
+                   value={this.state.searchInput}
                     type="text"
                     onChange={this.updateSearchFormField}
                     className="form-control"

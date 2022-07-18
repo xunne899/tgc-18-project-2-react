@@ -12,7 +12,7 @@ export default class DeleteInfoModal extends React.Component {
 
   processDeleteCollection = async (r) => {
     const url =
-      "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+      "https://project-2-soap.herokuapp.com/";
 
     let res = await axios.delete(url + `soap_listings/${r._id}`); // delete
     // await axios.delete(this.url + `soap_listings/${this.state.collection._id}`)

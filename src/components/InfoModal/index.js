@@ -29,23 +29,26 @@ export default class Listing extends React.Component {
   };
 
   handlePostComment = async () => {
-    const url =
-      "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    const url = "https://project-2-soap.herokuapp.com/";
     const { selectedData } = this.props;
     this.setState({ isLoading: true });
     const bodyData = {
       username: this.state.name,
       comment: this.state.comment,
     };
-    let result = await axios.post(
-      url + `soap_listings/comments/${selectedData._id}`,
-      bodyData
-    );
+    let result = await axios.post(url + `soap_listings/comments/${selectedData._id}`, bodyData);
     console.log(result);
+    console.log("COMMENTS", this.state.comments);
     if (result.status == 201) {
-      const iniComments = [...this.state.comments];
+      const iniComments =[];
       bodyData["datePosted"] = new Date();
-      iniComments.push(bodyData);
+      if (this.state.comments == undefined) {
+        iniComments.push(bodyData);
+      } else {
+        iniComments = [...this.state.comments];
+        iniComments.push(bodyData);
+      }
+
       this.setState({ comments: iniComments });
     }
     this.setState({ isLoading: false });
@@ -97,6 +100,7 @@ export default class Listing extends React.Component {
   };
   render() {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
+    console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
       <Modal show={isViewVisible} onHide={setIsViewVisible}>
         <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
@@ -139,9 +143,7 @@ export default class Listing extends React.Component {
                 <span className="badge rounded-pill bg-dark">{item}</span>
               ))}
             </div>
-            <div>
-              Recommended Usage:{selectedData.suitability.recommended_use}
-            </div>
+            <div>Recommended Usage:{selectedData.suitability.recommended_use}</div>
             <div>Date Posted:{selectedData.suitability.date_posted}</div>
 
             {/* 
@@ -171,25 +173,11 @@ export default class Listing extends React.Component {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="user"
-                placeholder="user"
-                onChange={this.handleNameChange}
-                value={this.state.name}
-                autoFocus
-              />
+              <Form.Control type="user" placeholder="user" onChange={this.handleNameChange} value={this.state.name} autoFocus />
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
               <Form.Label>Comments</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                onChange={this.handleCommentChange}
-                value={this.state.comment}
-              />
+              <Form.Control as="textarea" rows={3} onChange={this.handleCommentChange} value={this.state.comment} />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -197,20 +185,8 @@ export default class Listing extends React.Component {
           {/* <Button variant="primary" onClick={this.handlePostComment}>
           Post Comment
          </Button> */}
-          <Button
-            variant="primary"
-            disabled={this.state.isLoading}
-            onClick={this.handlePostComment}
-          >
-            {this.state.isLoading && (
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />
-            )}
+          <Button variant="primary" disabled={this.state.isLoading} onClick={this.handlePostComment}>
+            {this.state.isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
             Post Comment
           </Button>
         </Modal.Footer>

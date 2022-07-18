@@ -57,7 +57,7 @@ export default class EditInfoModal extends React.Component {
   }
 
   getSingleData = async () => {
-    const url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    const url = "https://project-2-soap.herokuapp.com/";
     const { selectedID } = this.props;
     try {
       let res = await axios.get(url + "soap_listings/" + selectedID);
@@ -381,7 +381,7 @@ export default class EditInfoModal extends React.Component {
       errorMsg: {},
     });
     const {selectedID} = this.props;
-    const url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+    const url = "https://project-2-soap.herokuapp.com/";
     try {
     let res = await axios.put(url + "soap_listings/" + selectedID,{
     // {

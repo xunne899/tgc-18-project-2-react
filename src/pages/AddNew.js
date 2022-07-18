@@ -14,7 +14,7 @@ import React from "react";
 // import { Form, Container, Row, Button, Card, Col } from 'react-bootstrap';
 
 export default class AddNew extends React.Component {
-  url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+  url = "https://project-2-soap.herokuapp.com/";
 
   state = {
     newName: "",

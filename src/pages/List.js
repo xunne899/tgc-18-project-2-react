@@ -8,7 +8,7 @@ import EditInfoModal from "../components/InfoEditModal";
 import DeleteInfoModal from "../components/DeleteInfoModal";
 
 export default class Listing extends React.Component {
-  url = "https://3000-xunne899-tgc18project2e-czew5zhzmwi.ws-us54.gitpod.io/";
+  url = "https://project-2-soap.herokuapp.com/";
 
   state = {
     collection: [],
