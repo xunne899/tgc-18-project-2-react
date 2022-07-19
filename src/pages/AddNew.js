@@ -199,7 +199,7 @@ export default class AddNew extends React.Component {
     for (let eachOne of this.colors) {
       let selectedRb = (
         <React.Fragment key={eachOne.value}>
-          <input type="radio" name="newColor" value={eachOne.value} onChange={this.updateFormField} checked={this.state.newColor === eachOne.value} />
+          &nbsp;&nbsp;<input type="radio" name="newColor" value={eachOne.value} onChange={this.updateFormField} checked={this.state.newColor === eachOne.value} />
           <span>{eachOne.show}</span>
         </React.Fragment>
       );
@@ -213,8 +213,9 @@ export default class AddNew extends React.Component {
   showCountries = () => {
     let selectedCountry = this.countries.map((eachOne) => {
       return (
+       
         <option key={eachOne.value} value={eachOne.value}>
-          {eachOne.show}
+         {eachOne.show}
         </option>
       );
     });
@@ -391,22 +392,24 @@ export default class AddNew extends React.Component {
       <React.Fragment>
         <div className="row d-flex col-sm col-md col-lg">
           <img className="addbg" src={require("../coconutsoap.jpg")} />
+          <h2 className="title d-flex justify-content-center" style={{fontFamily:"League Spartan",marginTop:"30px"}}>Add New Soap</h2>
         </div>
         <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
-          <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
-            <h2 className="title d-flex justify-content-center">Add New Soap</h2>
+          <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "white",fontFamily:"League Spartan",fontSize:"1.2rem" }}>
+         
 
-            <div className="col-12 col-lg-4">
+            {/* <div className="col-12 col-lg-4"> */}
               <div>
                 <label>Image URL</label>
                 <div>
                   {this.state.newImageUrl !== "" && (
-                    <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "100px" }} />
+                    <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "200px" }} />
                   )}
                 </div>
                 <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
                 {this.showError("image_url")}
               </div>
+             
               <div>
                 <label>Soap Label</label>
                 <input
@@ -419,6 +422,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("soap_label")}
               </div>
+           
               <div>
                 <label>Name</label>
                 <input name="newName" type="text" value={this.state.newName} placeholder="Name" onChange={this.updateFormField} className="form-control" />
@@ -429,9 +433,9 @@ export default class AddNew extends React.Component {
                 <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
               </div>
-            </div>
+            {/* </div> */}
 
-            <div className="col-12 col-lg-4">
+            {/* <div className="col-12 col-lg-4"> */}
               <div>
                 <label>Country Origin</label>
                 <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
@@ -487,9 +491,9 @@ export default class AddNew extends React.Component {
                                 onChange={this.updateFormField}
                                 className="form-control" />
                         </div> */}
-            </div>
+            {/* </div> */}
 
-            <div className="col-12 col-lg-4">
+            {/* <div className="col-12 col-lg-4"> */}
               <div>
                 <label>Color</label>
                 {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
@@ -501,7 +505,7 @@ export default class AddNew extends React.Component {
                 {this.skinType.map((eachOne) => {
                   return (
                     <React.Fragment key={eachOne.value}>
-                      <input
+                      &nbsp;&nbsp;<input
                         type="checkbox"
                         name="newSkinType"
                         value={eachOne.value}
@@ -519,7 +523,7 @@ export default class AddNew extends React.Component {
                 {this.treat.map((eachOne) => {
                   return (
                     <React.Fragment key={eachOne.value}>
-                      <input
+                      &nbsp;&nbsp;<input
                         type="checkbox"
                         name="newTreat"
                         value={eachOne.value}
@@ -564,7 +568,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("oil_ingredient")}
               </div>
-
+              <br/>
               <div>
                 <label>Base Ingredients</label>
                 <div class="chipsWrapper" id="chipParent">
@@ -614,6 +618,12 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("milk_ingredient")}
               </div>
+              <br/>     
+              <div className="text-center ms-auto">
+              <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.addNew}>
+                Add
+              </a>
+            </div>
               {/* <div>
                 <label>Skin Type</label>
                 <Select
@@ -625,15 +635,10 @@ export default class AddNew extends React.Component {
               </div> */}
             </div>
 
-            <br />
-            <br />
-            <div className="text-center ms-auto">
-              <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.addNew}>
-                Add
-              </a>
-            </div>
+        
+       
           </div>
-        </div>
+        {/* </div> */}
       </React.Fragment>
     );
   }

@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #ebd8b8;
+    /* background-color: #ebd8b8; */
   }
 
   #page-container {
@@ -27,9 +27,9 @@ body {
   #main .nav-tab{
     text-decoration: none;
     display:inline-block;
-    color: #ebd8b8;
+    color: white;
     padding: 8px;
-    font-family:Jost, sans-serif;
+    font-family:'League Spartan';
     font-size: 1.2rem;
   }
 
@@ -39,11 +39,14 @@ body {
   /* font-size:14px;
   font-weight:300 */
 }
+.nav-bar {
+  margin-left: 18px
+}
 
 #nav-button{
   margin-right: 20px;
-  color: #f5ecdc;
-  background-color :#ebd8b8;
+  color: white;
+  background-color :white;
       
 }
 
@@ -82,9 +85,9 @@ body {
 
 #cta a{
   text-decoration: none;
-  color: #ebd8b8;
+  color: white;
   font-size: 20px;
-  font-family: Jost, sans-serif;
+  font-family:'League Spartan';
 }
 
 #about {
@@ -100,7 +103,8 @@ body {
 }
 
 .formNames{
-  font-family:Jost, sans-serif;
+  font-family:'League Spartan';
+
 
 }
 
@@ -114,7 +118,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color:#ebd8b8
+  color:white
 }
 
 .cardSize{
@@ -131,8 +135,8 @@ body {
 }
 
 #about .content h1 {
-  color: #ebd8b8    ;
-  font-family: Jost, sans-serif;
+  color: white   ;
+  font-family:'League Spartan';
   /* padding-left: 1em; */
   margin-left:10px;
   font-size:1.2rem;
@@ -146,10 +150,18 @@ body {
   font-size: 14px;
   background-color:#212529;
  justify-content: center;
+ font-family:'League Spartan';
 
   
 
 }
+
+.listlogo{
+    
+  height: 80px;
+  width : 180px
+}
+
 
 .footer{
   
@@ -169,7 +181,7 @@ body {
 body {
 padding: 0;
 margin: 0;
-background-color: #ebd8b8;
+/* background-color: #ebd8b8; */
 }
 
 #page-container {
@@ -195,9 +207,10 @@ margin:  0;
 #main .nav-tab{
 text-decoration: none;
 display:inline-block;
-color: #ebd8b8;
+color: white;
 padding: 8px;
-font-family:Jost, sans-serif;
+/* font-family:Jost, sans-serif; */
+font-family:'League Spartan';
 font-size: 1.2rem;
 }
 
@@ -207,11 +220,14 @@ text-align: center;
 /* font-size:14px;
 font-weight:300 */
 }
+.nav-bar {
+  margin-left: 18px
+}
 
 #nav-button{
 margin-right: 20px;
-color: #f5ecdc;
-background-color :#ebd8b8;
+color: white;
+background-color :white;
   
 }
 
@@ -243,9 +259,9 @@ padding-top:20px;
 
 #cta a{
 text-decoration: none;
-color: #ebd8b8;
+color: white;
 font-size: 20px;
-font-family: Jost, sans-serif;
+font-family:'League Spartan';
 }
 
 #about {
@@ -261,7 +277,8 @@ padding: 0px;
 }
 
 .formNames{
-font-family:Jost, sans-serif;
+  font-family:'League Spartan';
+
 
 }
 
@@ -275,7 +292,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 text-align: center;
-color:#ebd8b8
+color:white
 }
 
 .cardSize{
@@ -292,7 +309,7 @@ padding: 0px;
 }
 
 #about .content h1 {
-color: #ebd8b8    ;
+color: white   ;
 font-family: Jost, sans-serif;
 /* padding-left: 1em; */
 margin-left:10px;
@@ -307,10 +324,18 @@ padding: 5px 30px;
 font-size: 14px;
 background-color:#212529;
 justify-content: center;
+font-family:'League Spartan';
 
 
 
 }
+
+.listlogo{
+    
+  height: 80px;
+  width : 180px
+}
+
 
 .footer{
 
@@ -359,7 +384,7 @@ font-size:0.7rem;
   body {
       padding: 0;
       margin: 0;
-      background-color: #ebd8b8;
+      /* background-color: #ebd8b8; */
       overflow-x: hidden !important;
  
     }
@@ -383,7 +408,7 @@ font-size:0.7rem;
       
     }
     .nav-bar {
-      margin-left: 10px
+      margin-left: 18px
     }
 
     .nav-tab{
@@ -399,14 +424,14 @@ font-size:0.7rem;
     #main .nav-tab{
       text-decoration: none;
       display:inline-block;
-      color: #ebd8b8;
+      color: white;
       padding: 8px;
-      font-family:Jost, sans-serif;
+      font-family:'League Spartan';
       font-size: 1.1rem;
     }
     
     #main .nav-tab:hover {
-       color:#f5ecdc;
+       color:grey;
     }
     
     #ref {
@@ -446,14 +471,14 @@ font-size:0.7rem;
     
     #cta a{
       text-decoration: none;
-      color: #ebd8b8;
+      color: white;
       font-size: 32px;
-      font-family: Jost, sans-serif;
+      font-family:'League Spartan';
     }
     
     
     .formNames{
-      font-family:Jost, sans-serif;
+      font-family:'League Spartan';
 
 
     }
@@ -473,7 +498,7 @@ font-size:0.7rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      color:#ebd8b8
+      color:white
       
     }
 
@@ -501,8 +526,8 @@ font-size:0.7rem;
     }
     
     #about .content h1 {
-      color: #ebd8b8    ;
-      font-family: Jost, sans-serif;
+      color: white   ;
+      font-family:'League Spartan';
       padding: 12px;
       font-size:2rem;
       text-align: center;
@@ -515,14 +540,23 @@ font-size:0.7rem;
       background-color:#212529;
       /* align-content: center;
       display: flex; */
+      font-family:'League Spartan';
       
   
   }
 
+  .listlogo{
+    
+    height: 80px;
+    width : 180px
+  }
+
   .addbg{
-    height: 600px;
+    height: 480px;
     /* background-repeat: no-repeat; */
-    background-size: contain;
+    background-image: fit-content;
+    /* background-size: contain; */
+    /* background-size: fit-content; */
     /* background-attachment: fixed; */
     /* margin: 0; 
     padding: 0px; */

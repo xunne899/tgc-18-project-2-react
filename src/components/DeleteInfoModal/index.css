@@ -1,17 +1,20 @@
 
 .infoWrapper{
     width:100%;
+    font-family: "League Spartan";
 }
 
 
 .infoLabel{
     font-weight: bold;
+    font-family: "League Spartan";
 
 }
 
 .infoLabel >span{
     font-weight: normal;
     margin-left:10px;
+    font-family: "League Spartan";
 }
 
 .infoTitle{
@@ -19,12 +22,14 @@
     font-weight: bold;
     font-size: 2em;
     text-align: center;
+    font-family: "League Spartan";
 }
 
 .infoPrice{
     color: #72ac4b;
     text-align: center;
     font-size: 1.em;
+    font-family: "League Spartan";
 }
 
 

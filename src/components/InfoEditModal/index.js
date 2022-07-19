@@ -216,9 +216,11 @@ export default class EditInfoModal extends React.Component {
   showCountries = () => {
     let selectedCountry = this.countries.map((eachOne) => {
       return (
-        <option key={eachOne.value} value={eachOne.value}>
+        <React.Fragment>
+        &nbsp;&nbsp;<option key={eachOne.value} value={eachOne.value}>
           {eachOne.show}
         </option>
+        </React.Fragment>
       );
     });
     return selectedCountry;
@@ -426,20 +428,20 @@ export default class EditInfoModal extends React.Component {
         <Modal size="xl" show={isViewVisible} onHide={setIsViewVisible}>
           <div classname="d-flex justify-content-center">
             {/* <div style={{ width:"800px", alignContent:"center"}}> */}
-            <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
-              <Modal.Title>View</Modal.Title>
+            <Modal.Header style={{ background: "white" }} closeButton>
+              <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
             </Modal.Header>
-            <Modal.Body style={{ background: "#ebd8b8" }}>
+            <Modal.Body style={{ background: "white" }}>
               <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
-                <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "#ebd8b8" }}>
+                <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "white" }}>
                   <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
-                  <div className="col-12 col-lg-4">
+                  {/* <div className="col-12 col-lg-4"> */}
                     <div>
                       <label>Image URL</label>
                       <div>
                         {this.state.newImageUrl !== "" && (
-                          <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "100px" }} />
+                          <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "200px" }} />
                         )}
                       </div>
                       <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
@@ -481,9 +483,9 @@ export default class EditInfoModal extends React.Component {
                       />
                       {this.showError("email")}
                     </div>
-                  </div>
+                  {/* </div> */}
 
-                  <div className="col-12 col-lg-4">
+                  {/* <div className="col-12 col-lg-4"> */}
                     <div>
                       <label>Country Origin</label>
                       <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
@@ -539,12 +541,13 @@ export default class EditInfoModal extends React.Component {
                                 onChange={this.updateFormField}
                                 className="form-control" />
                         </div> */}
-                  </div>
-
-                  <div className="col-12 col-lg-4">
+                  {/* </div> */}
+{/* 
+                  <div className="col-12 col-lg-4"> */}
                     <div>
                       <label>Color</label>
                       {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
+     
                       {this.showColors()}
                       {this.showError("color")}
                     </div>
@@ -553,7 +556,7 @@ export default class EditInfoModal extends React.Component {
                       {this.skinType.map((eachOne) => {
                         return (
                           <React.Fragment key={eachOne.value}>
-                            <input
+                            &nbsp;&nbsp;<input
                               type="checkbox"
                               name="newSkinType"
                               value={eachOne.value}
@@ -571,7 +574,7 @@ export default class EditInfoModal extends React.Component {
                       {this.treat.map((eachOne) => {
                         return (
                           <React.Fragment key={eachOne.value}>
-                            <input
+                            &nbsp;&nbsp;<input
                               type="checkbox"
                               name="newTreat"
                               value={eachOne.value}
@@ -656,7 +659,7 @@ export default class EditInfoModal extends React.Component {
                           </>
                         ))}
                       </div>
-                      <input
+                       <input
                         type="text"
                         name="milkInput"
                         placeholder="eg. goat milk <Enter to add>"
@@ -675,19 +678,19 @@ export default class EditInfoModal extends React.Component {
                   options={skinOptions}
                 />
               </div> */}
-                  </div>
+                  {/* </div> */}
 
                   <br />
                   <br />
                   <div className="text-center ms-auto">
-                    <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.handlePutSoapData}>
+                    <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.handlePutSoapData}>
                       Update
                     </a>
                   </div>
                 </div>
               </div>
             </Modal.Body>
-            <Modal.Footer style={{ background: "#ebd8b8" }}></Modal.Footer>
+            <Modal.Footer style={{ background: "white" }}></Modal.Footer>
           </div>
         </Modal>
       </div>

@@ -405,7 +405,7 @@ export default class Browse extends React.Component {
         <Container style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
           <Row>
             <Col xs="12" lg="3">
-              <div className="m-2  p-3" style={{fontFamily:"League Spartan"}}>
+              <div className="m-2  p-3">
                 <label>Search</label>
                 <div>
                   <input
@@ -687,28 +687,28 @@ export default class Browse extends React.Component {
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
                       <li className="list-group-item  item  rounded-3 m-3" style={{ background: "white" }}>
-                         {/* <strong>Soap Name: </strong> */}
-                         <h2 className="row mx-auto mx-1" style={{ color: "black",fontFamily:"League Spartan" }}>
-                            {r.soap_label}
-                          </h2>
                         <div className="infoImage mx-1">
                           {" "}
                           <img style={{ height: "250px", width: "350px" }} src={r.image_url} alt="new" />
                         </div>
                         <div>
-                         
-                      
-{/*                         
-                          <strong>Country Origin: </strong> */}
-                          <span className="badge rounded-pill bg-primary mx-1" style={{ color: "white" }}>
+                          <strong>Soap Name: </strong>
+                          <span className="badge rounded-pill bg-dark mx-1" style={{ color: "white" }}>
+                            {r.soap_label}
+                          </span>
+                        </div>
+                        <div>
+                          <strong>Country Origin: </strong>
+                          <span className="badge rounded-pill bg-dark mx-1" style={{ color: "white" }}>
                             {r.country_origin}
                           </span>
-                     
-                          {/* <strong>Color: </strong> */}
-                          <span className="badge rounded-pill bg-success mx-1" style={{ color: "white" }}>
+                        </div>
+                        <div>
+                          <strong>Color: </strong>
+                          <span className="badge rounded-pill bg-dark mx-1" style={{ color: "white" }}>
                             {r.color}
                           </span>
-                       
+                        </div>
 
                         {/* <div>Skin_Type:
                                     {
@@ -718,18 +718,19 @@ export default class Browse extends React.Component {
                                     }
                                     </div> */}
 
-                        
-                          {/* <strong>Skin_Type:</strong> */}
+                        <div>
+                          <strong>Skin_Type:</strong>
                           {Object.keys(r.skin_type).map((i) => (
-                            <span className="badge rounded-pill bg-info" style={{ color: "white" }} key={`${i}`}>
+                            <span className="badge rounded-pill bg-dark" style={{ color: "white" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
                           ))}
-{/*                      
-                          <strong>Treat:</strong> */}
+                        </div>
+                        <div>
+                          <strong>Treat:</strong>
                           {Object.keys(r.suitability.treat).map((i) => (
-                            <span className="badge rounded-pill bg-warning" style={{ color: "white" }} key={`${i}`}>
+                            <span className="badge rounded-pill bg-dark" style={{ color: "white" }} key={`${i}`}>
                               {" "}
                               {r.suitability.treat[i]}
                             </span>
@@ -739,13 +740,13 @@ export default class Browse extends React.Component {
                           <>
                             {console.log("data=>", iType)}
                             <div>
-                              {/* <strong>
+                              <strong>
                                 Ingredients: 
-                                {iType}</strong> */}
+                                {iType}</strong>
                             </div>
 
                             {r.ingredients[iType].map((info, i) => (
-                              <span key={`${iType}_${i}`} className="badge rounded-pill bg-danger" style={{ color: "white" }}>
+                              <span key={`${iType}_${i}`} className="badge rounded-pill bg-dark" style={{ color: "white" }}>
                                 {info}
                               </span>
                             ))}
@@ -771,11 +772,11 @@ export default class Browse extends React.Component {
                                             </>)
                                         )
                                     } */}
-                        <div className="ms-auto text-end" style={{ fontFamily:"League Spartan" }}>
+                        <div className="ms-auto text-end">
                           {/* <InfoModal data={this.state}/> */}
                           <button
-                            className=" btn btn-dark my-1 ms-2 "
-                            style={{  height:"36px",color: "white" }}
+                            className=" btn btn-dark my-1 ms-2"
+                            style={{ color: "white" }}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isEditVisible: true });
@@ -785,7 +786,7 @@ export default class Browse extends React.Component {
                           </button>
                           <button
                             className=" btn btn-dark my-1 ms-2"
-                            style={{ height:"36px", color: "white" }}
+                            style={{ color: "white" }}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isViewVisible: true });
@@ -796,7 +797,7 @@ export default class Browse extends React.Component {
 
                           <button
                             className=" btn btn-dark my-1 ms-2"
-                            style={{ height:"36px",color: "white" }}
+                            style={{ color: "white" }}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isDeleteVisible: true });

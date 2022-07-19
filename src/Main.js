@@ -35,19 +35,23 @@ export default class Main extends React.Component {
     
     if (this.state.current === 'home') {
       return <Home goTo={this.changeContent}
-                   color="#ebd8b8"/>
+                   color="white"
+                   fontFamily ="League Spartan"/>
       }
       else if (this.state.current === 'search') {
         return <Browse goTo={this.changeContent}
-                       color="#ebd8b8" />
+                       color="white" 
+                       fontFamily ="League Spartan"/>
       }
       else if (this.state.current === 'collection') {
         return <Listing goTo={this.changeContent} 
-                        color="#ebd8b8"/>
+                        color="white"
+                        fontFamily ="League Spartan"/>
       }
      else if (this.state.current === 'add') {
       return <AddNew goTo={this.changeContent} 
-                    color="#ebd8b8"/>
+                    color="white"
+                    fontFamily ="League Spartan"/>
     } 
 
 
@@ -63,7 +67,7 @@ export default class Main extends React.Component {
         <div id="page-container">
         <div id="content-wrap">
           <Navbar collapseOnSelect expand="lg" id="main">
-            <Navbar.Brand href="#" className="nav-bar" ><Logo LogoFile={require('./logo_bl.png')} /></Navbar.Brand>
+            <Navbar.Brand href="#" className="nav-bar" ><Logo LogoFile={require('./logo.png')} /></Navbar.Brand>
             <Navbar.Toggle id="nav-button" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">

@@ -99,10 +99,10 @@ export default class Listing extends React.Component {
     console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
       <Modal show={isViewVisible} onHide={setIsViewVisible}>
-        <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
-          <Modal.Title>View</Modal.Title>
+        <Modal.Header style={{ background: "white" }} closeButton>
+          <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ background: "#ebd8b8" }}>
+        <Modal.Body style={{ background: "white" }}>
           <div className="infoTitle">{selectedData.soap_label}</div>
           <div className="infoPrice">${selectedData.cost}</div>
           <div className="infoWrapper">
@@ -168,20 +168,20 @@ export default class Listing extends React.Component {
 
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Username</Form.Label>
+              <Form.Label style={{ fontFamily:"League Spartan" }}>Username</Form.Label>
               <Form.Control type="user" placeholder="user" onChange={this.handleNameChange} value={this.state.name} autoFocus />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Comments</Form.Label>
+              <Form.Label style={{ fontFamily:"League Spartan" }}>Comments</Form.Label>
               <Form.Control as="textarea" rows={3} onChange={this.handleCommentChange} value={this.state.comment} />
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer style={{ background: "#ebd8b8" }}>
+        <Modal.Footer style={{ background: "white" }}>
           {/* <Button variant="primary" onClick={this.handlePostComment}>
           Post Comment
          </Button> */}
-          <Button variant="primary" disabled={this.state.isLoading} onClick={this.handlePostComment}>
+          <Button variant="primary" disabled={this.state.isLoading} onClick={this.handlePostComment} style={{ fontFamily:"League Spartan" }}>
             {this.state.isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
             Post Comment
           </Button>

@@ -28,10 +28,10 @@ export default class DeleteInfoModal extends React.Component {
     return (
       <React.Fragment>
         <Modal show={isViewVisible} onHide={setIsViewVisible}>
-          <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
-            <Modal.Title>View</Modal.Title>
+          <Modal.Header style={{ background: "white" }} closeButton>
+            <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{ background: "#ebd8b8" }}>
+          <Modal.Body style={{ background: "white" }}>
             <div className="infoTitle">{selectedData.soap_label}</div>
             <div className="infoPrice">${selectedData.cost}</div>
             <div className="infoWrapper">
@@ -73,6 +73,7 @@ export default class DeleteInfoModal extends React.Component {
             <Button
               variant="danger"
               onClick={() => this.processDeleteCollection(selectedData)}
+              style={{ fontFamily:"League Spartan" }}
             >
               Delete
             </Button>
