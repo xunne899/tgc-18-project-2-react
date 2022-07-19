@@ -154,14 +154,7 @@ export default class AddNew extends React.Component {
       errorMsg: {},
     });
 
-    //let newSkinType = this.state.newSkinType.map(s=>s.value)
-    // let newSkinType = this.state.selectedSkin.map((s) => s.value);
-    // if (this.showNameError()===null && this.showEmailError()===null) {
-    //   this.setState({
-    //     submitted: true,
-    //   });
 
-    // }
     try {
       let res = await axios.post(this.url + "soap_listings", {
         name: this.state.newName,
