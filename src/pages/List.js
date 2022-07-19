@@ -277,7 +277,7 @@ export default class Listing extends React.Component {
                   <div className="ms-auto text-end">
                     {/* <InfoModal data={this.state}/> */}
                     <button
-                      className=" btn btn-dark my-1"
+                      className=" btn btn-dark my-1 ms-2"
                       style={{ color: "#ebd8b8" }}
                       onClick={() => {
                         this.view(r);
@@ -287,7 +287,7 @@ export default class Listing extends React.Component {
                       Edit
                     </button>
                     <button
-                      className=" btn btn-dark my-1"
+                      className=" btn btn-dark my-1 ms-2"
                       style={{ color: "#ebd8b8" }}
                       onClick={() => {
                         this.view(r);
@@ -298,7 +298,7 @@ export default class Listing extends React.Component {
                     </button>
 
                     <button
-                      className=" btn btn-dark my-1"
+                      className=" btn btn-dark my-1 ms-2"
                       style={{ color: "#ebd8b8" }}
                       onClick={() => {
                         this.view(r);

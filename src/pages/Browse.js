@@ -130,7 +130,7 @@ export default class Browse extends React.Component {
         query += "&";
       }
 
-      query +="skin_type[]="+ searchSkin.join("&skin_type[]=");
+      query += "skin_type[]=" + searchSkin.join("&skin_type[]=");
       inserted += 1;
     }
 
@@ -163,6 +163,10 @@ export default class Browse extends React.Component {
     if (response.data && response.data.length > 0) {
       this.setState({
         collection: response.data,
+      });
+    } else {
+      this.setState({
+        collection: [],
       });
     }
     //this.props.goTo("browse");
@@ -340,15 +344,18 @@ export default class Browse extends React.Component {
       isEditVisible: !this.state.isEditVisible,
     });
 
-    this.getData();
+    //this.getData();
+    if (this.state.submitted == true) {
+      this.searchBarSoap();
+    } else {
+      this.getData();
+    }
   };
 
   setIsViewVisible = () => {
     this.setState({
       isViewVisible: !this.state.isViewVisible,
     });
-
-    this.getData();
   };
 
   setIsDeleteViewVisible = () => {
@@ -356,10 +363,12 @@ export default class Browse extends React.Component {
       isDeleteVisible: !this.state.isDeleteVisible,
     });
 
-    this.getData();
+    if (this.state.submitted == true) {
+      this.searchBarSoap();
+    } else {
+      this.getData();
+    }
   };
-
-
 
   showSearchError = () => {
     let search = this.state.searchInput.length;
@@ -380,18 +389,18 @@ export default class Browse extends React.Component {
         <Container style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
           <Row>
             <Col xs="12" lg="3">
-              <div className="m-3  p-3">
+              <div className="m-2  p-3">
                 <label>Search</label>
                 <div>
                   <input
-                   value={this.state.searchInput}
+                    value={this.state.searchInput}
                     type="text"
                     onChange={this.updateSearchFormField}
                     className="form-control"
                     name="searchInput"
                     // style={{ width: "240px",height:"30px" }}
                   />
-                         {this.showSearchError() && this.state.submitted ? (
+                  {this.showSearchError() && this.state.submitted ? (
                     <div style={{ color: "red" }} className="error">
                       {this.showSearchError()}
                     </div>
@@ -425,7 +434,7 @@ export default class Browse extends React.Component {
                     name="searchColor"
                     // name="country" value={this.state.country} onChange={this.updateFormField}
                   >
-                    <option key="placeholder" name="selectone">
+                    <option key="placeholder" name="selectone" value="">
                       ---Select One---
                     </option>
                     {this.showColor()}
@@ -493,13 +502,13 @@ export default class Browse extends React.Component {
                       placeholder="Min"
                       onChange={this.updateSearchFormField}
                     />
-                               {this.showMinPriceError() && this.state.submitted ? (
-                    <div style={{ color: "red" }} className="error">
-                      {this.showMinPriceError()}
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                    {this.showMinPriceError() && this.state.submitted ? (
+                      <div style={{ color: "red" }} className="error">
+                        {this.showMinPriceError()}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                     <label>Max Amount</label>
                     <input
                       className="form-control"
@@ -509,17 +518,19 @@ export default class Browse extends React.Component {
                       placeholder="Max"
                       onChange={this.updateSearchFormField}
                     />
-                               {this.showMaxPriceError() && this.state.submitted ? (
-                    <div style={{ color: "red" }} className="error">
-                      {this.showMaxPriceError()}
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                    {this.showMaxPriceError() && this.state.submitted ? (
+                      <div style={{ color: "red" }} className="error">
+                        {this.showMaxPriceError()}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div>
-                  <label>Skin Type</label>
+                
+                  <label>Skin Type</label><br/>
+
                   <input
                     type="checkbox"
                     onChange={this.updateSkin}
@@ -528,7 +539,7 @@ export default class Browse extends React.Component {
                     value={"sensitive"}
                     checked={this.state.searchSkin.includes("sensitive")}
                   />
-                  <label class="form-check-label">Sensitive</label>
+                  <label class="form-check-label">Sensitive</label><br/>
 
                   <input
                     type="checkbox"
@@ -538,7 +549,7 @@ export default class Browse extends React.Component {
                     value={"oily"}
                     checked={this.state.searchSkin.includes("oily")}
                   />
-                  <label class="form-check-label">Oily</label>
+                  <label class="form-check-label">Oily</label><br/>
 
                   <input
                     type="checkbox"
@@ -548,11 +559,12 @@ export default class Browse extends React.Component {
                     value={"dry"}
                     checked={this.state.searchSkin.includes("dry")}
                   />
-                  <label class="form-check-label">Dry</label>
+                  <label class="form-check-label">Dry</label><br/>
+                  
                 </div>
-
+                 
                 <div>
-                  <label>Oil Ingredients</label>
+                  <label>Oil Ingredients</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateOil}
@@ -561,7 +573,7 @@ export default class Browse extends React.Component {
                     value={"coconut oil"}
                     checked={this.state.searchOil.includes("coconut oil")}
                   />
-                  <label class="form-check-label">Coconut oil</label>
+                  <label class="form-check-label">Coconut oil</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateOil}
@@ -570,7 +582,7 @@ export default class Browse extends React.Component {
                     value={"butter oil"}
                     checked={this.state.searchOil.includes("butter oil")}
                   />
-                  <label class="form-check-label">Butter oil</label>
+                  <label class="form-check-label">Butter oil</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateOil}
@@ -579,10 +591,10 @@ export default class Browse extends React.Component {
                     value={"grapeseed oil"}
                     checked={this.state.searchOil.includes("grapeseed oil")}
                   />
-                  <label class="form-check-label">Grapeseed oil</label>
+                  <label class="form-check-label">Grapeseed oil</label><br/>
                 </div>
                 <div>
-                  <label>Base Ingredients</label>
+                  <label>Base Ingredients</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateBase}
@@ -591,7 +603,7 @@ export default class Browse extends React.Component {
                     value={"mugwort powder"}
                     checked={this.state.searchBase.includes("mugwort powder")}
                   />
-                  <label class="form-check-label">Mugwort Powder</label>
+                  <label class="form-check-label">Mugwort Powder</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateBase}
@@ -600,7 +612,7 @@ export default class Browse extends React.Component {
                     value={"tomato powder"}
                     checked={this.state.searchBase.includes("tomato powder")}
                   />
-                  <label class="form-check-label">Tomato Powder</label>
+                  <label class="form-check-label">Tomato Powder</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateBase}
@@ -609,10 +621,10 @@ export default class Browse extends React.Component {
                     value={"tumeric powder"}
                     checked={this.state.searchBase.includes("tumeric powder")}
                   />
-                  <label class="form-check-label">Tumeric Powder</label>
+                  <label class="form-check-label">Tumeric Powder</label><br/>
                 </div>
                 <div>
-                  <label>Milk Ingredients</label>
+                  <label>Milk Ingredients</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateMilk}
@@ -621,7 +633,7 @@ export default class Browse extends React.Component {
                     value={"butter milk"}
                     checked={this.state.searchMilk.includes("butter milk")}
                   />
-                  <label class="form-check-label">Butter Milk</label>
+                  <label class="form-check-label">Butter Milk</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateMilk}
@@ -630,7 +642,7 @@ export default class Browse extends React.Component {
                     value={"oatmeal milk"}
                     checked={this.state.searchMilk.includes("oatmeal milk")}
                   />
-                  <label class="form-check-label">Oatmeal Milk</label>
+                  <label class="form-check-label">Oatmeal Milk</label><br/>
                   <input
                     type="checkbox"
                     onChange={this.updateMilk}
@@ -639,7 +651,7 @@ export default class Browse extends React.Component {
                     value={"goat milk"}
                     checked={this.state.searchMilk.includes("goat milk")}
                   />
-                  <label class="form-check-label">Goat Milk</label>
+                  <label class="form-check-label">Goat Milk</label><br/>
                 </div>
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "#ebd8b8" }} onClick={this.searchBarSoap}>
@@ -651,17 +663,18 @@ export default class Browse extends React.Component {
             <Col xs="12" lg="9">
               {/* search results */}
 
-              <div className=" mt-3 " style={{ background: "#ebd8b8", height: "95%" }}>
+              <div className="mt-3 " style={{ background: "#ebd8b8", height: "95%" }}>
                 {/* <h1 className="AddForm">All Collections</h1> */}
                 <div className="row justify-content-center col-sm col-md col-lg">
+                  {this.state.collection.length == 0 && <div className="noSearchLabel">No Results Found!</div>}
                   {/* <ul className="list-group  item"> */}
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
                       <li className="list-group-item  item  rounded-3 m-3" style={{ background: "#ebd8b8" }}>
-                        <span className=" mx-1">
+                        <div className="infoImage mx-1">
                           {" "}
                           <img style={{ height: "250px", width: "350px" }} src={r.image_url} alt="new" />
-                        </span>
+                        </div>
                         <div>
                           <strong>Soap Name: </strong>
                           <span className="badge rounded-pill bg-dark mx-1" style={{ color: "#ebd8b8" }}>
@@ -737,7 +750,7 @@ export default class Browse extends React.Component {
                         <div className="ms-auto text-end">
                           {/* <InfoModal data={this.state}/> */}
                           <button
-                            className=" btn btn-dark my-1"
+                            className=" btn btn-dark my-1 ms-2"
                             style={{ color: "#ebd8b8" }}
                             onClick={() => {
                               this.view(r);
@@ -747,7 +760,7 @@ export default class Browse extends React.Component {
                             Edit
                           </button>
                           <button
-                            className=" btn btn-dark my-1"
+                            className=" btn btn-dark my-1 ms-2"
                             style={{ color: "#ebd8b8" }}
                             onClick={() => {
                               this.view(r);
@@ -758,7 +771,7 @@ export default class Browse extends React.Component {
                           </button>
 
                           <button
-                            className=" btn btn-dark my-1"
+                            className=" btn btn-dark my-1 ms-2"
                             style={{ color: "#ebd8b8" }}
                             onClick={() => {
                               this.view(r);

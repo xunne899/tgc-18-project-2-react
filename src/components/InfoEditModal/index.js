@@ -332,7 +332,6 @@ export default class EditInfoModal extends React.Component {
     }
   };
 
-
   showError = (fieldName) => {
     return (
       this.state.errorMsg[fieldName] &&
@@ -344,7 +343,6 @@ export default class EditInfoModal extends React.Component {
       ))
     );
   };
-
 
   // showNameError = () => {
   //   if (this.state.newName.length < 3 && this.state.newName === "") {
@@ -372,7 +370,6 @@ export default class EditInfoModal extends React.Component {
   //   return inputlength < 3 ? "Input should have more than 3 characters" : null;
   // };
   handlePutSoapData = async () => {
-
     this.setState({
       submitted: true,
     });
@@ -380,55 +377,53 @@ export default class EditInfoModal extends React.Component {
     this.setState({
       errorMsg: {},
     });
-    const {selectedID} = this.props;
+    const { selectedID } = this.props;
     const url = "https://project-2-soap.herokuapp.com/";
     try {
-    let res = await axios.put(url + "soap_listings/" + selectedID,{
-    // {
-  
-   
-      name: this.state.newName,
-      email: this.state.newEmail,
-      contact_no: this.state.newContactNo,
-      soap_label: this.state.newSoapLabel,
-      image_url: this.state.newImageUrl,
-      // description:this.state.newDescription,
-      color: this.state.newColor,
-      country_origin: this.state.newCountry,
-      cost: parseInt(this.state.newCost),
-      skin_type: this.state.newSkinType,
-      ingredients: {
-        oil_ingredient: this.state.oilIngredients,
-        base_ingredient: this.state.baseIngredients,
-        milk_ingredient: this.state.milkIngredients,
-      },
-      suitability: {
-        treat: this.state.newTreat,
-        recommended_use: this.state.newRecommended,
-        date_posted: new Date().getTime(),
-      },
-    });
-    console.log("Response=>", res);
-    if (res.status == 200) {
-      this.props.setIsViewVisible(false);
-    }
+      let res = await axios.put(url + "soap_listings/" + selectedID, {
+        // {
 
-  } catch (err) {
-    console.log(err);
-    if (err.response && err.response.status == 406) {
-      this.setState({
-        errorMsg: err.response.data.Errors,
+        name: this.state.newName,
+        email: this.state.newEmail,
+        contact_no: this.state.newContactNo,
+        soap_label: this.state.newSoapLabel,
+        image_url: this.state.newImageUrl,
+        // description:this.state.newDescription,
+        color: this.state.newColor,
+        country_origin: this.state.newCountry,
+        cost: parseInt(this.state.newCost),
+        skin_type: this.state.newSkinType,
+        ingredients: {
+          oil_ingredient: this.state.oilIngredients,
+          base_ingredient: this.state.baseIngredients,
+          milk_ingredient: this.state.milkIngredients,
+        },
+        suitability: {
+          treat: this.state.newTreat,
+          recommended_use: this.state.newRecommended,
+          date_posted: new Date().getTime(),
+        },
       });
-    } else {
-      alert("We are facing issue with our services, try again later.");
+      console.log("Response=>", res);
+      if (res.status == 200) {
+        this.props.setIsViewVisible(false);
+      }
+    } catch (err) {
+      console.log(err);
+      if (err.response && err.response.status == 406) {
+        this.setState({
+          errorMsg: err.response.data.Errors,
+        });
+      } else {
+        alert("We are facing issue with our services, try again later.");
+      }
     }
-  }
-};
+  };
   render() {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (
       <div classname="d-flex justify-content-center">
-        <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
+        <Modal size="xl" show={isViewVisible} onHide={setIsViewVisible}>
           <div classname="d-flex justify-content-center">
             {/* <div style={{ width:"800px", alignContent:"center"}}> */}
             <Modal.Header style={{ background: "#ebd8b8" }} closeButton>
@@ -440,224 +435,238 @@ export default class EditInfoModal extends React.Component {
                   <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
                   <div className="col-12 col-lg-4">
-              <div>
-                <label>Image URL</label>
-                <div>
-                  {this.state.newImageUrl !== "" && (
-                    <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "100px" }} />
-                  )}
-                </div>
-                <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
-                {this.showError("image_url")}
-              </div>
-              <div>
-                <label>Soap Label</label>
-                <input
-                  name="newSoapLabel"
-                  type="text"
-                  value={this.state.newSoapLabel}
-                  placeholder="Soap Name"
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showError("soap_label")}
-              </div>
-              <div>
-                <label>Name</label>
-                <input name="newName" type="text" value={this.state.newName} placeholder="Name" onChange={this.updateFormField} className="form-control" />
-                {this.showError("name")}
-              </div>
-              <div>
-                <label>Email</label>
-                <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
-                {this.showError("email")}
-              </div>
-            </div>
+                    <div>
+                      <label>Image URL</label>
+                      <div>
+                        {this.state.newImageUrl !== "" && (
+                          <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "100px" }} />
+                        )}
+                      </div>
+                      <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
+                      {this.showError("image_url")}
+                    </div>
+                    <div>
+                      <label>Soap Label</label>
+                      <input
+                        name="newSoapLabel"
+                        type="text"
+                        value={this.state.newSoapLabel}
+                        placeholder="Soap Name"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("soap_label")}
+                    </div>
+                    <div>
+                      <label>Name</label>
+                      <input
+                        name="newName"
+                        type="text"
+                        value={this.state.newName}
+                        placeholder="Name"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("name")}
+                    </div>
+                    <div>
+                      <label>Email</label>
+                      <input
+                        name="newEmail"
+                        type="text"
+                        value={this.state.newEmail}
+                        placeholder="Email"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("email")}
+                    </div>
+                  </div>
 
-            <div className="col-12 col-lg-4">
-              <div>
-                <label>Country Origin</label>
-                <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
-                  <option key="placeholder" name="selectone">
-                    ---Select One---
-                  </option>
-                  {this.showCountries()}
-                </select>
-                {this.showError("country_origin")}
-              </div>
+                  <div className="col-12 col-lg-4">
+                    <div>
+                      <label>Country Origin</label>
+                      <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
+                        <option key="placeholder" name="selectone">
+                          ---Select One---
+                        </option>
+                        {this.showCountries()}
+                      </select>
+                      {this.showError("country_origin")}
+                    </div>
 
-              <div>
-                <label>Cost</label>
-                <input
-                  name="newCost"
-                  type="number"
-                  value={parseInt(this.state.newCost)}
-                  placeholder="Cost"
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showError("cost")}
-              </div>
-              <div>
-                <label>Contact No</label>
-                <input
-                  name="newContactNo"
-                  type="text"
-                  value={this.state.newContactNo}
-                  placeholder="e.g. 99898989"
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showError("contact_no")}
-              </div>
-              <div>
-                <label>Recommended Use</label>
-                <input
-                  name="newRecommended"
-                  type="text"
-                  value={this.state.newRecommended}
-                  placeholder="eg. Use 4 times in a week"
-                  onChange={this.updateFormField}
-                  className="form-control"
-                />
-                {this.showError("recommended_use")}
-              </div>
+                    <div>
+                      <label>Cost</label>
+                      <input
+                        name="newCost"
+                        type="number"
+                        value={parseInt(this.state.newCost)}
+                        placeholder="Cost"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("cost")}
+                    </div>
+                    <div>
+                      <label>Contact No</label>
+                      <input
+                        name="newContactNo"
+                        type="text"
+                        value={this.state.newContactNo}
+                        placeholder="e.g. 99898989"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("contact_no")}
+                    </div>
+                    <div>
+                      <label>Recommended Use</label>
+                      <input
+                        name="newRecommended"
+                        type="text"
+                        value={this.state.newRecommended}
+                        placeholder="eg. Use 4 times in a week"
+                        onChange={this.updateFormField}
+                        className="form-control"
+                      />
+                      {this.showError("recommended_use")}
+                    </div>
 
-              {/* <div >
+                    {/* <div >
                             <label>Date Posted</label>
                             <input name="newDate" type="text" value={this.state.newDate}
                                 placeholder="DD-MM-YYYY"
                                 onChange={this.updateFormField}
                                 className="form-control" />
                         </div> */}
-            </div>
+                  </div>
 
-            <div className="col-12 col-lg-4">
-              <div>
-                <label>Color</label>
-                {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
-                {this.showColors()}
-                {this.showError("color")}
-              </div>
-              <div>
-                <label>Skin Type</label>
-                {this.skinType.map((eachOne) => {
-                  return (
-                    <React.Fragment key={eachOne.value}>
-                      <input
-                        type="checkbox"
-                        name="newSkinType"
-                        value={eachOne.value}
-                        onChange={this.showSkin}
-                        checked={this.state.newSkinType.includes(eachOne.value)}
-                      />
-                      <span>{eachOne.show}</span>
-                    </React.Fragment>
-                  );
-                })}
-                {this.showError("skin_type")}
-              </div>
-              <div>
-                <label>Treat</label>
-                {this.treat.map((eachOne) => {
-                  return (
-                    <React.Fragment key={eachOne.value}>
-                      <input
-                        type="checkbox"
-                        name="newTreat"
-                        value={eachOne.value}
-                        placeholder="eg. Irritable skin"
-                        onChange={this.showTreatment}
-                        checked={this.state.newTreat.includes(eachOne.value)}
-                      />
-                      <span>{eachOne.show}</span>
-                    </React.Fragment>
-                  );
-                })}
-                {this.showError("treat")}
-                {/* {this.showTreatError() && this.state.submitted ? (
+                  <div className="col-12 col-lg-4">
+                    <div>
+                      <label>Color</label>
+                      {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
+                      {this.showColors()}
+                      {this.showError("color")}
+                    </div>
+                    <div>
+                      <label>Skin Type</label>
+                      {this.skinType.map((eachOne) => {
+                        return (
+                          <React.Fragment key={eachOne.value}>
+                            <input
+                              type="checkbox"
+                              name="newSkinType"
+                              value={eachOne.value}
+                              onChange={this.showSkin}
+                              checked={this.state.newSkinType.includes(eachOne.value)}
+                            />
+                            <span>{eachOne.show}</span>
+                          </React.Fragment>
+                        );
+                      })}
+                      {this.showError("skin_type")}
+                    </div>
+                    <div>
+                      <label>Treat</label>
+                      {this.treat.map((eachOne) => {
+                        return (
+                          <React.Fragment key={eachOne.value}>
+                            <input
+                              type="checkbox"
+                              name="newTreat"
+                              value={eachOne.value}
+                              placeholder="eg. Irritable skin"
+                              onChange={this.showTreatment}
+                              checked={this.state.newTreat.includes(eachOne.value)}
+                            />
+                            <span>{eachOne.show}</span>
+                          </React.Fragment>
+                        );
+                      })}
+                      {this.showError("treat")}
+                      {/* {this.showTreatError() && this.state.submitted ? (
                   <div style={{ color: "red" }} className="error">
                     {this.showTreatError()}
                   </div>
                 ) : (
                   ""
                 )} */}
-              </div>
-              <div>
-                <label>Oil Ingredients</label>
-                <div class="chipsWrapper" id="chipParent">
-                  {this.state.oilIngredients.map((iType, i) => (
-                    <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
-                        {iType}
-                        <span onClick={() => this.removeOilTag(i)} style={{ marginLeft: "5px" }}>
-                          X
-                        </span>
-                      </span>
-                    </>
-                  ))}
-                </div>
-                <input
-                  type="text"
-                  name="oilInput"
-                  placeholder="eg.butter oil <Enter to add>"
-                  value={this.state.oilInput}
-                  onKeyDown={this.updateOilIngredients}
-                  onChange={this.updateFormField}
-                />
-                {this.showError("oil_ingredient")}
-              </div>
+                    </div>
+                    <div>
+                      <label>Oil Ingredients</label>
+                      <div class="chipsWrapper" id="chipParent">
+                        {this.state.oilIngredients.map((iType, i) => (
+                          <>
+                            <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                              {iType}
+                              <span onClick={() => this.removeOilTag(i)} style={{ marginLeft: "5px" }}>
+                                X
+                              </span>
+                            </span>
+                          </>
+                        ))}
+                      </div>
+                      <input
+                        type="text"
+                        name="oilInput"
+                        placeholder="eg.butter oil <Enter to add>"
+                        value={this.state.oilInput}
+                        onKeyDown={this.updateOilIngredients}
+                        onChange={this.updateFormField}
+                      />
+                      {this.showError("oil_ingredient")}
+                    </div>
 
-              <div>
-                <label>Base Ingredients</label>
-                <div class="chipsWrapper" id="chipParent">
-                  {this.state.baseIngredients.map((iType, i) => (
-                    <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
-                        {iType}
-                        <span onClick={() => this.removeBaseTag(i)} style={{ marginLeft: "5px" }}>
-                          X
-                        </span>
-                      </span>
-                    </>
-                  ))}
-                </div>
-                <input
-                  type="text"
-                  name="baseInput"
-                  placeholder="eg.tomato powder <Enter to add>"
-                  value={this.state.baseInput}
-                  onKeyDown={this.updateBaseIngredients}
-                  onChange={this.updateFormField}
-                />
-                {this.showError("base_ingredient")}
-              </div>
+                    <div>
+                      <label>Base Ingredients</label>
+                      <div class="chipsWrapper" id="chipParent">
+                        {this.state.baseIngredients.map((iType, i) => (
+                          <>
+                            <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                              {iType}
+                              <span onClick={() => this.removeBaseTag(i)} style={{ marginLeft: "5px" }}>
+                                X
+                              </span>
+                            </span>
+                          </>
+                        ))}
+                      </div>
+                      <input
+                        type="text"
+                        name="baseInput"
+                        placeholder="eg.tomato powder <Enter to add>"
+                        value={this.state.baseInput}
+                        onKeyDown={this.updateBaseIngredients}
+                        onChange={this.updateFormField}
+                      />
+                      {this.showError("base_ingredient")}
+                    </div>
 
-              <div>
-                <label>Milk Ingredients</label>
-                <div class="chipsWrapper" id="chipParent">
-                  {this.state.milkIngredients.map((iType, i) => (
-                    <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
-                        {iType}
-                        <span onClick={() => this.removeMilkTag(i)} style={{ marginLeft: "5px" }}>
-                          X
-                        </span>
-                      </span>
-                    </>
-                  ))}
-                </div>
-                <input
-                  type="text"
-                  name="milkInput"
-                  placeholder="eg. goat milk <Enter to add>"
-                  value={this.state.milkInput}
-                  onKeyDown={this.updateMilkIngredients}
-                  onChange={this.updateFormField}
-                />
-                {this.showError("milk_ingredient")}
-              </div>
-              {/* <div>
+                    <div>
+                      <label>Milk Ingredients</label>
+                      <div class="chipsWrapper" id="chipParent">
+                        {this.state.milkIngredients.map((iType, i) => (
+                          <>
+                            <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                              {iType}
+                              <span onClick={() => this.removeMilkTag(i)} style={{ marginLeft: "5px" }}>
+                                X
+                              </span>
+                            </span>
+                          </>
+                        ))}
+                      </div>
+                      <input
+                        type="text"
+                        name="milkInput"
+                        placeholder="eg. goat milk <Enter to add>"
+                        value={this.state.milkInput}
+                        onKeyDown={this.updateMilkIngredients}
+                        onChange={this.updateFormField}
+                      />
+                      {this.showError("milk_ingredient")}
+                    </div>
+                    {/* <div>
                 <label>Skin Type</label>
                 <Select
                   isMulti={true}
@@ -666,7 +675,7 @@ export default class EditInfoModal extends React.Component {
                   options={skinOptions}
                 />
               </div> */}
-            </div>
+                  </div>
 
                   <br />
                   <br />

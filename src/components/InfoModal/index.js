@@ -24,7 +24,7 @@ export default class Listing extends React.Component {
   state = {
     name: "",
     comment: "",
-    comments: this.props.selectedData.comments,
+    comments: this.props.selectedData.comments || [],
     isLoading: false,
   };
 
@@ -40,14 +40,10 @@ export default class Listing extends React.Component {
     console.log(result);
     console.log("COMMENTS", this.state.comments);
     if (result.status == 201) {
-      const iniComments =[];
       bodyData["datePosted"] = new Date();
-      if (this.state.comments == undefined) {
-        iniComments.push(bodyData);
-      } else {
-        iniComments = [...this.state.comments];
-        iniComments.push(bodyData);
-      }
+
+      let iniComments = [...this.state.comments];
+      iniComments.push(bodyData);
 
       this.setState({ comments: iniComments });
     }
@@ -144,7 +140,7 @@ export default class Listing extends React.Component {
               ))}
             </div>
             <div>Recommended Usage:{selectedData.suitability.recommended_use}</div>
-            <div>Date Posted:{selectedData.suitability.date_posted}</div>
+            <div>Date Posted:{new Date(selectedData.suitability.date_posted).toLocaleString()}</div>
 
             {/* 
            <div>Name :<span className="badge rounded-pill bg-dark mx-1">{selectedData.name}</span></div>

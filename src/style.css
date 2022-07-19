@@ -62,7 +62,7 @@ body {
 
 .item{
   /* height:150px; */
-  width:380px;
+  width:250px;
 
 }
 
@@ -324,7 +324,13 @@ height:0.75rem;
 font-size:0.7rem;
 }
 
-
+.noSearchLabel{
+  width:100%;
+  font-size:3rem;
+  color:crimson;
+  font-weight: bold;
+  text-align: center;
+}
 }
 
 
@@ -419,7 +425,7 @@ font-size:0.7rem;
 
     .item{
       /* height:150px; */
-      width:400px;
+      width:350px;
     
       
     }
