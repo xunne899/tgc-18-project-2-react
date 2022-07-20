@@ -82,8 +82,9 @@ export default class Listing extends React.Component {
 
     return comments.map((commentInfo) => (
       <React.Fragment key={commentInfo._id}>
+       
         <div className="infoLabel">
-          Name:<span>{commentInfo.username}</span>
+          UserName:<span>{commentInfo.username}</span>
         </div>
         <div className="infoLabel">
           Description:<span>{commentInfo.comment}</span>
@@ -91,6 +92,7 @@ export default class Listing extends React.Component {
         <div className="infoLabel">
           Date:<span>{this.getPostedTime(commentInfo.datePosted)}</span>
         </div>
+      
       </React.Fragment>
     ));
   };
@@ -98,50 +100,55 @@ export default class Listing extends React.Component {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
-      <Modal show={isViewVisible} onHide={setIsViewVisible}>
+      <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
         <Modal.Header style={{ background: "white" }} closeButton>
           <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: "white" }}>
           <div className="infoTitle">{selectedData.soap_label}</div>
           <div className="infoPrice">${selectedData.cost}</div>
-          <div className="infoWrapper">
-            <div className="infoImage">
-              <img src={selectedData.image_url} />
+          <div className="infoWrapper row mx-auto">
+            <div className="infoImage rounded-3 mx-auto" style={{height:"300px", width:"400px"}}>
+              <img className="mx-auto rounded-3"src={selectedData.image_url} />
             </div>
-            <div>Name :{selectedData.name}</div>
-            <div>Email :{selectedData.email}</div>
-            <div>Contact Number :{selectedData.contact_no}</div>
-            <div>Color :{selectedData.color}</div>
-            <div>Country Origin :{selectedData.country_origin}</div>
-            <div>Skin Type :{selectedData.skin_type}</div>
-            <div>
-              Oil Ingredient :
-              {selectedData.ingredients.oil_ingredient.map((item) => (
-                <span className="badge rounded-pill bg-dark">{item}</span>
-              ))}
+            <div className="col-sm-12 col-lg-6 mt-3">
+            <div><strong>Name</strong>                             <span className="text-right">{selectedData.name}</span></div>
+            <div classname="mt-4"><strong>Email :</strong>           <span className="text-right">{selectedData.email}</span></div>
+            <div classname="mt-4"><strong>Contact Number :</strong>   <span className="text-right">{selectedData.contact_no}</span></div>
+            <div classname="mt-4"><strong>Color :</strong>            <span className="text-right">{selectedData.color}</span></div>
+            <div classname="mt-4"><strong>Country Origin :</strong>  <span className="text-right">{selectedData.country_origin}</span></div>
+            <div classname="mt-4"><strong>Skin Type :</strong>        <span className="text-right">{selectedData.skin_type}</span></div>
             </div>
-            <div>
-              Base Ingredient :
-              {selectedData.ingredients.base_ingredient.map((item) => (
-                <span className="badge rounded-pill bg-dark">{item}</span>
-              ))}
-            </div>
-            <div>
-              Milk Ingredient :
-              {selectedData.ingredients.milk_ingredient.map((item) => (
-                <span className="badge rounded-pill bg-dark">{item}</span>
-              ))}
-            </div>
-            <div>
-              Treat:
-              {selectedData.suitability.treat.map((item) => (
-                <span className="badge rounded-pill bg-dark">{item}</span>
-              ))}
-            </div>
-            <div>Recommended Usage:{selectedData.suitability.recommended_use}</div>
-            <div>Date Posted:{new Date(selectedData.suitability.date_posted).toLocaleString()}</div>
 
+            <div className="col-sm-12 col-lg-6 mt-3">
+            <div>
+            <strong>Oil Ingredient :</strong> 
+              {selectedData.ingredients.oil_ingredient.map((item) => (
+                <span >{item}</span>
+              ))}
+            </div>
+            <div>
+            <strong>Base Ingredient :</strong> 
+              {selectedData.ingredients.base_ingredient.map((item) => (
+                <span >{item}</span>
+              ))}
+            </div>
+            <div>
+            <strong>Milk Ingredient :</strong> 
+              {selectedData.ingredients.milk_ingredient.map((item) => (
+                <span >{item}</span>
+              ))}
+            </div>
+            <div>
+            <strong>Treat :</strong> 
+              {selectedData.suitability.treat.map((item) => (
+                <span >{item}</span>
+              ))}
+            </div>
+            <div><strong>Recommended Usage :</strong>{selectedData.suitability.recommended_use}</div>
+            <div><strong>Date Posted :</strong>{new Date(selectedData.suitability.date_posted).toLocaleString()}</div>
+            </div>
+          
             {/* 
            <div>Name :<span className="badge rounded-pill bg-dark mx-1">{selectedData.name}</span></div>
           <div>Email :<span className="badge rounded-pill bg-dark mx-1">{selectedData.email}</span></div>
@@ -156,23 +163,24 @@ export default class Listing extends React.Component {
           <div>Recommended Usage:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.recommended_use}</span></div>
           <div>Date Posted:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.date_posted}</span></div>   */}
 
-            <div className="infoLabel">
+            {/* <div className="infoLabel">
               UserName:<span>{}</span>
-            </div>
-            <div className="infoLabel">Comments:</div>
-            {
-              // this.getCommentData(selectedData.comments)
-              this.getCommentData(this.state.comments)
-            }
+            </div> */}
+       
+                         
+        <div classname="mt-3"><strong>Comments:</strong>
+         <div className="autoBox border border-dark border-1 p-2 rounded-3">{this.getCommentData(this.state.comments)}</div>
+         </div>
           </div>
+ 
 
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label style={{ fontFamily:"League Spartan" }}>Username</Form.Label>
+            <Form.Group className="m-2" controlId="exampleForm.ControlInput1">
+              <Form.Label ><div style={{ fontFamily:"League Spartan"}}><strong>Username</strong></div></Form.Label>
               <Form.Control type="user" placeholder="user" onChange={this.handleNameChange} value={this.state.name} autoFocus />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label style={{ fontFamily:"League Spartan" }}>Comments</Form.Label>
+            <Form.Group className="m-2" controlId="exampleForm.ControlTextarea1">
+              <Form.Label ><div style={{ fontFamily:"League Spartan" }}><strong>Comments</strong></div></Form.Label>
               <Form.Control as="textarea" rows={3} onChange={this.handleCommentChange} value={this.state.comment} />
             </Form.Group>
           </Form>
@@ -181,7 +189,7 @@ export default class Listing extends React.Component {
           {/* <Button variant="primary" onClick={this.handlePostComment}>
           Post Comment
          </Button> */}
-          <Button variant="primary" disabled={this.state.isLoading} onClick={this.handlePostComment} style={{ fontFamily:"League Spartan" }}>
+          <Button variant="dark" disabled={this.state.isLoading} onClick={this.handlePostComment} style={{ fontFamily:"League Spartan" }}>
             {this.state.isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
             Post Comment
           </Button>

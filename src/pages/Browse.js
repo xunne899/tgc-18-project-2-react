@@ -382,7 +382,9 @@ export default class Browse extends React.Component {
 
     //   return  ? "Please input a positive value" : null
     // }
-     if (Minprice < 0 || Maxprice < Minprice ){
+     if (Minprice < 0 ){
+      return "Please input a positive value"
+    } if(Maxprice < Minprice ){
       return "MinPrice should not be more than MaxPrice"
     }
   }
@@ -396,23 +398,26 @@ export default class Browse extends React.Component {
     // if( Maxprice < Minprice  ){
     //   return "MaxPrice should not be less than MinPrice"
     // }
-    if (Minprice < 0 || Maxprice < Minprice ){
-      return "MinPrice should not be more than MaxPrice"
+    if (Maxprice < 0 ){
+      return "Please input a positive value"
+    } if(Maxprice < Minprice ){
+      return "MaxPrice should not be lesser than MinPrice"
     }
   }
 
   render() {
     return (
       <React.Fragment>
-        <Container   style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
+        <Container style={{ margin: "10px 0px", height: "100%", width: "100%" }}>
           <Row>
-            <Col xs="12" lg="3" >
+            <Col xs="12" lg="2" className=" mt-3" >
           
              <Accordion defaultActiveKey="0" >
       <Accordion.Item eventKey="0">
         <Accordion.Header>Search</Accordion.Header>
         <Accordion.Body>
-        <div className="m-2  p-3" style={{fontFamily:"League Spartan"}}>
+    
+        <div className="mt-1 p-2" style={{fontFamily:"League Spartan"}}>
                 <label>Search</label>
                 <div>
                   <input
@@ -432,8 +437,8 @@ export default class Browse extends React.Component {
                   )} */}
                 </div>
 
-                <div>
-                  <label>Country:</label>
+                <div className="mt-2">
+                  <label>Country</label>
                   <select
                     className="form-select form-control"
                     value={this.state.searchCountry}
@@ -441,15 +446,15 @@ export default class Browse extends React.Component {
                     name="searchCountry"
                     // name="country" value={this.state.country} onChange={this.updateFormField}
                   >
-                    <option key="placeholder" name="selectone" value="">
-                      ---Select One---
+                    <option key="placeholder" name="selectone" value="Select One">
+                      Select One
                     </option>
                     {this.showCountries()}
                   </select>
                 </div>
 
-                <div>
-                  <label>Color:</label>
+                <div className="mt-2">
+                  <label>Color</label>
                   <select
                     className="form-select form-control"
                     value={this.state.searchColor}
@@ -457,12 +462,13 @@ export default class Browse extends React.Component {
                     name="searchColor"
                     // name="country" value={this.state.country} onChange={this.updateFormField}
                   >
-                    <option key="placeholder" name="selectone" value="">
-                      ---Select One---
+                    <option key="placeholder" name="selectone" value="Select One">
+                      Select One
                     </option>
                     {this.showColor()}
                   </select>
                 </div>
+                
                 {/* <div>
                   <label>Color</label>
                   <input
@@ -511,7 +517,8 @@ export default class Browse extends React.Component {
                   />
                   <label class="form-check-label">Orange</label>
                 </div> */}
-                <div>
+               
+                <div className="mt-2">
                   <label>Cost</label>
                   <div>
                     <label>Min Amount</label>
@@ -548,7 +555,7 @@ export default class Browse extends React.Component {
                     )}
                   </div>
                 </div>
-                <div>
+                <div className="mt-2">
                 
                   <label>Skin Type</label><br/>
 
@@ -583,8 +590,9 @@ export default class Browse extends React.Component {
                   <label class="form-check-label">Dry</label><br/>
                   
                 </div>
+                
                  {/* oil check */}
-                <div>
+                {/* <div>
                   <label>Oil Ingredients</label><br/>
                   <input
                     type="checkbox"
@@ -673,7 +681,7 @@ export default class Browse extends React.Component {
                     checked={this.state.searchMilk.includes("goat milk")}
                   />
                   <label class="form-check-label">Goat Milk</label><br/>
-                </div>
+                </div> */}
                  {/* end of check */}
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
@@ -686,26 +694,26 @@ export default class Browse extends React.Component {
  
     </Accordion> 
        </Col>
-            <Col xs="12" lg="9">
+            <Col xs="12" lg="10">
               
          
               {/* search results */}
 
-              <div className="mt-3 " style={{ background: "white", height: "95%" }}>
+              <div className="mt-2 ms-4" style={{ background: "white", height: "85%" }}>
                 {/* <h1 className="AddForm">All Collections</h1> */}
                 <div className="row justify-content-center col-sm col-md col-lg">
                   {this.state.collection.length === 0 && <div className="noSearchLabel">No Results Found!</div>}
                   {/* <ul className="list-group  item"> */}
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
-                      <li className="list-group-item  item  rounded-3 m-3" style={{ background: "white" }}>
+                      <li className="list-group-item  item rounded-3 m-2" style={{ background: "white" }}>
                          {/* <strong>Soap Name: </strong> */}
-                         <h2 className="row mx-auto mx-1" style={{ color: "black",fontFamily:"League Spartan" }}>
+                         <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
-                          </h2>
-                        <div className="infoImage mx-1">
+                          </h4>
+                        <div className="infoImage mx-auto m-2">
                           {" "}
-                          <img style={{ height: "250px", width: "350px" }} src={r.image_url} alt="new" />
+                          <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
                         </div>
                         <div>
                          
@@ -744,7 +752,7 @@ export default class Browse extends React.Component {
                           ))}
 {/*                      
                           <strong>Treat:</strong> */}
-                          {Object.keys(r.suitability.treat).map((i) => (
+                          {/* {Object.keys(r.suitability.treat).map((i) => (
                             <span className="badge rounded-pill bg-warning" style={{ color: "black" }} key={`${i}`}>
                               {" "}
                               {r.suitability.treat[i]}
@@ -770,7 +778,7 @@ export default class Browse extends React.Component {
                               {" "}
                               {r.ingredients.milk_ingredient[i]}
                             </span>
-                          ))}
+                          ))} */}
                         </div>
    
                     
@@ -787,11 +795,11 @@ export default class Browse extends React.Component {
                                             </>)
                                         )
                                     } */}
-                        <div className="ms-auto text-end" style={{ fontFamily:"League Spartan" }}>
+                        <div className="ms-auto text-end mt-3" style={{ fontFamily:"League Spartan" }}>
                           {/* <InfoModal data={this.state}/> */}
                           <button
-                            className=" btn btn-dark my-1 ms-2 "
-                            style={{  height:"36px",color: "white" }}
+                            className=" btn btn-dark my-1 ms-2 text-center"
+                            style={{  height:"30px",color: "white",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isEditVisible: true });
@@ -800,8 +808,8 @@ export default class Browse extends React.Component {
                             Edit
                           </button>
                           <button
-                            className=" btn btn-dark my-1 ms-2"
-                            style={{ height:"36px", color: "white" }}
+                            className=" btn btn-dark my-1 ms-2 text-center"
+                            style={{ height:"30px", color: "white",fontSize:"15px" }}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isViewVisible: true });
@@ -811,8 +819,8 @@ export default class Browse extends React.Component {
                           </button>
 
                           <button
-                            className=" btn btn-dark my-1 ms-2"
-                            style={{ height:"36px",color: "white" }}
+                            className="btn btn-dark my-1 ms-2 text-center"
+                            style={{ height:"30px",color: "white",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isDeleteVisible: true });

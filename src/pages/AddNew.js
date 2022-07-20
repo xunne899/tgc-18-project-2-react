@@ -439,7 +439,7 @@ export default class AddNew extends React.Component {
               <div className="mb-3">
                 <label>Country Origin</label>
                 <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
-                  <option key="placeholder" name="selectone">
+                  <option key="placeholder" name="selectone" value="">
                     ---Select One---
                   </option>
                   {this.showCountries()}

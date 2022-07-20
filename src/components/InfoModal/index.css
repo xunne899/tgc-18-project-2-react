@@ -2,13 +2,22 @@
 .infoWrapper{
     width:100%;
     font-family: "League Spartan";
+
 }
 
 
 .infoLabel{
     font-weight: bold;
     font-family: "League Spartan";
+   
 
+}
+
+.autoBox{
+    /* background-color: lightblue; */
+    height: 100px;
+    width: 743px;  
+    overflow-y: auto;
 }
 
 .infoLabel >span{
@@ -42,6 +51,7 @@
 .infoImage img {
     width: 100%;
     transition: 0.5s all ease-in-out;
+    
 }
 
 .infoImage:hover img {

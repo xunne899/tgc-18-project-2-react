@@ -193,22 +193,22 @@ export default class Listing extends React.Component {
       <React.Fragment>
           {/* <div className="listlogo mt-1 row mx-auto" src={require("../soapBW_logo.png")} /></div> */}
         {/* <div className="border border-dark border-3 rounded-3 m-4" style={{ background: "white" }}> */}
-        <div className=" rounded-3 m-4" style={{ background: "white" }}>
+        <div className=" mt-2 ms-4" style={{ background: "white" }}>
           {/* <h1 className="AddForm">All Collections</h1> */}
           <div className="row justify-content-center col-sm col-md col-lg">
             {/* <ul className="list-group  item"> */}
             {this.state.collection.map((r) => (
               <React.Fragment key={r._id}>
-                <li className="list-group-item  item  rounded-3 m-3" style={{ background: "white" }}>
+                <li className="list-group-item  item  rounded-3 m-2" style={{ background: "white" }}>
                 <div>
                     {/* <strong>Soap Name: </strong> */}
-                    <h2 className="row mx-auto mx-1" style={{ color: "black",fontFamily:"League Spartan" }}>
+                    <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
-                          </h2>
+                          </h4>
                   </div>
-                  <div className="infoImage mx-1">
+                  <div className="infoImage mx-auto m-2">
                     {" "}
-                    <img style={{ height: "250px", width: "350px" }} src={r.image_url} alt="new" />
+                    <img style={{ width:"300px", height:"200px"}} src={r.image_url} alt="new" />
                   </div>
                   {/* <span className=" mx-1"> <img style={{height:"250px",width:"350px"}}src={r.image_url}alt="new"/></span> */}
               
@@ -277,11 +277,11 @@ export default class Listing extends React.Component {
                                             </>)
                                         )
                                     } */}
-                  <div className="ms-auto text-end" style={{ fontFamily:"League Spartan" }}>
+                  <div className="ms-auto text-end mt-3" style={{ fontFamily:"League Spartan" }}>
                     {/* <InfoModal data={this.state}/> */}
                     <button
-                      className=" btn btn-dark my-1 ms-2"
-                      style={{ height:"36px",color: "white" }}
+                      className=" btn btn-dark my-1 ms-2 text-center"
+                      style={{ height:"30px",color: "white",fontSize:"15px" }}
                       onClick={() => {
                         this.view(r);
                         this.setState({ isEditVisible: true });
@@ -290,8 +290,8 @@ export default class Listing extends React.Component {
                       Edit
                     </button>
                     <button
-                      className=" btn btn-dark my-1 ms-2"
-                      style={{ height:"36px",color: "white" }}
+                      className=" btn btn-dark my-1 ms-2 text-center"
+                      style={{ height:"30px",color: "white",fontSize:"15px" }}
                       onClick={() => {
                         this.view(r);
                         this.setState({ isViewVisible: true });
@@ -301,8 +301,8 @@ export default class Listing extends React.Component {
                     </button>
 
                     <button
-                      className=" btn btn-dark my-1 ms-2"
-                      style={{height:"36px", color: "white" }}
+                      className=" btn btn-dark my-1 ms-2 text-center"
+                      style={{height:"30px",color: "white",fontSize:"15px"}}
                       onClick={() => {
                         this.view(r);
                         this.setState({ isDeleteVisible: true });
