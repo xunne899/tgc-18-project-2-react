@@ -399,7 +399,7 @@ export default class AddNew extends React.Component {
          
 
             {/* <div className="col-12 col-lg-4"> */}
-              <div>
+              <div className="mb-3">
                 <label>Image URL</label>
                 <div>
                   {this.state.newImageUrl !== "" && (
@@ -410,7 +410,7 @@ export default class AddNew extends React.Component {
                 {this.showError("image_url")}
               </div>
              
-              <div>
+              <div className="mb-3">
                 <label>Soap Label</label>
                 <input
                   name="newSoapLabel"
@@ -423,12 +423,12 @@ export default class AddNew extends React.Component {
                 {this.showError("soap_label")}
               </div>
            
-              <div>
+              <div className="mb-3">
                 <label>Name</label>
                 <input name="newName" type="text" value={this.state.newName} placeholder="Name" onChange={this.updateFormField} className="form-control" />
                 {this.showError("name")}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Email</label>
                 <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
@@ -436,7 +436,7 @@ export default class AddNew extends React.Component {
             {/* </div> */}
 
             {/* <div className="col-12 col-lg-4"> */}
-              <div>
+              <div className="mb-3">
                 <label>Country Origin</label>
                 <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
                   <option key="placeholder" name="selectone">
@@ -447,7 +447,7 @@ export default class AddNew extends React.Component {
                 {this.showError("country_origin")}
               </div>
 
-              <div>
+              <div className="mb-3">
                 <label>Cost</label>
                 <input
                   name="newCost"
@@ -459,7 +459,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("cost")}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Contact No</label>
                 <input
                   name="newContactNo"
@@ -471,7 +471,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("contact_no")}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Recommended Use</label>
                 <input
                   name="newRecommended"
@@ -494,13 +494,13 @@ export default class AddNew extends React.Component {
             {/* </div> */}
 
             {/* <div className="col-12 col-lg-4"> */}
-              <div>
+              <div className="mb-3">
                 <label>Color</label>
                 {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
                 {this.showColors()}
                 {this.showError("color")}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Skin Type</label>
                 {this.skinType.map((eachOne) => {
                   return (
@@ -518,7 +518,7 @@ export default class AddNew extends React.Component {
                 })}
                 {this.showError("skin_type")}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Treat</label>
                 {this.treat.map((eachOne) => {
                   return (
@@ -544,7 +544,7 @@ export default class AddNew extends React.Component {
                   ""
                 )} */}
               </div>
-              <div>
+              <div className="mb-3">
                 <label>Oil Ingredients</label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.oilIngredients.map((iType, i) => (
@@ -569,7 +569,7 @@ export default class AddNew extends React.Component {
                 {this.showError("oil_ingredient")}
               </div>
               <br/>
-              <div>
+              <div className="mb-3">
                 <label>Base Ingredients</label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.baseIngredients.map((iType, i) => (
@@ -594,7 +594,7 @@ export default class AddNew extends React.Component {
                 {this.showError("base_ingredient")}
               </div>
 
-              <div>
+              <div className="mb-3">
                 <label>Milk Ingredients</label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.milkIngredients.map((iType, i) => (

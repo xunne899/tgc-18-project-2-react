@@ -578,7 +578,7 @@ export default class Browse extends React.Component {
                   <label class="form-check-label">Dry</label><br/>
                   
                 </div>
-                 
+                 {/* oil check */}
                 {/* <div>
                   <label>Oil Ingredients</label><br/>
                   <input
@@ -669,6 +669,7 @@ export default class Browse extends React.Component {
                   />
                   <label class="form-check-label">Goat Milk</label><br/>
                 </div> */}
+                 {/* end of check */}
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
                     Search
