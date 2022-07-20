@@ -579,7 +579,7 @@ export default class Browse extends React.Component {
                   
                 </div>
                  
-                <div>
+                {/* <div>
                   <label>Oil Ingredients</label><br/>
                   <input
                     type="checkbox"
@@ -668,7 +668,7 @@ export default class Browse extends React.Component {
                     checked={this.state.searchMilk.includes("goat milk")}
                   />
                   <label class="form-check-label">Goat Milk</label><br/>
-                </div>
+                </div> */}
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
                     Search
@@ -700,13 +700,17 @@ export default class Browse extends React.Component {
                       
 {/*                         
                           <strong>Country Origin: </strong> */}
-                          <span className="badge rounded-pill bg-primary mx-1" style={{ color: "white" }}>
+                          <span className="badge rounded-pill bg-primary mx-1" style={{ color: "black" }}>
                             {r.country_origin}
                           </span>
                      
                           {/* <strong>Color: </strong> */}
-                          <span className="badge rounded-pill bg-success mx-1" style={{ color: "white" }}>
+                          <span className="badge rounded-pill bg-success mx-1" style={{ color: "black" }}>
                             {r.color}
+                          </span>
+
+                          <span className="badge rounded-pill bg-danger mx-1" style={{ color: "black" }}>
+                            ${r.cost}
                           </span>
                        
 
@@ -721,7 +725,7 @@ export default class Browse extends React.Component {
                         
                           {/* <strong>Skin_Type:</strong> */}
                           {Object.keys(r.skin_type).map((i) => (
-                            <span className="badge rounded-pill bg-info" style={{ color: "white" }} key={`${i}`}>
+                            <span className="badge rounded-pill bg-info" style={{ color: "black" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
@@ -729,35 +733,35 @@ export default class Browse extends React.Component {
 {/*                      
                           <strong>Treat:</strong> */}
                           {Object.keys(r.suitability.treat).map((i) => (
-                            <span className="badge rounded-pill bg-warning" style={{ color: "white" }} key={`${i}`}>
+                            <span className="badge rounded-pill bg-warning" style={{ color: "black" }} key={`${i}`}>
                               {" "}
                               {r.suitability.treat[i]}
                             </span>
                           ))}
+
+
+                               {Object.keys(r.ingredients.oil_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.oil_ingredient[i]}
+                            </span>
+                          ))}
+
+                            {Object.keys(r.ingredients.base_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.base_ingredient[i]}
+                            </span>
+                          ))}
+                              {Object.keys(r.ingredients.milk_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.milk_ingredient[i]}
+                            </span>
+                          ))}
                         </div>
-                        {Object.keys(r.ingredients).map((iType) => (
-                          <>
-                            {console.log("data=>", iType)}
-                            <div>
-                              {/* <strong>
-                                Ingredients: 
-                                {iType}</strong> */}
-                            </div>
-
-                            {r.ingredients[iType].map((info, i) => (
-                              <span key={`${iType}_${i}`} className="badge rounded-pill bg-danger" style={{ color: "white" }}>
-                                {info}
-                              </span>
-                            ))}
-{/*                             
-                            {r.ingredients[iType].map((info) => (
-                              <span key={`${iType}`} className="badge rounded-pill bg-dark" style={{ color: "white" }}>
-                                {info}
-                              </span>
-                            ))} */}
-
-                          </>
-                        ))}
+   
+                    
 
                         {/* {
                                         Object.keys(r.suitability).map((iType) =>
