@@ -73,7 +73,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
+  width: 150px;
   height:100px;
   border-radius: 12px;
   background-color: rgba(26, 13, 13, 0.46);
@@ -156,12 +156,35 @@ body {
 
 }
 
+
+.addbg{
+  height: 320px;
+  /* background-repeat: no-repeat; */
+  background-image: fit-content;
+  /* background-size: contain; */
+  /* background-size: fit-content; */
+  /* background-attachment: fixed; */
+  /* margin: 0; 
+  padding: 0px; */
+  /* overflow-x: hidden !important; */
+  /* margin-right: 200px;  */
+}
+
 .listlogo{
     
   height: 80px;
   width : 180px
 }
 
+
+.noSearchLabel{
+  width:100%;
+  font-size:1.3rem;
+  color:crimson;
+  font-weight: bold;
+  text-align: center;
+  font-family:'League Spartan';
+}
 
 .footer{
   
@@ -351,10 +374,11 @@ font-size:0.7rem;
 
 .noSearchLabel{
   width:100%;
-  font-size:3rem;
+  font-size:2rem;
   color:crimson;
   font-weight: bold;
   text-align: center;
+  font-family:'League Spartan';
 }
 }
 
@@ -552,7 +576,7 @@ font-size:0.7rem;
   }
 
   .addbg{
-    height: 480px;
+    height: 590px;
     /* background-repeat: no-repeat; */
     background-image: fit-content;
     /* background-size: contain; */

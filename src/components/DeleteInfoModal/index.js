@@ -38,7 +38,7 @@ export default class DeleteInfoModal extends React.Component {
               <div className="infoImage">
                 <img src={selectedData.image_url} />
               </div>
-              <div>Name :{selectedData.name}</div>
+              {/* <div>Name :{selectedData.name}</div>
               <div>Email :{selectedData.email}</div>
               <div>Contact Number :{selectedData.contact_no}</div>
               <div>Color :{selectedData.color}</div>
@@ -62,14 +62,14 @@ export default class DeleteInfoModal extends React.Component {
               <div>
                 Recommended Usage:{selectedData.suitability.recommended_use}
               </div>
-              <div>Date Posted:{selectedData.suitability.date_posted}</div>
+              <div>Date Posted:{new Date(selectedData.suitability.date_posted).toLocaleString()}</div> */}
 
               <h3 style={{ color: "red" }}>
                 Confirm to delete ? {selectedData.soap_label}
               </h3>
             </div>
           </Modal.Body>
-          <Modal.Footer style={{ background: "#ebd8b8" }}>
+          <Modal.Footer style={{ background: "white" }}>
             <Button
               variant="danger"
               onClick={() => this.processDeleteCollection(selectedData)}

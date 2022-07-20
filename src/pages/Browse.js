@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 // import { Container, Row, Button, Card, Col } from 'react-bootstrap';
 
+import Accordion from 'react-bootstrap/Accordion';
+
 import InfoModal from "../components/InfoModal";
 import EditInfoModal from "../components/InfoEditModal";
 import DeleteInfoModal from "../components/DeleteInfoModal";
@@ -402,10 +404,15 @@ export default class Browse extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Container style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
+        <Container   style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
           <Row>
-            <Col xs="12" lg="3">
-              <div className="m-2  p-3" style={{fontFamily:"League Spartan"}}>
+            <Col xs="12" lg="3" >
+          
+             <Accordion defaultActiveKey="0" >
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Search</Accordion.Header>
+        <Accordion.Body>
+        <div className="m-2  p-3" style={{fontFamily:"League Spartan"}}>
                 <label>Search</label>
                 <div>
                   <input
@@ -467,7 +474,6 @@ export default class Browse extends React.Component {
                     checked={this.state.searchColor === "green"}
                   />
                   <label class="form-check-label">Green</label>
-
                   <input
                     type="radio"
                     onChange={this.updateSearchFormField}
@@ -495,7 +501,6 @@ export default class Browse extends React.Component {
                     checked={this.state.searchColor === "yellow"}
                   />
                   <label class="form-check-label">Yellow</label>
-
                   <input
                     type="radio"
                     onChange={this.updateSearchFormField}
@@ -579,7 +584,7 @@ export default class Browse extends React.Component {
                   
                 </div>
                  {/* oil check */}
-                {/* <div>
+                <div>
                   <label>Oil Ingredients</label><br/>
                   <input
                     type="checkbox"
@@ -668,7 +673,7 @@ export default class Browse extends React.Component {
                     checked={this.state.searchMilk.includes("goat milk")}
                   />
                   <label class="form-check-label">Goat Milk</label><br/>
-                </div> */}
+                </div>
                  {/* end of check */}
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
@@ -676,8 +681,14 @@ export default class Browse extends React.Component {
                   </a>
                 </div>
               </div>
-            </Col>
+        </Accordion.Body>
+      </Accordion.Item>
+ 
+    </Accordion> 
+       </Col>
             <Col xs="12" lg="9">
+              
+         
               {/* search results */}
 
               <div className="mt-3 " style={{ background: "white", height: "95%" }}>

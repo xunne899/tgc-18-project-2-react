@@ -19,7 +19,7 @@ export default function Home(props){
                         <div className="content row justify-content-center ">
                             <h1>Your way to a better skin. Customise your own skin soap now !</h1>
                             {/* <div className="m-2"> */}
-                            <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3">
+                            {/* <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3">
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./information.png'} />
                                 <Card.Body>
                                     <Card.Title style={{fontFamily:"League Spartan" }} >Add Soap Information</Card.Title>
@@ -29,7 +29,7 @@ export default function Home(props){
                                     <Button variant="dark" 
                                    style={{color:props.color,fontFamily:props.fontFamily}}>Learn here</Button>
                                 </Card.Body>
-                            </Card>
+                            </Card> */}
                             <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./mag_glass.png'} />
                                 <Card.Body>
