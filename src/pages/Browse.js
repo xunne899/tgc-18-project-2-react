@@ -720,18 +720,19 @@ export default class Browse extends React.Component {
                       
 {/*                         
                           <strong>Country Origin: </strong> */}
-                          <span className="badge rounded-pill bg-primary mx-1" style={{ color: "black" }}>
+                          <span className="badge bg-dark mx-1" style={{ color: "white" }}>
                             {r.country_origin}
+                          </span>
+
+                          <span className="badge bg-dark mx-1" style={{ color: "white" }}>
+                            ${r.cost}
                           </span>
                      
                           {/* <strong>Color: </strong> */}
-                          <span className="badge rounded-pill bg-success mx-1" style={{ color: "black" }}>
+                          <span className="badge bg-secondary mx-1" style={{ color: "white" }}>
                             {r.color}
                           </span>
 
-                          <span className="badge rounded-pill bg-danger mx-1" style={{ color: "black" }}>
-                            ${r.cost}
-                          </span>
                        
 
                         {/* <div>Skin_Type:
@@ -745,7 +746,7 @@ export default class Browse extends React.Component {
                         
                           {/* <strong>Skin_Type:</strong> */}
                           {Object.keys(r.skin_type).map((i) => (
-                            <span className="badge rounded-pill bg-info" style={{ color: "black" }} key={`${i}`}>
+                            <span className="badge bg-secondary ms-1" style={{ color: "white" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
@@ -795,10 +796,21 @@ export default class Browse extends React.Component {
                                             </>)
                                         )
                                     } */}
-                        <div className="ms-auto text-end mt-3" style={{ fontFamily:"League Spartan" }}>
+          
+                        <button
+                            className=" btn btn-dark mt-4 d-flex  justify-content-center align-items-center col-12"
+                            style={{ height:"30px", color: "white",fontSize:"15px",fontFamily:"League Spartan" }}
+                            onClick={() => {
+                              this.view(r);
+                              this.setState({ isViewVisible: true });
+                            }}
+                          >
+                            More
+                          </button>
+                          <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}>
                           {/* <InfoModal data={this.state}/> */}
                           <button
-                            className=" btn btn-dark my-1 ms-2 text-center"
+                            className=" btn btn-primary col d-flex  justify-content-center align-items-center "
                             style={{  height:"30px",color: "white",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
@@ -807,19 +819,9 @@ export default class Browse extends React.Component {
                           >
                             Edit
                           </button>
+                      
                           <button
-                            className=" btn btn-dark my-1 ms-2 text-center"
-                            style={{ height:"30px", color: "white",fontSize:"15px" }}
-                            onClick={() => {
-                              this.view(r);
-                              this.setState({ isViewVisible: true });
-                            }}
-                          >
-                            More
-                          </button>
-
-                          <button
-                            className="btn btn-dark my-1 ms-2 text-center"
+                            className="btn btn-danger col d-flex  justify-content-center align-items-center "
                             style={{ height:"30px",color: "white",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
@@ -832,6 +834,7 @@ export default class Browse extends React.Component {
                           </button>
                         </div>
                       </li>
+                
                     </React.Fragment>
                   ))}
                   {/* </ul> */}

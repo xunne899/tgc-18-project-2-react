@@ -117,34 +117,35 @@ export default class Listing extends React.Component {
             <div classname="mt-4"><strong>Contact Number :</strong>   <span className="text-right">{selectedData.contact_no}</span></div>
             <div classname="mt-4"><strong>Color :</strong>            <span className="text-right">{selectedData.color}</span></div>
             <div classname="mt-4"><strong>Country Origin :</strong>  <span className="text-right">{selectedData.country_origin}</span></div>
-            <div classname="mt-4"><strong>Skin Type :</strong>        <span className="text-right">{selectedData.skin_type}</span></div>
+            <div classname="mt-4"><strong>Skin Type :</strong>        <span className="text-right">{selectedData.skin_type.join(', ')}</span></div>
             </div>
 
             <div className="col-sm-12 col-lg-6 mt-3">
             <div>
             <strong>Oil Ingredient :</strong> 
-              {selectedData.ingredients.oil_ingredient.map((item) => (
-                <span >{item}</span>
-              ))}
-            </div>
+            <span>{selectedData.ingredients.oil_ingredient.map((item) => {
+               return item
+              }).join(', ')}
+            </span></div>
             <div>
             <strong>Base Ingredient :</strong> 
-              {selectedData.ingredients.base_ingredient.map((item) => (
-                <span >{item}</span>
-              ))}
-            </div>
+            <span>{selectedData.ingredients.base_ingredient.map((item) => {
+               return item
+              }).join(', ')}
+            </span></div>
             <div>
             <strong>Milk Ingredient :</strong> 
-              {selectedData.ingredients.milk_ingredient.map((item) => (
-                <span >{item}</span>
-              ))}
-            </div>
+            <span> {selectedData.ingredients.milk_ingredient.map((item) => {
+               return item
+              }).join(', ')}
+            </span></div>
             <div>
+            
             <strong>Treat :</strong> 
-              {selectedData.suitability.treat.map((item) => (
-                <span >{item}</span>
-              ))}
-            </div>
+            <span>{selectedData.suitability.treat.map((item) =>{
+              return item
+            }).join(', ')}
+            </span></div>
             <div><strong>Recommended Usage :</strong>{selectedData.suitability.recommended_use}</div>
             <div><strong>Date Posted :</strong>{new Date(selectedData.suitability.date_posted).toLocaleString()}</div>
             </div>

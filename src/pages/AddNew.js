@@ -122,7 +122,7 @@ export default class AddNew extends React.Component {
 
   treat = [
     {
-      show: "Irritable skin",
+      show: "Irritable Skin",
       value: "irritable_skin",
     },
     {
@@ -131,7 +131,7 @@ export default class AddNew extends React.Component {
     },
     {
       show: "Skin Abrasion",
-      value: "skin_Abrasion",
+      value: "skin_abrasion",
     },
     {
       show: "Skin Cuts",
