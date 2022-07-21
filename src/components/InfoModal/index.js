@@ -98,17 +98,19 @@ export default class Listing extends React.Component {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
-      <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
+      <Modal size="lg" style={{paddingLeft: "0px" }} show={isViewVisible} onHide={setIsViewVisible} >
         <Modal.Header style={{ background: "white" }} closeButton>
           <Modal.Title style={{ fontFamily: "League Spartan" }}>View</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: "white" }}>
           <div className="infoTitle">{selectedData.soap_label}</div>
           <div className="infoPrice" style={{color:"black"}}>${selectedData.cost}</div>
+
           <div className="infoWrapper row  mx-auto">
             <div className="infoImage rounded-3 mx-auto" style={{ height: "250px", width: "400px"}}>
               <img className="mx-auto rounded-3" src={selectedData.image_url} />
             </div>
+
             <div className="row m-2">
             <div className="col-sm-12 col-lg-6">
               <div>
@@ -202,9 +204,9 @@ export default class Listing extends React.Component {
               UserName:<span>{}</span>
             </div> */}
 
-            <div classname="row mt-3">
+            <div classname="row m-2">
               <strong>Comments:</strong>
-              <div className="autoBox col col-sm border border-dark border-1 p-2 rounded-3">{this.getCommentData(this.state.comments)}</div>
+              <div className="autoBox col col-sm border  border-1 p-2 rounded-3">{this.getCommentData(this.state.comments)}</div>
             </div>
           </div>
 

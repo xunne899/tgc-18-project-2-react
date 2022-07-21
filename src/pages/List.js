@@ -6,7 +6,8 @@ import "../components/InfoModal/index.css";
 import InfoModal from "../components/InfoModal";
 import EditInfoModal from "../components/InfoEditModal";
 import DeleteInfoModal from "../components/DeleteInfoModal";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 export default class Listing extends React.Component {
   url = "https://project-2-soap.herokuapp.com/";
 
@@ -193,34 +194,46 @@ export default class Listing extends React.Component {
       <React.Fragment>
           {/* <div className="listlogo mt-1 row mx-auto" src={require("../soapBW_logo.png")} /></div> */}
         {/* <div className="border border-dark border-3 rounded-3 m-4" style={{ background: "white" }}> */}
-        <div className="mt-3 m-4 d-flex justify-content-center" style={{ background: "white" }}>
+        <div className="mt-2 m-4 d-flex justify-content-center" style={{ background: "white" }}>
           {/* <h1 className="AddForm">All Collections</h1> */}
-          <div className="row justify-content-center">
+          <div className="row d-flex justify-content-center col-sm-12 col-md-12 col-lg-8">
             {/* <ul className="list-group  item"> */}
             {this.state.collection.map((r) => (
               <React.Fragment key={r._id}>
-                <li className="list-group-item item rounded-3 col-12 col-lg-4" style={{ background: "white" }}>
-                <div>
-                    {/* <strong>Soap Name: </strong> */}
-                    <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
+                <li className="list-group-item item rounded-3 m-2" style={{ background: "white" }}>
+                           {/* <strong>Soap Name: </strong> */}
+                           <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
                           </h4>
-                  </div>
-                  <div className="infoImage mx-auto m-2">
-                    {" "}
-                    <img style={{ width:"300px", height:"200px"}} src={r.image_url} alt="new" />
-                  </div>
-                  {/* <span className=" mx-1"> <img style={{height:"250px",width:"350px"}}src={r.image_url}alt="new"/></span> */}
-              
-                  <div className= "m-2">
-                    {/* <strong>Country Origin: </strong> */}
-                    <span className="badge rounded-pill bg-primary mx-1" style={{ color: "white" }}>
-                      {r.country_origin}
-                    </span>
-                  
-                  {/* <div><strong>Color: </strong><span className="badge rounded-pill bg-dark mx-1" style={{color:"#ebd8b8"}}>{r.color}</span></div> */}
+                          <a className="deleteBtn " style={{textDecoration:"none",fontSize:"20px"}}onClick={() => {
+                              this.view(r);
+                              this.setState({ isDeleteVisible: true });
+                            }}><FontAwesomeIcon icon={faCircleXmark} /></a>
+                        <div className="infoImage mx-auto m-2">
+                          {" "}
+                          <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
+                        </div>
+                        <div>
+                         
+                      
+{/*      
+                          <strong>Country Origin: </strong> */}
+                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
+                            {r.country_origin}
+                          </span>
 
-                  {/* <div>Skin_Type:
+                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
+                            ${r.cost}
+                          </span>
+                     
+                          {/* <strong>Color: </strong> */}
+                          <span className="badge mx-1" style={{backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }}>
+                            {r.color}
+                          </span>
+
+                       
+
+                        {/* <div>Skin_Type:
                                     {
                                         r.skin_type.map(i => 
                                            <span key={i} className="badge rounded-pill bg-primary mx-1">{i}
@@ -228,92 +241,100 @@ export default class Listing extends React.Component {
                                     }
                                     </div> */}
 
-                  {/* <div> */}
-                    {/* <strong>Skin_Type:</strong> */}
-                    {Object.keys(r.skin_type).map((i) => (
-                      <span className="badge rounded-pill bg-success" style={{ color: "white" }} key={`${i}`}>
-                        {" "}
-                        {r.skin_type[i]}
-                      </span>
-                    ))}
-                  {/* </div> */}
+                        
+                          {/* <strong>Skin_Type:</strong> */}
+                          {Object.keys(r.skin_type).map((i) => (
+                            <span className="badge ms-1" style={{ backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }} key={`${i}`}>
+                              {" "}
+                              {r.skin_type[i]}
+                            </span>
+                          ))}
+{/*                      
+                          <strong>Treat:</strong> */}
+                          {/* {Object.keys(r.suitability.treat).map((i) => (
+                            <span className="badge rounded-pill bg-warning" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.suitability.treat[i]}
+                            </span>
+                          ))}
 
-                  {/* <div> */}
-                    {/* <strong>Treat:</strong> */}
-                    {Object.keys(r.suitability.treat).map((i) => (
-                      <span className="badge rounded-pill bg-warning" style={{ color: "white" }} key={`${i}`}>
-                        {" "}
-                        {r.suitability.treat[i]}
-                      </span>
-                    ))}
-                  </div>
 
-                  {/* {
-                                        Object.keys(r.ingredients).map((iType) =>
-                                        (
-                                            <>
-        
-                                                <div><strong>Ingredients: {iType}</strong></div>
-                                                
-                                                {r.ingredients[iType].map((info, i) => <span key={`${iType}_${i}`}  className="badge rounded-pill bg-dark" style={{color:"#ebd8b8"}}>
-                                                 {info}
-                                                </span>)}
-                       
-                                            </>)
-                                        )
-                                    } */}
+                               {Object.keys(r.ingredients.oil_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.oil_ingredient[i]}
+                            </span>
+                          ))}
 
-                  {/* {
+                            {Object.keys(r.ingredients.base_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.base_ingredient[i]}
+                            </span>
+                          ))}
+                              {Object.keys(r.ingredients.milk_ingredient).map((i) => (
+                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
+                              {" "}
+                              {r.ingredients.milk_ingredient[i]}
+                            </span>
+                          ))} */}
+                        </div>
+   
+                    
+
+                        {/* {
                                         Object.keys(r.suitability).map((iType) =>
                                         (
                                             <>
                                                 {console.log('data=>', iType)}
                                                 <div>: {iType}</div>
-
                                                 {r.ingredients[iType].map((info, i) => <span key={`${iType}_${i}`} className="badge bg-danger mx-1">
                                                     {info}
                                                 </span>)}
-
                                             </>)
                                         )
                                     } */}
-                  <div className="ms-auto text-end mt-3" style={{ fontFamily:"League Spartan" }}>
-                    {/* <InfoModal data={this.state}/> */}
-                    <button
-                      className=" btn btn-dark my-1 ms-2 text-center"
-                      style={{ height:"30px",color: "white",fontSize:"15px" }}
-                      onClick={() => {
-                        this.view(r);
-                        this.setState({ isEditVisible: true });
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className=" btn btn-dark my-1 ms-2 text-center"
-                      style={{ height:"30px",color: "white",fontSize:"15px" }}
-                      onClick={() => {
-                        this.view(r);
-                        this.setState({ isViewVisible: true });
-                      }}
-                    >
-                      More
-                    </button>
 
-                    <button
-                      className=" btn btn-dark my-1 ms-2 text-center"
-                      style={{height:"30px",color: "white",fontSize:"15px"}}
-                      onClick={() => {
-                        this.view(r);
-                        this.setState({ isDeleteVisible: true });
-                      }}
+{/* <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}> */}
+                                         <div className="d-flex justify-content-between gap-1 mt-4" style={{ fontFamily:"League Spartan" }}>
+                          {/* <InfoModal data={this.state}/> */}
+                          <button
+                            className="btn  col d-flex  justify-content-center align-items-center"
+                            style={{  height:"30px",backgroundColor:"#ECECEC",color: "black",fontSize:"15px"}}
+                            onClick={() => {
+                              this.view(r);
+                              this.setState({ isEditVisible: true });
+                            }}
+                          >
+                            Edit
+                          </button>
+                      
+                          {/* <button
+                            className="btn btn-light col d-flex  justify-content-center align-items-center "
+                            style={{ height:"30px",color: "black",fontSize:"15px"}}
+                            onClick={() => {
+                              this.view(r);
+                              this.setState({ isDeleteVisible: true });
+                            }}
 
-                      // {this.processDeleteCollection(r)}}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </li>
+                            // {this.processDeleteCollection(r)}}
+                          >
+                            Delete
+                          </button> */}
+                        </div>
+          
+                        <button
+                            className=" btn btn-dark mt-1 d-flex  justify-content-center align-items-center col-12"
+                            style={{ height:"30px", color: "white",fontSize:"15px",fontFamily:"League Spartan" }}
+                            onClick={() => {
+                              this.view(r);
+                              this.setState({ isViewVisible: true });
+                            }}
+                          >
+                            More
+                          </button>
+                     
+                      </li>
               </React.Fragment>
             ))}
             {/* </ul> */}

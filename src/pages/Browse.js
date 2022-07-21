@@ -410,17 +410,17 @@ export default class Browse extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Container style={{ margin: "10px 0px", height: "100%", width: "100%" }}>
+        <Container style={{ height: "100%", width: "100%" }}>
           <Row>
-            <Col xs="12" lg="2" className=" mt-3" >
+            <Col xs="12"  className="mt-3 mx-auto" >
           
-             <Accordion defaultActiveKey="0" >
+            <Accordion defaultActiveKey="0" >
       <Accordion.Item eventKey="0">
         <Accordion.Header>Search</Accordion.Header>
         <Accordion.Body>
-    
-        <div className="mt-1 p-2" style={{fontFamily:"League Spartan"}}>
-                <label>Search</label>
+        <div className="row mt-1 p-2 col" style={{fontFamily:"League Spartan"}}>
+        <div className="col-12 col-lg-6" >
+        <label>Search</label>
                 <div>
                   <input
                     value={this.state.searchInput}
@@ -428,17 +428,9 @@ export default class Browse extends React.Component {
                     onChange={this.updateSearchFormField}
                     className="form-control"
                     name="searchInput"
-                    // style={{ width: "240px",height:"30px" }}
+                  
                   />
-                  {/* {this.showSearchError() && this.state.submitted ? (
-                    <div style={{ color: "red" }} className="error">
-                      {this.showSearchError()}
-                    </div>
-                  ) : (
-                    ""
-                  )} */}
                 </div>
-
                 <div className="mt-2">
                   <label>Country</label>
                   <select
@@ -470,58 +462,10 @@ export default class Browse extends React.Component {
                     {this.showColor()}
                   </select>
                 </div>
-                
-                {/* <div>
-                  <label>Color</label>
-                  <input
-                    type="radio"
-                    onChange={this.updateSearchFormField}
-                    className="form-check-input"
-                    name="searchColor"
-                    value="green"
-                    checked={this.state.searchColor === "green"}
-                  />
-                  <label class="form-check-label">Green</label>
-                  <input
-                    type="radio"
-                    onChange={this.updateSearchFormField}
-                    className="form-check-input"
-                    name="searchColor"
-                    value="blue"
-                    checked={this.state.searchColor === "blue"}
-                  />
-                  <label class="form-check-label">Blue</label>
-                  <input
-                    type="radio"
-                    onChange={this.updateSearchFormField}
-                    className="form-check-input"
-                    name="searchColor"
-                    value="red"
-                    checked={this.state.searchColor === "red"}
-                  />
-                  <label class="form-check-label">Red</label>
-                  <input
-                    type="radio"
-                    onChange={this.updateSearchFormField}
-                    className="form-check-input"
-                    name="searchColor"
-                    value="yellow"
-                    checked={this.state.searchColor === "yellow"}
-                  />
-                  <label class="form-check-label">Yellow</label>
-                  <input
-                    type="radio"
-                    onChange={this.updateSearchFormField}
-                    className="form-check-input"
-                    name="searchColor"
-                    value="orange"
-                    checked={this.state.searchColor === "orange"}
-                  />
-                  <label class="form-check-label">Orange</label>
-                </div> */}
-               
-                <div className="mt-2">
-                  <label>Cost</label>
+             </div>
+
+             <div className="col-12 col-lg-6 mt-3" >
+                <label>Cost</label>
                   <div>
                     <label>Min Amount</label>
                     <input
@@ -556,159 +500,71 @@ export default class Browse extends React.Component {
                       ""
                     )}
                   </div>
-                </div>
-                <div className="mt-2">
-                
-                  <label>Skin Type</label><br/>
-
-                  <input
-                    type="checkbox"
-                    onChange={this.updateSkin}
-                    className="form-check-input"
-                    name="searchSkin"
-                    value={"sensitive"}
-                    checked={this.state.searchSkin.includes("sensitive")}
-                  />
-                  <label class="form-check-label">Sensitive</label><br/>
-
-                  <input
-                    type="checkbox"
-                    onChange={this.updateSkin}
-                    className="form-check-input"
-                    name="searchSkin"
-                    value={"oily"}
-                    checked={this.state.searchSkin.includes("oily")}
-                  />
-                  <label class="form-check-label">Oily</label><br/>
-
-                  <input
-                    type="checkbox"
-                    onChange={this.updateSkin}
-                    className="form-check-input"
-                    name="searchSkin"
-                    value={"dry"}
-                    checked={this.state.searchSkin.includes("dry")}
-                  />
-                  <label class="form-check-label">Dry</label><br/>
                   
-                </div>
+
+              
+               
+                <div className="mt-3">
                 
-                 {/* oil check */}
-                {/* <div>
-                  <label>Oil Ingredients</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateOil}
-                    className="form-check-input"
-                    name="searchOil"
-                    value={"coconut oil"}
-                    checked={this.state.searchOil.includes("coconut oil")}
-                  />
-                  <label class="form-check-label">Coconut oil</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateOil}
-                    className="form-check-input"
-                    name="searchOil"
-                    value={"butter oil"}
-                    checked={this.state.searchOil.includes("butter oil")}
-                  />
-                  <label class="form-check-label">Butter oil</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateOil}
-                    className="form-check-input"
-                    name="searchOil"
-                    value={"grapeseed oil"}
-                    checked={this.state.searchOil.includes("grapeseed oil")}
-                  />
-                  <label class="form-check-label">Grapeseed oil</label><br/>
+                <label>Skin Type</label>
+
+                &nbsp;&nbsp;<input
+                  type="checkbox"
+                  onChange={this.updateSkin}
+                  className="form-check-input"
+                  name="searchSkin"
+                  value={"sensitive"}
+                  checked={this.state.searchSkin.includes("sensitive")}
+                />
+                <label class="form-check-label">Sensitive</label>
+
+                &nbsp;&nbsp;<input
+                  type="checkbox"
+                  onChange={this.updateSkin}
+                  className="form-check-input"
+                  name="searchSkin"
+                  value={"oily"}
+                  checked={this.state.searchSkin.includes("oily")}
+                />
+                <label class="form-check-label">Oily</label>
+
+                &nbsp;&nbsp;<input
+                  type="checkbox"
+                  onChange={this.updateSkin}
+                  className="form-check-input"
+                  name="searchSkin"
+                  value={"dry"}
+                  checked={this.state.searchSkin.includes("dry")}
+                />
+                <label class="form-check-label">Dry</label>
                 </div>
-                <div>
-                  <label>Base Ingredients</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateBase}
-                    className="form-check-input"
-                    name="searchBase"
-                    value={"mugwort powder"}
-                    checked={this.state.searchBase.includes("mugwort powder")}
-                  />
-                  <label class="form-check-label">Mugwort Powder</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateBase}
-                    className="form-check-input"
-                    name="searchBase"
-                    value={"tomato powder"}
-                    checked={this.state.searchBase.includes("tomato powder")}
-                  />
-                  <label class="form-check-label">Tomato Powder</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateBase}
-                    className="form-check-input"
-                    name="searchBase"
-                    value={"tumeric powder"}
-                    checked={this.state.searchBase.includes("tumeric powder")}
-                  />
-                  <label class="form-check-label">Tumeric Powder</label><br/>
                 </div>
-                <div>
-                  <label>Milk Ingredients</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateMilk}
-                    className="form-check-input"
-                    name="searchMilk"
-                    value={"butter milk"}
-                    checked={this.state.searchMilk.includes("butter milk")}
-                  />
-                  <label class="form-check-label">Butter Milk</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateMilk}
-                    className="form-check-input"
-                    name="searchMilk"
-                    value={"oatmeal milk"}
-                    checked={this.state.searchMilk.includes("oatmeal milk")}
-                  />
-                  <label class="form-check-label">Oatmeal Milk</label><br/>
-                  <input
-                    type="checkbox"
-                    onChange={this.updateMilk}
-                    className="form-check-input"
-                    name="searchMilk"
-                    value={"goat milk"}
-                    checked={this.state.searchMilk.includes("goat milk")}
-                  />
-                  <label class="form-check-label">Goat Milk</label><br/>
-                </div> */}
+               
+                {/* </div> */}
                  {/* end of check */}
                 <div className="text-center ms-auto">
                   <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
                     Search
                   </a>
                 </div>
-              </div>
-        </Accordion.Body>
+                </div>
+             
+              </Accordion.Body>
       </Accordion.Item>
- 
-    </Accordion> 
+    </Accordion>
        </Col>
-            <Col xs="12" lg="10">
-              
-         
+       
+            <Col xs="12" >
               {/* search results */}
 
-              <div className="mt-2 ms-4" style={{ background: "white", height: "85%" }}>
+              <div className="mt-4 m-1 d-flex justify-content-center" style={{ background: "white", height: "85%" }}>
                 {/* <h1 className="AddForm">All Collections</h1> */}
-                <div className="row justify-content-center col-sm col-md col-lg">
+                <div className="row  d-flex justify-content-center col-sm col-md col-lg">
                   {this.state.collection.length === 0 && <div className="noSearchLabel">No Results Found!</div>}
                   {/* <ul className="list-group  item"> */}
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
-                      <li className="list-group-item  item rounded-3 m-2" style={{ background: "white" }}>
+                      <div className="list-group-item  item rounded-3 m-1" style={{ background: "white" }}>
                          {/* <strong>Soap Name: </strong> */}
                          <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
@@ -721,11 +577,8 @@ export default class Browse extends React.Component {
                           {" "}
                           <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
                         </div>
-                        <div>
-                         
-                      
-{/*      
-                          <strong>Country Origin: </strong> */}
+
+                        <div>            
                           <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
                             {r.country_origin}
                           </span>
@@ -739,69 +592,17 @@ export default class Browse extends React.Component {
                             {r.color}
                           </span>
 
-                       
-
-                        {/* <div>Skin_Type:
-                                    {
-                                        r.skin_type.map(i => 
-                                           <span key={i} className="badge rounded-pill bg-primary mx-1">{i}
-                                        </span>)
-                                    }
-                                    </div> */}
-
-                        
-                          {/* <strong>Skin_Type:</strong> */}
                           {Object.keys(r.skin_type).map((i) => (
                             <span className="badge ms-1" style={{ backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
                           ))}
-{/*                      
-                          <strong>Treat:</strong> */}
-                          {/* {Object.keys(r.suitability.treat).map((i) => (
-                            <span className="badge rounded-pill bg-warning" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.suitability.treat[i]}
-                            </span>
-                          ))}
-
-
-                               {Object.keys(r.ingredients.oil_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.oil_ingredient[i]}
-                            </span>
-                          ))}
-
-                            {Object.keys(r.ingredients.base_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.base_ingredient[i]}
-                            </span>
-                          ))}
-                              {Object.keys(r.ingredients.milk_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.milk_ingredient[i]}
-                            </span>
-                          ))} */}
                         </div>
    
                     
 
-                        {/* {
-                                        Object.keys(r.suitability).map((iType) =>
-                                        (
-                                            <>
-                                                {console.log('data=>', iType)}
-                                                <div>: {iType}</div>
-                                                {r.ingredients[iType].map((info, i) => <span key={`${iType}_${i}`} className="badge bg-danger mx-1">
-                                                    {info}
-                                                </span>)}
-                                            </>)
-                                        )
-                                    } */}
+                     
 
 {/* <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}> */}
                                          <div className="d-flex justify-content-between gap-1 mt-4" style={{ fontFamily:"League Spartan" }}>
@@ -842,7 +643,7 @@ export default class Browse extends React.Component {
                             More
                           </button>
                      
-                      </li>
+                      </div>
                 
                     </React.Fragment>
                   ))}
@@ -867,8 +668,8 @@ export default class Browse extends React.Component {
                   />
                 )}
               </div>
-            </Col>
-          </Row>
+              </Col>
+              </Row>
         </Container>
       </React.Fragment>
     );

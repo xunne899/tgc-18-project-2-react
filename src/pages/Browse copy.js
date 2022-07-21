@@ -404,6 +404,7 @@ export default class Browse extends React.Component {
       <React.Fragment>
         <Container style={{ margin: "10px 0px", height: "95%", width: "100%" }}>
           <Row>
+            
             <Col xs="12" lg="3">
               <div className="m-2  p-3">
                 <label>Search</label>

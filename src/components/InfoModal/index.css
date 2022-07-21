@@ -13,11 +13,17 @@
 
 }
 
+.fade-modal-show{
+    padding-left: 0px;
+}
+
 .autoBox{
     /* background-color: lightblue; */
     height: 100px;
-    width: 743px;  
+    /* width: 740px;   */
     overflow-y: auto;
+    min-width: 10vh;
+    /* min-height:fit-content  */
 }
 
 .infoLabel >span{
@@ -58,56 +64,6 @@
     transform: scale(1.5);
 }
 
-
-
-@media(min-width: 0px) and  (max-width:50px) {
-
-    .autoBox{
-        /* background-color: lightblue; */
-        height: 100px;
-        width: 30px;  
-        overflow-y: auto;
-    }
-
-
-}
-
-@media (min-width: 360px) and (max-width: 600px){
-
-    .autoBox{
-        /* background-color: lightblue; */
-        height: 100px;
-        width: 285px;  
-        overflow-y: auto;
-    }
-
-
-}
-
-
-@media (min-width: 601px) and (max-width: 999px){
-
-    .autoBox{
-        /* background-color: lightblue; */
-        height: 100px;
-        width: 445px;  
-        overflow-y: auto;
-    }
-
-
-}
-
-@media (min-width: 1000px){
-
-    .autoBox{
-        /* background-color: lightblue; */
-        height: 100px;
-        width: 743px;  
-        overflow-y: auto;
-    }
-
-
-}
 
 
 
