@@ -3,6 +3,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 // import { Container, Row, Button, Card, Col } from 'react-bootstrap';
 
 import Accordion from 'react-bootstrap/Accordion';
@@ -446,7 +448,7 @@ export default class Browse extends React.Component {
                     name="searchCountry"
                     // name="country" value={this.state.country} onChange={this.updateFormField}
                   >
-                    <option key="placeholder" name="selectone" value="Select One">
+                    <option key="placeholder" name="selectone" value="">
                       Select One
                     </option>
                     {this.showCountries()}
@@ -462,7 +464,7 @@ export default class Browse extends React.Component {
                     name="searchColor"
                     // name="country" value={this.state.country} onChange={this.updateFormField}
                   >
-                    <option key="placeholder" name="selectone" value="Select One">
+                    <option key="placeholder" name="selectone" value="">
                       Select One
                     </option>
                     {this.showColor()}
@@ -711,6 +713,10 @@ export default class Browse extends React.Component {
                          <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
                           </h4>
+                          <a className="deleteBtn " style={{textDecoration:"none",fontSize:"20px"}}onClick={() => {
+                              this.view(r);
+                              this.setState({ isDeleteVisible: true });
+                            }}><FontAwesomeIcon icon={faCircleXmark} /></a>
                         <div className="infoImage mx-auto m-2">
                           {" "}
                           <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
@@ -718,18 +724,18 @@ export default class Browse extends React.Component {
                         <div>
                          
                       
-{/*                         
+{/*      
                           <strong>Country Origin: </strong> */}
-                          <span className="badge bg-dark mx-1" style={{ color: "white" }}>
+                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
                             {r.country_origin}
                           </span>
 
-                          <span className="badge bg-dark mx-1" style={{ color: "white" }}>
+                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
                             ${r.cost}
                           </span>
                      
                           {/* <strong>Color: </strong> */}
-                          <span className="badge bg-secondary mx-1" style={{ color: "white" }}>
+                          <span className="badge mx-1" style={{backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }}>
                             {r.color}
                           </span>
 
@@ -746,7 +752,7 @@ export default class Browse extends React.Component {
                         
                           {/* <strong>Skin_Type:</strong> */}
                           {Object.keys(r.skin_type).map((i) => (
-                            <span className="badge bg-secondary ms-1" style={{ color: "white" }} key={`${i}`}>
+                            <span className="badge ms-1" style={{ backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
@@ -796,22 +802,13 @@ export default class Browse extends React.Component {
                                             </>)
                                         )
                                     } */}
-          
-                        <button
-                            className=" btn btn-dark mt-4 d-flex  justify-content-center align-items-center col-12"
-                            style={{ height:"30px", color: "white",fontSize:"15px",fontFamily:"League Spartan" }}
-                            onClick={() => {
-                              this.view(r);
-                              this.setState({ isViewVisible: true });
-                            }}
-                          >
-                            More
-                          </button>
-                          <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}>
+
+{/* <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}> */}
+                                         <div className="d-flex justify-content-between gap-1 mt-4" style={{ fontFamily:"League Spartan" }}>
                           {/* <InfoModal data={this.state}/> */}
                           <button
-                            className=" btn btn-primary col d-flex  justify-content-center align-items-center "
-                            style={{  height:"30px",color: "white",fontSize:"15px"}}
+                            className="btn  col d-flex  justify-content-center align-items-center"
+                            style={{  height:"30px",backgroundColor:"#ECECEC",color: "black",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isEditVisible: true });
@@ -820,9 +817,9 @@ export default class Browse extends React.Component {
                             Edit
                           </button>
                       
-                          <button
-                            className="btn btn-danger col d-flex  justify-content-center align-items-center "
-                            style={{ height:"30px",color: "white",fontSize:"15px"}}
+                          {/* <button
+                            className="btn btn-light col d-flex  justify-content-center align-items-center "
+                            style={{ height:"30px",color: "black",fontSize:"15px"}}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isDeleteVisible: true });
@@ -831,8 +828,20 @@ export default class Browse extends React.Component {
                             // {this.processDeleteCollection(r)}}
                           >
                             Delete
-                          </button>
+                          </button> */}
                         </div>
+          
+                        <button
+                            className=" btn btn-dark mt-1 d-flex  justify-content-center align-items-center col-12"
+                            style={{ height:"30px", color: "white",fontSize:"15px",fontFamily:"League Spartan" }}
+                            onClick={() => {
+                              this.view(r);
+                              this.setState({ isViewVisible: true });
+                            }}
+                          >
+                            More
+                          </button>
+                     
                       </li>
                 
                     </React.Fragment>

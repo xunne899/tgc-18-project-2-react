@@ -403,7 +403,7 @@ export default class AddNew extends React.Component {
                 <label>Image URL</label>
                 <div>
                   {this.state.newImageUrl !== "" && (
-                    <img src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "200px" }} />
+                    <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "250px" }} />
                   )}
                 </div>
                 <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
@@ -561,6 +561,7 @@ export default class AddNew extends React.Component {
                 <input
                   type="text"
                   name="oilInput"
+                  className="form-control"
                   placeholder="eg.butter oil <Enter to add>"
                   value={this.state.oilInput}
                   onKeyDown={this.updateOilIngredients}
@@ -586,6 +587,7 @@ export default class AddNew extends React.Component {
                 <input
                   type="text"
                   name="baseInput"
+                  className="form-control"
                   placeholder="eg.tomato powder <Enter to add>"
                   value={this.state.baseInput}
                   onKeyDown={this.updateBaseIngredients}
@@ -611,6 +613,7 @@ export default class AddNew extends React.Component {
                 <input
                   type="text"
                   name="milkInput"
+                  className="form-control"
                   placeholder="eg. goat milk <Enter to add>"
                   value={this.state.milkInput}
                   onKeyDown={this.updateMilkIngredients}

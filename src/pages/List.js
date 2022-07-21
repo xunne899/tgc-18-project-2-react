@@ -193,13 +193,13 @@ export default class Listing extends React.Component {
       <React.Fragment>
           {/* <div className="listlogo mt-1 row mx-auto" src={require("../soapBW_logo.png")} /></div> */}
         {/* <div className="border border-dark border-3 rounded-3 m-4" style={{ background: "white" }}> */}
-        <div className=" mt-2 ms-4" style={{ background: "white" }}>
+        <div className="mt-3 m-4 d-flex justify-content-center" style={{ background: "white" }}>
           {/* <h1 className="AddForm">All Collections</h1> */}
-          <div className="row justify-content-center col-sm col-md col-lg">
+          <div className="row justify-content-center">
             {/* <ul className="list-group  item"> */}
             {this.state.collection.map((r) => (
               <React.Fragment key={r._id}>
-                <li className="list-group-item  item  rounded-3 m-2" style={{ background: "white" }}>
+                <li className="list-group-item item rounded-3 col-12 col-lg-4" style={{ background: "white" }}>
                 <div>
                     {/* <strong>Soap Name: </strong> */}
                     <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>

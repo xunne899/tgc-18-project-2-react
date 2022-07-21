@@ -66,6 +66,7 @@ body {
 .item{
   /* height:400px; */
   width:320px;
+  position:relative
 
 }
 
@@ -155,7 +156,16 @@ body {
   
 
 }
+.deleteBtn{
+  position:absolute;
+  top:4px;
+  right:12px;
+  color:rgba(232, 220, 220, 0.5)
+}
+.deleteBtn:hover{
 
+  color:grey
+}
 
 .addbg{
   height: 320px;
@@ -353,6 +363,17 @@ font-family:'League Spartan';
 
 }
 
+.deleteBtn{
+  position:absolute;
+  top:4px;
+  right:12px;
+  color:rgba(232, 220, 220, 0.5)
+}
+.deleteBtn:hover{
+
+  color:grey
+}
+
 .listlogo{
     
   height: 80px;
@@ -475,6 +496,7 @@ font-size:0.7rem;
     .item{
       /* height:150px; */
       width:300px;
+      position:relative
     
       
     }
@@ -567,6 +589,17 @@ font-size:0.7rem;
       font-family:'League Spartan';
       
   
+  }
+
+  .deleteBtn{
+    position:absolute;
+    top:4px;
+    right:12px;
+    color:rgba(232, 220, 220, 0.5)
+  }
+  .deleteBtn:hover{
+  
+    color:grey
   }
 
   .listlogo{
