@@ -31,7 +31,9 @@
     font-size: 1.em;
     font-family: "League Spartan";
 }
-
+.modal{
+    padding-left: 0px;
+}
 
 .infoImage{
     width:100%;
