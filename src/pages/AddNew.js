@@ -431,7 +431,7 @@ export default class AddNew extends React.Component {
                 {this.showError("name")}
               </div>
               <div className="mb-3">
-                <label><strong>Emai</strong></label>
+                <label><strong>Email</strong></label>
                 <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
               </div>

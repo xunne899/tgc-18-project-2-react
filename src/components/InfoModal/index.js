@@ -197,7 +197,7 @@ export default class Listing extends React.Component {
               <div className="col-sm-12 col-lg-6 mb-4 ">
                 <h5>Ingredient Info</h5>
                 <div className="text-wrap">
-                  <strong className="text-left">Oil Ingredient: </strong>
+                  <strong className="text-left">Oil Ingredients: </strong>
                   <span className="text-right">
                     {selectedData.ingredients.oil_ingredient
                       .map((item) => {
@@ -208,7 +208,7 @@ export default class Listing extends React.Component {
                 </div>
 
                 <div className="text-wrap">
-                  <strong className="text-left">Base Ingredient: </strong>
+                  <strong className="text-left">Base Ingredients: </strong>
                   <span className="text-right">
                     {selectedData.ingredients.base_ingredient
                       .map((item) => {
@@ -218,7 +218,7 @@ export default class Listing extends React.Component {
                   </span>
                 </div>
                 <div className="text-wrap">
-                  <strong className="text-left">Milk Ingredient: </strong>
+                  <strong className="text-left">Milk Ingredients: </strong>
                   <span className="text-right">
                     {" "}
                     {selectedData.ingredients.milk_ingredient
