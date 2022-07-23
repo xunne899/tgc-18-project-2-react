@@ -439,9 +439,11 @@ export default class EditInfoModal extends React.Component {
                   {/* <div className="col-12 col-lg-4"> */}
                     <div>
                       <label>Image URL</label>
-                      <div>
+                      <div className="infoPic">
                         {this.state.newImageUrl !== "" && (
-                          <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "200px" }} />
+                          <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>"
+                           style={{ "max-width": "200px" }} 
+                           />
                         )}
                       </div>
                       <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
@@ -687,7 +689,7 @@ export default class EditInfoModal extends React.Component {
                   <br />
                   <br />
                   <div className="text-center ms-auto">
-                    <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.handlePutSoapData}>
+                    <a className="AddBtn btn btn-dark mt-5" style={{ color: "white" }} onClick={this.handlePutSoapData}>
                       Update
                     </a>
                   </div>

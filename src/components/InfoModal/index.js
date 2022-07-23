@@ -107,35 +107,39 @@ export default class Listing extends React.Component {
           <div className="infoPrice" style={{color:"black"}}>${selectedData.cost}</div>
 
           <div className="infoWrapper row  mx-auto">
-            <div className="infoImage rounded-3 mx-auto" style={{ height: "250px", width: "400px"}}>
+            <div className="infoImage rounded-3 mx-auto mb-1" 
+            style={{
+              //  "max-height": "250px",
+                "max-width": "500px"}}
+            >
               <img className="mx-auto rounded-3" src={selectedData.image_url} />
             </div>
 
-            <div className="row m-2">
-            <div className="col-sm-12 col-lg-6">
+            <div className="row mt-3 ">
+            <div className="col-sm-12 col-lg-6 mb-2 ">
               <div>
-                <strong>Name</strong> <span className="text-right">{selectedData.name}</span>
+                <strong>Name: </strong> <span className="text-right">{selectedData.name}</span>
               </div>
               <div classname="mt-4">
-                <strong>Email :</strong> <span className="text-right">{selectedData.email}</span>
+                <strong>Email: </strong> <span className="text-right">{selectedData.email}</span>
               </div>
               <div classname="mt-4">
-                <strong>Contact Number :</strong> <span className="text-right">{selectedData.contact_no}</span>
+                <strong>Contact Number: </strong> <span className="text-right">{selectedData.contact_no}</span>
               </div>
               <div classname="mt-4">
-                <strong>Color :</strong> <span className="text-right">{selectedData.color}</span>
+                <strong>Color: </strong> <span className="text-right">{selectedData.color}</span>
               </div>
               <div classname="mt-4">
-                <strong>Country Origin :</strong> <span className="text-right">{selectedData.country_origin}</span>
+                <strong>Country Origin: </strong> <span className="text-right">{selectedData.country_origin}</span>
               </div>
               <div classname="mt-4">
-                <strong>Skin Type :</strong> <span className="text-right">{selectedData.skin_type.join(", ")}</span>
+                <strong>Skin Type: </strong> <span className="text-right">{selectedData.skin_type.join(", ")}</span>
               </div>
             </div>
 
             <div className="col-sm-12 col-lg-6 ">
               <div>
-                <strong>Oil Ingredient :</strong>
+                <strong>Oil Ingredient: </strong>
                 <span>
                   {selectedData.ingredients.oil_ingredient
                     .map((item) => {
@@ -145,7 +149,7 @@ export default class Listing extends React.Component {
                 </span>
               </div>
               <div>
-                <strong>Base Ingredient :</strong>
+                <strong>Base Ingredient: </strong>
                 <span>
                   {selectedData.ingredients.base_ingredient
                     .map((item) => {
@@ -155,7 +159,7 @@ export default class Listing extends React.Component {
                 </span>
               </div>
               <div>
-                <strong>Milk Ingredient :</strong>
+                <strong>Milk Ingredient: </strong>
                 <span>
                   {" "}
                   {selectedData.ingredients.milk_ingredient
@@ -166,7 +170,7 @@ export default class Listing extends React.Component {
                 </span>
               </div>
               <div>
-                <strong>Treat :</strong>
+                <strong>Treat: </strong>
                 <span>
                   {selectedData.suitability.treat
                     .map((item) => {
@@ -176,11 +180,11 @@ export default class Listing extends React.Component {
                 </span>
               </div>
               <div>
-                <strong>Recommended Usage :</strong>
+                <strong>Recommended Usage: </strong>
                 {selectedData.suitability.recommended_use}
               </div>
               <div>
-                <strong>Date Posted :</strong>
+                <strong>Date Posted: </strong>
                 {new Date(selectedData.suitability.date_posted).toLocaleString()}
               </div>
               </div>
@@ -233,7 +237,7 @@ export default class Listing extends React.Component {
           {/* <Button variant="primary" onClick={this.handlePostComment}>
           Post Comment
          </Button> */}
-          <Button variant="dark" disabled={this.state.isLoading} onClick={this.handlePostComment} style={{ fontFamily: "League Spartan" }}>
+          <Button variant="dark" disabled={this.state.isLoading} onClick={this.handlePostComment} className= "postComment me-3"style={{ fontFamily: "League Spartan" }}>
             {this.state.isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
             Post Comment
           </Button>

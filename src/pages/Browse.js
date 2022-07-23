@@ -539,11 +539,11 @@ export default class Browse extends React.Component {
                 <label class="form-check-label">Dry</label>
                 </div>
                 </div>
-               
+              
                 {/* </div> */}
                  {/* end of check */}
                 <div className="text-center ms-auto">
-                  <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.searchBarSoap}>
+                  <a className="AddBtn btn btn-dark mt-5" style={{ color: "white" }} onClick={this.searchBarSoap}>
                     Search
                   </a>
                 </div>
@@ -557,14 +557,14 @@ export default class Browse extends React.Component {
             <Col xs="12" >
               {/* search results */}
 
-              <div className="mt-4 m-1 d-flex justify-content-center" style={{ background: "white", height: "85%" }}>
+              <div className="m-4 d-flex justify-content-center" style={{ background: "white", height: "85%" }}>
                 {/* <h1 className="AddForm">All Collections</h1> */}
                 <div className="row  d-flex justify-content-center col-sm col-md col-lg">
                   {this.state.collection.length === 0 && <div className="noSearchLabel">No Results Found!</div>}
                   {/* <ul className="list-group  item"> */}
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
-                      <div className="list-group-item  item rounded-3 m-1" style={{ background: "white" }}>
+                      <div className="list-group-item  item rounded-3 m-2" style={{ background: "white" }}>
                          {/* <strong>Soap Name: </strong> */}
                          <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                             {r.soap_label}
@@ -578,7 +578,9 @@ export default class Browse extends React.Component {
                           <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
                         </div>
 
-                        <div>            
+                        <div 
+                        // className= "mb-1"
+                        >            
                           <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
                             {r.country_origin}
                           </span>

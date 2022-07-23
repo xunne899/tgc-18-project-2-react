@@ -194,7 +194,7 @@ export default class Listing extends React.Component {
       <React.Fragment>
           {/* <div className="listlogo mt-1 row mx-auto" src={require("../soapBW_logo.png")} /></div> */}
         {/* <div className="border border-dark border-3 rounded-3 m-4" style={{ background: "white" }}> */}
-        <div className="mt-2 m-4 d-flex justify-content-center" style={{ background: "white" }}>
+        <div className="m-4 d-flex justify-content-center" style={{ background: "white" }}>
           {/* <h1 className="AddForm">All Collections</h1> */}
           <div className="row d-flex justify-content-center col-sm-12 col-md-12 col-lg-8">
             {/* <ul className="list-group  item"> */}
@@ -213,7 +213,10 @@ export default class Listing extends React.Component {
                           {" "}
                           <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
                         </div>
-                        <div>
+                        
+                        <div 
+                        // className= "mb-1"
+                        >
                          
                       
 {/*      
@@ -249,35 +252,7 @@ export default class Listing extends React.Component {
                               {r.skin_type[i]}
                             </span>
                           ))}
-{/*                      
-                          <strong>Treat:</strong> */}
-                          {/* {Object.keys(r.suitability.treat).map((i) => (
-                            <span className="badge rounded-pill bg-warning" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.suitability.treat[i]}
-                            </span>
-                          ))}
 
-
-                               {Object.keys(r.ingredients.oil_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.oil_ingredient[i]}
-                            </span>
-                          ))}
-
-                            {Object.keys(r.ingredients.base_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.base_ingredient[i]}
-                            </span>
-                          ))}
-                              {Object.keys(r.ingredients.milk_ingredient).map((i) => (
-                            <span className="badge rounded-pill bg-secondary" style={{ color: "black" }} key={`${i}`}>
-                              {" "}
-                              {r.ingredients.milk_ingredient[i]}
-                            </span>
-                          ))} */}
                         </div>
    
                     

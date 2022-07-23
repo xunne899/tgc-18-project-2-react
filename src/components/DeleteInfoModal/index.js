@@ -29,12 +29,21 @@ export default class DeleteInfoModal extends React.Component {
       <React.Fragment>
         <Modal show={isViewVisible} onHide={setIsViewVisible}>
           <Modal.Header style={{ background: "white" }} closeButton>
-            <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
+            <Modal.Title  className="deleteText d-flex justify-content-center" style={{ fontFamily:"League Spartan",color:"red" }}>
+            View
+            
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body style={{ background: "white" }}>
-            <div className="infoTitle">{selectedData.soap_label}</div>
-            <div className="infoPrice">${selectedData.cost}</div>
+            {/* <div className="infoTitle">{selectedData.soap_label}</div>
+            <div className="infoPrice">${selectedData.cost}</div> */}
             <div className="infoWrapper">
+              <div className="d-flex justify-content-center" style={{ color: "red" }}>
+            <h3>Confirm Delete</h3>
+            </div>
+            <div className="deleteContent d-flex justify-content-center" style={{ color: "red" }}>
+            <h3><strong >{selectedData.soap_label}</strong> </h3>
+              </div>
               <div className="infoImage">
                 <img src={selectedData.image_url} />
               </div>
@@ -64,14 +73,13 @@ export default class DeleteInfoModal extends React.Component {
               </div>
               <div>Date Posted:{new Date(selectedData.suitability.date_posted).toLocaleString()}</div> */}
 
-              <h3 style={{ color: "red" }}>
-                Confirm to delete ? {selectedData.soap_label}
-              </h3>
+              
             </div>
           </Modal.Body>
           <Modal.Footer style={{ background: "white" }}>
             <Button
-              variant="danger"
+            className="confirmDeleteBtn  mx-auto"
+              variant="outline-danger"
               onClick={() => this.processDeleteCollection(selectedData)}
               style={{ fontFamily:"League Spartan" }}
             >

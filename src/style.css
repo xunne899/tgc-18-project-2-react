@@ -1,3 +1,54 @@
+
+@media only screen and  (max-width: 290px) { 
+
+
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden !important;
+    /* background-color: #ebd8b8; */
+  }
+
+.nav-bar {
+  margin-left: 18px;
+  height:60px;
+  width:80px
+}
+
+#nav-button{
+  margin-right: 10px;
+  color: white;
+  background-color :white;
+  height:40px;
+  width:50px
+}
+ 
+.navbar-toggler{
+display:flex;
+align-content:center
+}
+      
+
+.addbg{
+  /* height: 120px; */
+  /* background-repeat: no-repeat; */
+  background-image: fit-content;
+  /* background-size: contain; */
+  /* background-size: fit-content; */
+  /* background-attachment: fixed; */
+  /* margin: 0; 
+  padding: 0px; */
+  /* overflow-x: hidden !important; */
+  /* margin-right: 200px;  */
+}
+}
+
+
+
+
+
+
+
 body {
     padding: 0;
     margin: 0;
@@ -8,10 +59,16 @@ body {
   #page-container {
     position: relative;
     min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  
   }
   
   #content-wrap {
-    padding-bottom: 0.75rem;   
+    padding-bottom: 0.75rem;
+    /* padding: 0;
+    margin: 0;    */
+    overflow-x: hidden 
   }
   
 
@@ -45,7 +102,7 @@ body {
 }
 
 #nav-button{
-  margin-right: 20px;
+  margin-right: 15px;
   color: white;
   background-color :white;
       
@@ -65,8 +122,8 @@ body {
 
 
 .item{
-  height:380px;
-  width:320px;
+  height:396px;
+  width:250px;
   position:relative
 
 }
@@ -157,10 +214,25 @@ body {
   
 
 }
+
+
+.infoPic{
+  width:100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.infoPic img{
+  width: 100%;
+  height:auto;
+  /* transition: 0.5s all ease-in-out; */
+}
 .deleteBtn{
   position:absolute;
-  top:4px;
+  top: 4px;
   right:12px;
+  /* height: 10px; */
+  width:15px;
   color:rgba(232, 220, 220, 0.5)
 }
 .deleteBtn:hover{
@@ -168,8 +240,16 @@ body {
   color:grey
 }
 
+.row{
+  margin:0;
+  padding:0;
+  box-sizing:0
+}
+
 .addbg{
-  height: 320px;
+  /* height: 280px; */
+  margin:0;
+  padding:0;
   /* background-repeat: no-repeat; */
   background-image: fit-content;
   /* background-size: contain; */
@@ -222,11 +302,14 @@ overflow-x: hidden !important;
 #page-container {
 position: relative;
 min-height: 100vh;
+padding: 0;
+margin: 0;
 }
 
-/* #content-wrap {
-padding-bottom: 3rem;   
-} */
+#content-wrap {
+/* padding-bottom: 3rem;    */
+overflow-x: hidden
+}
 
 
 
@@ -295,7 +378,7 @@ padding-top:20px;
 #cta a{
 text-decoration: none;
 color: white;
-font-size: 20px;
+font-size: 23px;
 font-family:'League Spartan';
 }
 
@@ -365,6 +448,19 @@ font-family:'League Spartan';
 
 }
 
+
+.infoPic{
+  width:100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.infoPic img{
+  width: 100%;
+  height:auto;
+  /* transition: 0.5s all ease-in-out; */
+}
+
 .deleteBtn{
   position:absolute;
   top:4px;
@@ -374,6 +470,12 @@ font-family:'League Spartan';
 .deleteBtn:hover{
 
   color:grey
+}
+
+.row{
+  margin:0;
+  padding:0;
+  box-sizing:0
 }
 
 .listlogo{
@@ -443,7 +545,8 @@ font-size:0.7rem;
     }
     
     #content-wrap {
-      padding-bottom: 2.5rem;   
+      padding-bottom: 2.5rem;
+          
     }
     
     
@@ -496,7 +599,7 @@ font-size:0.7rem;
     }
 
     .item{
-      /* height:150px; */
+      height:383px;
       width:300px;
       position:relative
     
@@ -593,6 +696,19 @@ font-size:0.7rem;
   
   }
 
+
+  .infoPic{
+    width:100%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .infoPic img{
+    width: 100%;
+    height:auto;
+    /* transition: 0.5s all ease-in-out; */
+  }
+
   .deleteBtn{
     position:absolute;
     top:4px;
@@ -604,14 +720,23 @@ font-size:0.7rem;
     color:grey
   }
 
+
+  .row{
+    margin:0;
+    padding:0;
+    box-sizing:0
+  }
+
   .listlogo{
     
     height: 80px;
     width : 180px
   }
 
+  
+
   .addbg{
-    height: 680px;
+    /* height: 500px; */
     /* background-repeat: no-repeat; */
     background-image: fit-content;
     /* background-size: contain; */

@@ -31,6 +31,9 @@
     font-size: 1.em;
     font-family: "League Spartan";
 }
+.modal{
+    padding-left: 0px;
+}
 
 
 .infoImage{
@@ -41,9 +44,20 @@
 
 .infoImage img {
     width: 100%;
+    height:fit-content;
     transition: 0.5s all ease-in-out;
 }
 
 .infoImage:hover img {
     transform: scale(1.5);
+}
+
+.confirmDeleteBtn{
+    border-radius: 24px;
+    padding: 5px 30px;
+    font-size: 14px;
+    /* background-color:#212529; */
+    /* align-content: center;
+    display: flex; */
+    font-family:'League Spartan';
 }

@@ -1,4 +1,4 @@
-
+ 
 .infoWrapper{
     width:100%;
     font-family: "League Spartan";
@@ -50,12 +50,18 @@
 
 .infoImage{
     width:100%;
+     /* width:400px;
+    height:240px;  */
     overflow: hidden;
     margin: 0 auto;
 }
 
 .infoImage img {
-    width: 100%;
+    /* width: 100%; */
+    /* width: 100px;
+    height:390px; */
+    margin:auto;
+    width:auto;
     transition: 0.5s all ease-in-out;
     
 }
@@ -64,6 +70,14 @@
     transform: scale(1.5);
 }
 
+/* .postComment{
+    border-radius: 24px;
+    padding: 8px 30px;
+    font-size: 16px;
+    background-color:#212529;
+    
+    font-family:'League Spartan';
+} */
 
 
 
@@ -73,4 +87,30 @@
  
 
 
+} */
+
+
+
+/* 
+@media only screen  and (min-width: 291px) and  (max-width: 768px)  { 
+    .infoImage img {
+        width: 100%;
+        height:230px;
+     
+        transition: 0.5s all ease-in-out;
+        
+    }
+} */
+
+
+
+
+/* @media only screen and  (max-width: 290px) { 
+    .infoImage img {
+        width: 100%;
+        height:150px;
+    
+        transition: 0.5s all ease-in-out;
+        
+    }
 } */

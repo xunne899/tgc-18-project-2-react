@@ -391,19 +391,21 @@ export default class AddNew extends React.Component {
     return (
       <React.Fragment>
         <div className="row d-flex col-sm col-md col-lg">
-          <img className="addbg" src={require("../coconutsoap.jpg")} />
+          <img className="addbg" src={require("../add_page_soap.jpg")} />
           <h2 className="title d-flex justify-content-center" style={{fontFamily:"League Spartan",marginTop:"30px"}}>Add New Soap</h2>
         </div>
-        <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
-          <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "white",fontFamily:"League Spartan",fontSize:"1.2rem" }}>
+        <div className="p-3 m-2 col-sm col-md col-lg">
+          <div className="formNames row border border-dark border-2 m-2 rounded-3 p-4" style={{ backgroundColor: "white",fontFamily:"League Spartan",fontSize:"1.2rem" }}>
          
 
             {/* <div className="col-12 col-lg-4"> */}
-              <div className="mb-3">
+              <div className="infoPic mb-3">
                 <label>Image URL</label>
                 <div>
                   {this.state.newImageUrl !== "" && (
-                    <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "250px" }} />
+                    <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" 
+                    style={{ "max-width": "250px" }} 
+                    />
                   )}
                 </div>
                 <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
@@ -622,8 +624,8 @@ export default class AddNew extends React.Component {
                 {this.showError("milk_ingredient")}
               </div>
               <br/>     
-              <div className="text-center ms-auto">
-              <a className="AddBtn btn btn-dark m-3" style={{ color: "white" }} onClick={this.addNew}>
+              <div className="text-center ms-auto ">
+              <a className="AddBtn btn btn-dark mt-5" style={{ color: "white" }} onClick={this.addNew}>
                 Add
               </a>
             </div>
