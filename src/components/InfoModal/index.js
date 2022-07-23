@@ -64,13 +64,13 @@ export default class Listing extends React.Component {
         if (minute < 1) {
           output = "Just Posted";
         } else {
-          output = minute.toFixed(0) + " minute(s)";
+          output = minute.toFixed(0) + " minute(s) ago";
         }
       } else {
-        output = hours.toFixed(0) + " hour(s)";
+        output = hours.toFixed(0) + " hour(s) ago";
       }
     } else {
-      output = days.toFixed(0) + " day(s)";
+      output = days.toFixed(0) + " day(s) ago";
     }
     return output;
   };
@@ -79,114 +79,155 @@ export default class Listing extends React.Component {
     if (comments == undefined) {
       return;
     }
-
-    return comments.map((commentInfo) => (
+    return comments.reverse().map((commentInfo) => (
       <React.Fragment key={commentInfo._id}>
-        <div className="infoLabel">
+        <div className="infoUserLabel">
+          {((commentInfo.username !="")?commentInfo.username:"Anonymous")}-<span className="infoDate">{this.getPostedTime(commentInfo.datePosted)}</span>
+        </div>
+        {/* <div className="infoLabel">
           UserName:<span>{commentInfo.username}</span>
+        </div> */}
+        <div className="infoDescLabel">
+          <span>{commentInfo.comment}</span>
         </div>
-        <div className="infoLabel">
-          Description:<span>{commentInfo.comment}</span>
-        </div>
-        <div className="infoLabel">
-          Date:<span>{this.getPostedTime(commentInfo.datePosted)}</span>
-        </div>
+        <div className="infoBottomLabel">{/* Date:<span>{this.getPostedTime(commentInfo.datePosted)}</span> */}</div>
       </React.Fragment>
     ));
   };
+
+  getUpperCase = (selectedField)=>{
+    // const { selectedData } = this.props;
+    if (selectedField){
+   return  selectedField[0].toUpperCase() + selectedField.slice(1)
+    }
+  }
+
   render() {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
-      <Modal size="lg" style={{paddingLeft: "0px" }} show={isViewVisible} onHide={setIsViewVisible} >
+      <Modal size="lg" style={{ paddingLeft: "0px" }} show={isViewVisible} onHide={setIsViewVisible}>
         <Modal.Header style={{ background: "white" }} closeButton>
           <Modal.Title style={{ fontFamily: "League Spartan" }}>View</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: "white" }}>
           <div className="infoTitle">{selectedData.soap_label}</div>
-          <div className="infoPrice" style={{color:"black"}}>${selectedData.cost}</div>
+          <div className="infoPrice" style={{ color: "black" }}>
+            ${selectedData.cost}
+          </div>
 
           <div className="infoWrapper row  mx-auto">
-            <div className="infoImage rounded-3 mx-auto mb-1" 
-            style={{
-              //  "max-height": "250px",
-                "max-width": "500px"}}
+            <div
+              className="infoImage rounded-3 mx-auto mb-1"
+              style={{
+                //  "max-height": "250px",
+                "max-width": "500px",
+              }}
             >
               <img className="mx-auto rounded-3" src={selectedData.image_url} />
             </div>
 
             <div className="row mt-3 ">
-            <div className="col-sm-12 col-lg-6 mb-2 ">
-              <div>
-                <strong>Name: </strong> <span className="text-right">{selectedData.name}</span>
+              <div className="col-sm-12 col-lg-6 mb-4 ">
+                <h5>Contact Info</h5>
+                <div className="text-wrap">
+                  <strong className="text-left">Name: </strong> <span className="text-right">{this.getUpperCase(selectedData.name)}</span>
+                </div>
+                <div classname="mt-4">
+                  <div className="text-wrap">
+                    <strong className="text-left">Email: </strong> <span className="text-right">{selectedData.email}</span>
+                  </div>
+                </div>
+                <div classname="mt-4">
+                  <div className="text-wrap">
+                    <strong className="text-left">Contact Number: </strong> <span className="text-right">{selectedData.contact_no}</span>
+                  </div>
+                </div>
+                <div className="text-wrap">
+                  <strong className="text-left">Date Posted: </strong>
+                  <span className="text-right">{new Date(selectedData.suitability.date_posted).toLocaleString()}</span>
+                </div>
               </div>
-              <div classname="mt-4">
-                <strong>Email: </strong> <span className="text-right">{selectedData.email}</span>
-              </div>
-              <div classname="mt-4">
-                <strong>Contact Number: </strong> <span className="text-right">{selectedData.contact_no}</span>
-              </div>
-              <div classname="mt-4">
-                <strong>Color: </strong> <span className="text-right">{selectedData.color}</span>
-              </div>
-              <div classname="mt-4">
-                <strong>Country Origin: </strong> <span className="text-right">{selectedData.country_origin}</span>
-              </div>
-              <div classname="mt-4">
-                <strong>Skin Type: </strong> <span className="text-right">{selectedData.skin_type.join(", ")}</span>
+
+              <div className="col-sm-12 col-lg-6 mb-4">
+                <h5>Treatment Info</h5>
+
+                <div className="text-wrap">
+                  <strong className="text-left">Treat: </strong>
+                  <span className="text-right">
+                    {selectedData.suitability.treat
+                      .map((item) => {
+                        return (this.getUpperCase(item))
+                      })
+                      .join(", ")}
+                  </span>
+                </div>
+                <div className="text-wrap">
+                  <strong className="text-left">Usage: </strong>
+                  <span className="text-right">{this.getUpperCase(selectedData.suitability.recommended_use)}</span>
+                </div>
+
+                <div classname="mt-4">
+                  <div className="text-wrap">
+                    <strong className="text-left">Skin Type: </strong> <span className="text-right">   
+                    {selectedData.skin_type
+                      .map((item) => {
+                        return (this.getUpperCase(item))
+                      })
+                      .join(", ")}</span>
+                  </div>
+                </div>
               </div>
             </div>
+            <div className="row ">
+              <div className="col-sm-12 col-lg-6 mb-4 ">
+                <h5>Product Info</h5>
+                <div classname="mt-4">
+                  <div className="text-wrap">
+                  {/* <strong className="text-left">Country Origin: </strong> <span className="text-right">{selectedData.country_origin[0].toUpperCase() + selectedData.country_origin.slice(1)}</span> */}
+                    <strong className="text-left">Country Origin: </strong> <span className="text-right">{this.getUpperCase(selectedData.country_origin)}</span>
+                  </div>
+                </div>
+                <div classname="mt-4">
+                  <div className="text-wrap">
+                    <strong className="text-left">Color: </strong> <span className="text-right">{this.getUpperCase(selectedData.color)}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-12 col-lg-6 mb-4 ">
+                <h5>Ingredient Info</h5>
+                <div className="text-wrap">
+                  <strong className="text-left">Oil Ingredient: </strong>
+                  <span className="text-right">
+                    {selectedData.ingredients.oil_ingredient
+                      .map((item) => {
+                        return (this.getUpperCase(item))
+                      })
+                      .join(", ")}
+                  </span>
+                </div>
 
-            <div className="col-sm-12 col-lg-6 ">
-              <div>
-                <strong>Oil Ingredient: </strong>
-                <span>
-                  {selectedData.ingredients.oil_ingredient
-                    .map((item) => {
-                      return item;
-                    })
-                    .join(", ")}
-                </span>
-              </div>
-              <div>
-                <strong>Base Ingredient: </strong>
-                <span>
-                  {selectedData.ingredients.base_ingredient
-                    .map((item) => {
-                      return item;
-                    })
-                    .join(", ")}
-                </span>
-              </div>
-              <div>
-                <strong>Milk Ingredient: </strong>
-                <span>
-                  {" "}
-                  {selectedData.ingredients.milk_ingredient
-                    .map((item) => {
-                      return item;
-                    })
-                    .join(", ")}
-                </span>
-              </div>
-              <div>
-                <strong>Treat: </strong>
-                <span>
-                  {selectedData.suitability.treat
-                    .map((item) => {
-                      return item;
-                    })
-                    .join(", ")}
-                </span>
-              </div>
-              <div>
-                <strong>Recommended Usage: </strong>
-                {selectedData.suitability.recommended_use}
-              </div>
-              <div>
-                <strong>Date Posted: </strong>
-                {new Date(selectedData.suitability.date_posted).toLocaleString()}
-              </div>
+                <div className="text-wrap">
+                  <strong className="text-left">Base Ingredient: </strong>
+                  <span className="text-right">
+                    {selectedData.ingredients.base_ingredient
+                      .map((item) => {
+                        return (this.getUpperCase(item))
+                      })
+                      .join(", ")}
+                  </span>
+                </div>
+                <div className="text-wrap">
+                  <strong className="text-left">Milk Ingredient: </strong>
+                  <span className="text-right">
+                    {" "}
+                    {selectedData.ingredients.milk_ingredient
+                      .map((item) => {
+                        return (this.getUpperCase(item))
+                      })
+                      .join(", ")}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -209,7 +250,7 @@ export default class Listing extends React.Component {
             </div> */}
 
             <div classname="row m-2">
-              <strong>Comments:</strong>
+              <strong>Reviews:</strong>
               <div className="autoBox col col-sm border  border-1 p-2 rounded-3">{this.getCommentData(this.state.comments)}</div>
             </div>
           </div>
@@ -237,7 +278,13 @@ export default class Listing extends React.Component {
           {/* <Button variant="primary" onClick={this.handlePostComment}>
           Post Comment
          </Button> */}
-          <Button variant="dark" disabled={this.state.isLoading} onClick={this.handlePostComment} className= "postComment me-3"style={{ fontFamily: "League Spartan" }}>
+          <Button
+            variant="dark"
+            disabled={this.state.isLoading}
+            onClick={this.handlePostComment}
+            className="postComment me-3"
+            style={{ fontFamily: "League Spartan" }}
+          >
             {this.state.isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
             Post Comment
           </Button>

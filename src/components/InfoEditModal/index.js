@@ -432,13 +432,13 @@ export default class EditInfoModal extends React.Component {
               <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{ background: "white" }}>
-              <div className="p-3 mx-2 my-3 col-sm col-md col-lg">
+              <div className="p-3 col-sm col-md col-lg">
                 <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "white" }}>
                   <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
                   {/* <div className="col-12 col-lg-4"> */}
                     <div>
-                      <label>Image URL</label>
+                      <label><strong>Image URL</strong></label>
                       <div className="infoPic">
                         {this.state.newImageUrl !== "" && (
                           <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>"
@@ -450,7 +450,7 @@ export default class EditInfoModal extends React.Component {
                       {this.showError("image_url")}
                     </div>
                     <div className="mt-2">
-                      <label>Soap Label</label>
+                      <label><strong>Soap Label</strong></label>
                       <input
                         name="newSoapLabel"
                         type="text"
@@ -462,7 +462,7 @@ export default class EditInfoModal extends React.Component {
                       {this.showError("soap_label")}
                     </div>
                     <div className="mt-2">
-                      <label>Name</label>
+                      <label><strong>Name</strong></label>
                       <input
                         name="newName"
                         type="text"
@@ -475,7 +475,7 @@ export default class EditInfoModal extends React.Component {
                     </div>
                   
                     <div className="mt-2" >
-                      <label>Email</label>
+                      <label><strong>Email</strong></label>
                       <input
                         name="newEmail"
                         type="text"
@@ -490,7 +490,7 @@ export default class EditInfoModal extends React.Component {
 
                   {/* <div className="col-12 col-lg-4"> */}
                     <div className="mt-2">
-                      <label>Country Origin</label>
+                      <label><strong>Country Origin</strong></label>
                       <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
                         <option key="placeholder" name="selectone" value="">
                           ---Select One---
@@ -501,7 +501,7 @@ export default class EditInfoModal extends React.Component {
                     </div>
 
                     <div className="mt-2">
-                      <label>Cost</label>
+                      <label><strong>Cost</strong></label>
                       <input
                         name="newCost"
                         type="number"
@@ -513,7 +513,7 @@ export default class EditInfoModal extends React.Component {
                       {this.showError("cost")}
                     </div>
                     <div className="mt-2">
-                      <label>Contact No</label>
+                      <label><strong>Contact No</strong></label>
                       <input
                         name="newContactNo"
                         type="text"
@@ -525,7 +525,7 @@ export default class EditInfoModal extends React.Component {
                       {this.showError("contact_no")}
                     </div>
                     <div className="mt-2">
-                      <label>Recommended Use</label>
+                      <label><strong>Recommended Use</strong></label>
                       <input
                         name="newRecommended"
                         type="text"
@@ -548,14 +548,14 @@ export default class EditInfoModal extends React.Component {
 {/* 
                   <div className="col-12 col-lg-4"> */}
                     <div className="mt-2">
-                      <label>Color</label>
+                      <label><strong>Color</strong></label>
                       {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
      
                       {this.showColors()}
                       {this.showError("color")}
                     </div>
                     <div className="mt-2">
-                      <label>Skin Type</label>
+                      <label><strong>Skin Type</strong></label>
                       {this.skinType.map((eachOne) => {
                         return (
                           <React.Fragment key={eachOne.value}>
@@ -573,7 +573,7 @@ export default class EditInfoModal extends React.Component {
                       {this.showError("skin_type")}
                     </div>
                     <div className="mt-2">
-                      <label>Treat</label>
+                      <label><strong>Treat</strong></label>
                       {this.treat.map((eachOne) => {
                         return (
                           <React.Fragment key={eachOne.value}>
@@ -599,7 +599,7 @@ export default class EditInfoModal extends React.Component {
                 )} */}
                     </div>
                     <div className="mt-2">
-                      <label>Oil Ingredients</label>
+                      <label><strong>Oil Ingredients</strong></label>
                       <div class="chipsWrapper" id="chipParent">
                         {this.state.oilIngredients.map((iType, i) => (
                           <>
@@ -625,7 +625,7 @@ export default class EditInfoModal extends React.Component {
                     </div>
 
                     <div className="mt-2">
-                      <label>Base Ingredients</label>
+                      <label><strong>Base Ingredients</strong></label>
                       <div class="chipsWrapper" id="chipParent">
                         {this.state.baseIngredients.map((iType, i) => (
                           <>
@@ -651,7 +651,7 @@ export default class EditInfoModal extends React.Component {
                     </div>
 
                     <div className="mt-2">
-                      <label>Milk Ingredients</label>
+                      <label><strong>Milk Ingredients</strong></label>
                       <div class="chipsWrapper" id="chipParent">
                         {this.state.milkIngredients.map((iType, i) => (
                           <>

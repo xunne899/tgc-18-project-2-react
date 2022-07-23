@@ -4,6 +4,27 @@
     font-family: "League Spartan";
 }
 
+.infoUserLabel{
+    font-weight: bold;
+    font-family: "League Spartan";
+    font-size: 15px;
+    
+}
+
+.infoDate{
+    font-weight: bold;
+    font-style: italic;
+    font-family: "League Spartan";
+    font-size: 10px;
+    color: rgb(168, 168, 168);
+    padding-left: 5px;
+}
+
+.infoBottomLabel{
+    /* border-bottom: 1px solid rgb(168, 168, 168); */
+    margin-bottom:10px;
+    text-align: right;
+}
 
 .infoLabel{
     font-weight: bold;
@@ -16,6 +37,24 @@
     margin-left:10px;
     font-family: "League Spartan";
 }
+
+.text-wrap{
+    display:flex;
+}
+
+.text-left{
+    width:40%;
+    
+    font-weight: bold;
+}
+.text-right{
+    width:60%;
+    word-break: break-word;
+    /* text-overflow: ellipsis; */
+      
+}
+
+
 
 .infoTitle{
     width:100%;

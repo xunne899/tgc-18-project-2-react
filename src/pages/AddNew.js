@@ -400,7 +400,7 @@ export default class AddNew extends React.Component {
 
             {/* <div className="col-12 col-lg-4"> */}
               <div className="infoPic mb-3">
-                <label>Image URL</label>
+                <label><strong>Image URL</strong></label>
                 <div>
                   {this.state.newImageUrl !== "" && (
                     <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" 
@@ -413,7 +413,7 @@ export default class AddNew extends React.Component {
               </div>
              
               <div className="mb-3">
-                <label>Soap Label</label>
+                <label><strong>Soap Label</strong></label>
                 <input
                   name="newSoapLabel"
                   type="text"
@@ -426,12 +426,12 @@ export default class AddNew extends React.Component {
               </div>
            
               <div className="mb-3">
-                <label>Name</label>
+                <label><strong>Name</strong></label>
                 <input name="newName" type="text" value={this.state.newName} placeholder="Name" onChange={this.updateFormField} className="form-control" />
                 {this.showError("name")}
               </div>
               <div className="mb-3">
-                <label>Email</label>
+                <label><strong>Emai</strong></label>
                 <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
               </div>
@@ -439,7 +439,7 @@ export default class AddNew extends React.Component {
 
             {/* <div className="col-12 col-lg-4"> */}
               <div className="mb-3">
-                <label>Country Origin</label>
+                <label><strong>Country Origin</strong></label>
                 <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
                   <option key="placeholder" name="selectone" value="">
                     ---Select One---
@@ -450,7 +450,7 @@ export default class AddNew extends React.Component {
               </div>
 
               <div className="mb-3">
-                <label>Cost</label>
+                <label><strong>Cost</strong></label>
                 <input
                   name="newCost"
                   type="number"
@@ -462,7 +462,7 @@ export default class AddNew extends React.Component {
                 {this.showError("cost")}
               </div>
               <div className="mb-3">
-                <label>Contact No</label>
+                <label><strong>Contact No</strong></label>
                 <input
                   name="newContactNo"
                   type="text"
@@ -474,7 +474,7 @@ export default class AddNew extends React.Component {
                 {this.showError("contact_no")}
               </div>
               <div className="mb-3">
-                <label>Recommended Use</label>
+                <label><strong>Recommended Use</strong></label>
                 <input
                   name="newRecommended"
                   type="text"
@@ -497,13 +497,13 @@ export default class AddNew extends React.Component {
 
             {/* <div className="col-12 col-lg-4"> */}
               <div className="mb-3">
-                <label>Color</label>
+                <label><strong>Color</strong></label>
                 {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
                 {this.showColors()}
                 {this.showError("color")}
               </div>
               <div className="mb-3">
-                <label>Skin Type</label>
+                <label><strong>Skin Type</strong></label>
                 {this.skinType.map((eachOne) => {
                   return (
                     <React.Fragment key={eachOne.value}>
@@ -521,7 +521,7 @@ export default class AddNew extends React.Component {
                 {this.showError("skin_type")}
               </div>
               <div className="mb-3">
-                <label>Treat</label>
+                <label><strong>Treat</strong></label>
                 {this.treat.map((eachOne) => {
                   return (
                     <React.Fragment key={eachOne.value}>
@@ -547,11 +547,11 @@ export default class AddNew extends React.Component {
                 )} */}
               </div>
               <div className="mb-3">
-                <label>Oil Ingredients</label>
+                <label><strong>Oil Ingredients</strong></label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.oilIngredients.map((iType, i) => (
                     <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1 mb-1">
                         {iType}
                         <span onClick={() => this.removeOilTag(i)} style={{ marginLeft: "5px" }}>
                           X
@@ -573,11 +573,11 @@ export default class AddNew extends React.Component {
               </div>
               <br/>
               <div className="mb-3">
-                <label>Base Ingredients</label>
+                <label><strong>Base Ingredients</strong></label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.baseIngredients.map((iType, i) => (
                     <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1 mb-1">
                         {iType}
                         <span onClick={() => this.removeBaseTag(i)} style={{ marginLeft: "5px" }}>
                           X
@@ -599,11 +599,11 @@ export default class AddNew extends React.Component {
               </div>
 
               <div className="mb-3">
-                <label>Milk Ingredients</label>
+                <label><strong>Milk Ingredients</strong></label>
                 <div class="chipsWrapper" id="chipParent">
                   {this.state.milkIngredients.map((iType, i) => (
                     <>
-                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1">
+                      <span key={`${iType}`} className="badge badge-pill bg-dark mx-1 mb-1">
                         {iType}
                         <span onClick={() => this.removeMilkTag(i)} style={{ marginLeft: "5px" }}>
                           X

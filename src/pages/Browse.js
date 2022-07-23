@@ -420,7 +420,7 @@ export default class Browse extends React.Component {
         <Accordion.Body>
         <div className="row mt-1 p-2 col" style={{fontFamily:"League Spartan"}}>
         <div className="col-12 col-lg-6" >
-        <label>Search</label>
+        <label><strong>Search</strong></label>
                 <div>
                   <input
                     value={this.state.searchInput}
@@ -432,7 +432,7 @@ export default class Browse extends React.Component {
                   />
                 </div>
                 <div className="mt-2">
-                  <label>Country</label>
+                  <label><strong>Country</strong></label>
                   <select
                     className="form-select form-control"
                     value={this.state.searchCountry}
@@ -448,7 +448,7 @@ export default class Browse extends React.Component {
                 </div>
 
                 <div className="mt-2">
-                  <label>Color</label>
+                  <label><strong>Color</strong></label>
                   <select
                     className="form-select form-control"
                     value={this.state.searchColor}
@@ -465,9 +465,9 @@ export default class Browse extends React.Component {
              </div>
 
              <div className="col-12 col-lg-6 mt-3" >
-                <label>Cost</label>
+                <label><strong>Cost</strong></label>
                   <div>
-                    <label>Min Amount</label>
+                    <label><strong>Min Amount</strong></label>
                     <input
                       className="form-control"
                       type="text"
@@ -483,7 +483,7 @@ export default class Browse extends React.Component {
                     ) : (
                       ""
                     )}
-                    <label>Max Amount</label>
+                    <label><strong>Max Amount</strong></label>
                     <input
                       className="form-control"
                       type="text"
@@ -506,7 +506,7 @@ export default class Browse extends React.Component {
                
                 <div className="mt-3">
                 
-                <label>Skin Type</label>
+                <label><strong>Skin Type</strong></label>
 
                 &nbsp;&nbsp;<input
                   type="checkbox"
