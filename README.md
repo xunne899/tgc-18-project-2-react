@@ -9,12 +9,12 @@
 2. UX/UI 
 3. Features 
 4. User Stories
-<!-- 5. Technologies Used
+5. Technologies Used
 6. Testing 
 7. Test Cases
 8. Deployment
 9. Live Link
-10. Credits and Acknowledgement -->
+10. Credits and Acknowledgement
 
 
 
@@ -64,7 +64,7 @@ Webpage consists of simple 3 components
 
 Navbar is located at the top of webpage.<br>
 Navbar consists of logo and name hyperlinks to respective pages.<br>
-Body  consists of the  Main picture, Display content <br>
+Body  consists of the  Main picture, Display content, Collection link, Add Item link, Browse Search item link <br>
 Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ![Skeleton](./public/images/skeleton.png)
@@ -80,7 +80,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 #### 2.5.b Typography<br>
 
 * Font Color :dark shade of cyan-blue/ light grayish orange/ white to blend with the background color
-* Font Family: Jost, sans-serif;sans-serif;
+* Font Family: League Spartan;
 * Font Size : 0.6 - 1 rem, h1,h2 to match with background settings
 
 

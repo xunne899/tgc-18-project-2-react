@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
                     <div className="footer col-12">
                         <div style={{"backgroundColor": "#212529" }}>
 
-                            <div className="copyright d-inline-block justify-items-center p-2" style={{ color: "white", fontFamily: "Jost, sans-serif", marginLeft: "10px" }}>
+                            <div className="copyright d-inline-block justify-items-center p-2" style={{ color: "white", fontFamily: "League Spartan", marginLeft: "10px" }}>
 
                                 Copyright@2022 | For Educational Purposes | <FontAwesomeIcon icon={faFacebook} />&nbsp;
                                 <FontAwesomeIcon icon={faWhatsapp} />&nbsp;
