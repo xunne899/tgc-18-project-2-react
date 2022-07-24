@@ -6,18 +6,15 @@ import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 
 export default class Listing extends React.Component {
-  // export default function InfoModal(props) {
 
-  // {selectedData, isViewVisible,setIsViewVisible } = this.props
-  // const [name,setName] = useState('');
   handleNameChange = (e) => {
     //setName(e.target.value);
     this.setState({ name: e.target.value });
   };
 
-  // const [comment,setComment] = useState('');
+
   handleCommentChange = (e) => {
-    // setComment(e.target.value);
+
     this.setState({ comment: e.target.value });
   };
 
@@ -39,7 +36,7 @@ export default class Listing extends React.Component {
     let result = await axios.post(url + `soap_listings/comments/${selectedData._id}`, bodyData);
     console.log(result);
     console.log("COMMENTS", this.state.comments);
-    if (result.status == 201) {
+    if (result.status === 201) {
       bodyData["datePosted"] = new Date();
 
       let iniComments = [...this.state.comments];
@@ -53,11 +50,10 @@ export default class Listing extends React.Component {
     }
 
     this.setState({ isLoading: false });
-    
-    //this.props.setIsViewVisible(false);
+   
   };
 
-  //console.log('props data=>', props)
+// get time
   getPostedTime = (datePosted) => {
     let timeDiff = new Date() - new Date(datePosted);
     let output = "";
@@ -79,29 +75,27 @@ export default class Listing extends React.Component {
     }
     return output;
   };
-
+// get comment from input
   getCommentData = (comments) => {
-    if (comments == undefined) {
+    if (comments === undefined) {
       return;
     }
     return comments.reverse().map((commentInfo) => (
       <React.Fragment key={commentInfo._id}>
         <div className="infoUserLabel">
-          {((commentInfo.username !="")?commentInfo.username:"Anonymous")}-<span className="infoDate">{this.getPostedTime(commentInfo.datePosted)}</span>
+          {((commentInfo.username !=="")?commentInfo.username:"Anonymous")}-<span className="infoDate">{this.getPostedTime(commentInfo.datePosted)}</span>
         </div>
-        {/* <div className="infoLabel">
-          UserName:<span>{commentInfo.username}</span>
-        </div> */}
+      
         <div className="infoDescLabel">
           <span>{commentInfo.comment}</span>
         </div>
-        <div className="infoBottomLabel">{/* Date:<span>{this.getPostedTime(commentInfo.datePosted)}</span> */}</div>
+        <div className="infoBottomLabel"></div>
       </React.Fragment>
     ));
   };
-
+//convert to uppercase
   getUpperCase = (selectedField)=>{
-    // const { selectedData } = this.props;
+  
     if (selectedField){
    return  selectedField[0].toUpperCase() + selectedField.slice(1)
     }
@@ -125,11 +119,11 @@ export default class Listing extends React.Component {
             <div
               className="infoImage rounded-3 mx-auto mb-1"
               style={{
-                //  "max-height": "250px",
+             
                 "max-width": "500px",
               }}
             >
-              <img className="mx-auto rounded-3" src={selectedData.image_url} />
+              <img className="mx-auto rounded-3" src={selectedData.image_url} alt="<No Image>"/>
             </div>
 
             <div className="row mt-3 ">
@@ -188,8 +182,7 @@ export default class Listing extends React.Component {
               <div className="col-sm-12 col-lg-6 mb-4 ">
                 <h5>Product Info</h5>
                 <div classname="mt-4">
-                  <div className="text-wrap">
-                  {/* <strong className="text-left">Country Origin: </strong> <span className="text-right">{selectedData.country_origin[0].toUpperCase() + selectedData.country_origin.slice(1)}</span> */}
+                  <div className="text-wrap">        
                     <strong className="text-left">Country Origin: </strong> <span className="text-right">{this.getUpperCase(selectedData.country_origin)}</span>
                   </div>
                 </div>
@@ -236,24 +229,7 @@ export default class Listing extends React.Component {
               </div>
             </div>
 
-            {/* 
-           <div>Name :<span className="badge rounded-pill bg-dark mx-1">{selectedData.name}</span></div>
-          <div>Email :<span className="badge rounded-pill bg-dark mx-1">{selectedData.email}</span></div>
-          <div>Contact Number :<span className="badge rounded-pill bg-dark mx-1">{selectedData.contact_no}</span></div>
-          <div>Color :<span className="badge rounded-pill bg-dark mx-1">{selectedData.color}</span></div>
-          <div>Country Origin :<span className="badge rounded-pill bg-dark mx-1">{selectedData.country_origin}</span></div>
-          <div>Skin Type :<span className="badge rounded-pill bg-dark mx-1">{selectedData.skin_type}</span></div>
-          <div>Oil Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.oil_ingredient}</span></div>
-          <div>Base Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.base_ingredient}</span></div>
-          <div>Milk Ingredient :<span className="badge rounded-pill bg-dark mx-1">{selectedData.ingredients.milk_ingredient}</span></div>
-          <div>Treat:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.treat}</span></div>
-          <div>Recommended Usage:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.recommended_use}</span></div>
-          <div>Date Posted:<span className="badge rounded-pill bg-dark mx-1">{selectedData.suitability.date_posted}</span></div>   */}
-
-            {/* <div className="infoLabel">
-              UserName:<span>{}</span>
-            </div> */}
-
+           
             <div classname="row m-2">
               <strong>Reviews:</strong>
               <div className="autoBox col col-sm border  border-1 p-2 rounded-3">{this.getCommentData(this.state.comments)}</div>
@@ -280,9 +256,7 @@ export default class Listing extends React.Component {
           </Form>
         </Modal.Body>
         <Modal.Footer style={{ background: "white" }}>
-          {/* <Button variant="primary" onClick={this.handlePostComment}>
-          Post Comment
-         </Button> */}
+
           <Button
             variant="dark"
             disabled={this.state.isLoading}

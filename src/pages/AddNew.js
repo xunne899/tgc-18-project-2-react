@@ -1,17 +1,6 @@
 import axios from "axios";
 import React from "react";
 
-// import Select from "react-select";
-
-// const skinOptions = [
-//   { value: "sensitive", label: "Sensitive" },
-//   { value: "dry", label: "Dry" },
-//   { value: "oily", label: "Oily" },
-// ];
-
-// import Select from 'react-select';
-
-// import { Form, Container, Row, Button, Card, Col } from 'react-bootstrap';
 
 export default class AddNew extends React.Component {
   url = "https://project-2-soap.herokuapp.com/";
@@ -22,11 +11,9 @@ export default class AddNew extends React.Component {
     newContactNo: "",
     newSoapLabel: "",
     newImageUrl: "",
-    // newDescription:"",
     newColor: "",
     newCountry: "",
     newCost: 0,
-    // barColor: '#FFAAAA',
     newSkinType: [],
     oilInput: "",
     oilIngredients: [],
@@ -162,7 +149,6 @@ export default class AddNew extends React.Component {
         contact_no: this.state.newContactNo,
         soap_label: this.state.newSoapLabel,
         image_url: this.state.newImageUrl,
-        // description:this.state.newDescription,
         color: this.state.newColor,
         country_origin: this.state.newCountry,
         cost: parseInt(this.state.newCost),
@@ -183,7 +169,7 @@ export default class AddNew extends React.Component {
       this.props.goTo("collection");
     } catch (err) {
       console.log(err);
-      if (err.response && err.response.status == 406) {
+      if (err.response && err.response.status === 406) {
         this.setState({
           errorMsg: err.response.data.Errors,
         });
@@ -222,18 +208,7 @@ export default class AddNew extends React.Component {
     return selectedCountry;
   };
 
-  // let ingredientInfo = i.target.value.split(",");
-  // let oilList = []
-  // for(let word of ingredientInfo){
-  //     oilList.push(word.strip().trim());
-  // }
-
-  // let cloned = [...this.state.oilIngredients, ...oilList];
-  // console.log("oilList: ",oilList);
-  // this.setState({
-  //     'oilIngredients':cloned
-  // })
-
+ 
   showSkin = (e) => {
     if (this.state.newSkinType.includes(e.target.value)) {
       let indexToRemove = this.state.newSkinType.findIndex((eachOne) => {
@@ -330,36 +305,7 @@ export default class AddNew extends React.Component {
     }
   };
 
-  // showNameError = () => {
-  //   console.log(this.state.errorMsg);
-  //   return this.state.errorMsg["name"];
-    // if (this.state.newName.length < 3 && this.state.newName === "") {
-    //   return "Name should have and input and should have more than 3 characters";
-    // } else {
-    //   return null;
-    // }
-    // if("name" in this.state.errorMsg){
-    //   return "Name should have and input and should have more than 3 characters";
-    // }
-  // };
-
-  // showEmailError = () => {
-  //   let email = this.state.newEmail.includes("@");
-  //   return !email ? "Email error.Please try again" : null;
-  // };
-  // showContactError = () => {
-  //   let contact = this.state.newContactNo.length;
-  //   return contact < 3 ? "Contact should have more than 3 numbers" : null;
-  // };
-  // showLabelError = () => {
-  //   let label = this.state.newSoapLabel.length;
-  //   return label < 3 ? "Soap Label should have more than 3 characters" : null;
-  // };
-
-  // showImageError = () => {
-  //   let inputlength = this.state.newImageUrl.length;
-  //   return inputlength < 3 ? "Input should have more than 3 characters" : null;
-  // };
+ 
 
   showError = (fieldName) => {
     return (
@@ -373,32 +319,21 @@ export default class AddNew extends React.Component {
     );
   };
 
-  //   showTreatError =()=>{
 
-  // let result = Array.isArray(this.state.newTreat);
-  // return result.includes() === ''? "At least one check box should be ticked" : null;
-  //   }
-  // clickBarColor = (ev)=>{
-  //     this.setState({
-  //         "barColor": ev.value
-  //     })
-  // }
 
   render() {
-    // console.log(this.state);
 
-    // const { selectedSkin } = this.state;
     return (
       <React.Fragment>
         <div className="row d-flex col-sm col-md col-lg">
-          <img className="addbg" src={require("../add_page_soap.jpg")} />
+          <img className="addbg" src={require("../images/add_page_soap.jpg")} />
           <h2 className="title d-flex justify-content-center" style={{fontFamily:"League Spartan",marginTop:"30px"}}>Add New Soap</h2>
         </div>
         <div className="p-3 m-2 col-sm col-md col-lg">
           <div className="formNames row border border-dark border-2 m-2 rounded-3 p-4" style={{ backgroundColor: "white",fontFamily:"League Spartan",fontSize:"1.2rem" }}>
          
 
-            {/* <div className="col-12 col-lg-4"> */}
+         
               <div className="infoPic mb-3">
                 <label><strong>Image URL</strong></label>
                 <div>
@@ -435,9 +370,7 @@ export default class AddNew extends React.Component {
                 <input name="newEmail" type="text" value={this.state.newEmail} placeholder="eg. james@hotmail.com.sg" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
               </div>
-            {/* </div> */}
 
-            {/* <div className="col-12 col-lg-4"> */}
               <div className="mb-3">
                 <label><strong>Country Origin</strong></label>
                 <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
@@ -461,6 +394,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("cost")}
               </div>
+
               <div className="mb-3">
                 <label><strong>Contact No</strong></label>
                 <input
@@ -473,6 +407,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("contact_no")}
               </div>
+
               <div className="mb-3">
                 <label><strong>Recommended Use</strong></label>
                 <input
@@ -486,22 +421,13 @@ export default class AddNew extends React.Component {
                 {this.showError("recommended_use")}
               </div>
 
-              {/* <div >
-                            <label>Date Posted</label>
-                            <input name="newDate" type="text" value={this.state.newDate}
-                                placeholder="DD-MM-YYYY"
-                                onChange={this.updateFormField}
-                                className="form-control" />
-                        </div> */}
-            {/* </div> */}
-
-            {/* <div className="col-12 col-lg-4"> */}
+  
               <div className="mb-3">
                 <label><strong>Color</strong></label>
-                {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
                 {this.showColors()}
                 {this.showError("color")}
               </div>
+
               <div className="mb-3">
                 <label><strong>Skin Type</strong></label>
                 {this.skinType.map((eachOne) => {
@@ -520,6 +446,7 @@ export default class AddNew extends React.Component {
                 })}
                 {this.showError("skin_type")}
               </div>
+
               <div className="mb-3">
                 <label><strong>Treat</strong></label>
                 {this.treat.map((eachOne) => {
@@ -538,14 +465,8 @@ export default class AddNew extends React.Component {
                   );
                 })}
                 {this.showError("treat")}
-                {/* {this.showTreatError() && this.state.submitted ? (
-                  <div style={{ color: "red" }} className="error">
-                    {this.showTreatError()}
-                  </div>
-                ) : (
-                  ""
-                )} */}
               </div>
+
               <div className="mb-3">
                 <label><strong>Oil Ingredients</strong></label>
                 <div class="chipsWrapper" id="chipParent">
@@ -571,7 +492,7 @@ export default class AddNew extends React.Component {
                 />
                 {this.showError("oil_ingredient")}
               </div>
-              <br/>
+
               <div className="mb-3">
                 <label><strong>Base Ingredients</strong></label>
                 <div class="chipsWrapper" id="chipParent">
@@ -629,21 +550,11 @@ export default class AddNew extends React.Component {
                 Add
               </a>
             </div>
-              {/* <div>
-                <label>Skin Type</label>
-                <Select
-                  isMulti={true}
-                  value={this.state.selectedSkin}
-                  onChange={this.handleChange}
-                  options={skinOptions}
-                />
-              </div> */}
             </div>
 
         
        
           </div>
-        {/* </div> */}
       </React.Fragment>
     );
   }

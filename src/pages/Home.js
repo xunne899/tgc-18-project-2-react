@@ -4,7 +4,7 @@ import React from 'react'
 // import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
 import { Button, Card} from 'react-bootstrap';
-import HomeImage from '../HomeImage';
+import HomeImage from '../mainpage_components/HomeImage';
 
 export default function Home(props){
 
@@ -18,18 +18,7 @@ export default function Home(props){
                     <section id="about">
                         <div className="content row justify-content-center ">
                             <h1>Your way to a better skin. Customise your own skin soap now !</h1>
-                            {/* <div className="m-2"> */}
-                            {/* <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3">
-                                <Card.Img className="cardSize m-2"  variant="top" src={'./information.png'} />
-                                <Card.Body>
-                                    <Card.Title style={{fontFamily:"League Spartan" }} >Add Soap Information</Card.Title>
-                                    <Card.Text style={{fontFamily:"League Spartan" }}>
-                                       Learn more about adding to our soap collection.
-                                    </Card.Text>
-                                    <Button variant="dark" 
-                                   style={{color:props.color,fontFamily:props.fontFamily}}>Learn here</Button>
-                                </Card.Body>
-                            </Card> */}
+                
                             <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./mag_glass.png'} />
                                 <Card.Body>
@@ -68,7 +57,6 @@ export default function Home(props){
                                 </Card.Body>
                             </Card>
                        </div>
-                        {/* </div> */}
                     </section>
         
             </React.Fragment>

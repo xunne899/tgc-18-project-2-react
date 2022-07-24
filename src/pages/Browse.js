@@ -3,11 +3,11 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-// import { Container, Row, Button, Card, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-import Accordion from 'react-bootstrap/Accordion';
+
+import Accordion from "react-bootstrap/Accordion";
 
 import InfoModal from "../components/InfoModal";
 import EditInfoModal from "../components/InfoEditModal";
@@ -97,7 +97,7 @@ export default class Browse extends React.Component {
     });
 
     let query = "";
-    // add here
+    
     const { searchInput, searchCountry, minprice, maxprice, searchSkin, searchColor, searchOil, searchBase, searchMilk } = this.state;
     let inserted = 0;
     if (searchInput !== "") {
@@ -173,7 +173,7 @@ export default class Browse extends React.Component {
         collection: [],
       });
     }
-    //this.props.goTo("browse");
+
   };
 
   updateSearchFormField = (i) => {
@@ -188,50 +188,12 @@ export default class Browse extends React.Component {
   }
   getData = async () => {
     let response = await axios.get(this.url + "soap_listings");
-    // let temp = [...this.state.collection]
-    // temp = response.data
-    // console.log("get soap listings=>", response)
+
     this.setState({
       collection: response.data,
     });
   };
-  //
 
-  // state = {
-  //     full_collection: [],
-  //     collection: []
-  // }
-
-  // async componentDidMount() {
-  //     console.log("Soap listing did mount");
-  //     let response = await axios.get(this.url + 'soap_listings')
-  //     this.setState({
-  //         full_collection: response.data,
-  //         collection: response.data,
-  //     })
-
-  //     let filterCollection = []
-  //     console.log(response.data)
-  //     for(let data of response.data){
-  //         for(let soapColor of data.color){
-  //             if(soapColor.includes("blue")){
-  //                 filterCollection.push(data);
-  //             }
-
-  //             continue;
-  //         }
-
-  //         if(data.soap_label.includes("vanilla")){
-  //             filterCollection.push(data);
-  //             continue;
-  //         }
-  //     }
-  //     console.log("filtered lst: ", filterCollection)
-
-  //     this.setState({
-  //         collection: filterCollection
-  //     })
-  // }
   // rendering all selected countries == dropdown
   showCountries = () => {
     let selectedCountry = this.countries.map((eachOne) => {
@@ -348,8 +310,7 @@ export default class Browse extends React.Component {
       isEditVisible: !this.state.isEditVisible,
     });
 
-    //this.getData();
-    if (this.state.submitted == true) {
+    if (this.state.submitted === true) {
       this.searchBarSoap();
     } else {
       this.getData();
@@ -367,251 +328,241 @@ export default class Browse extends React.Component {
       isDeleteVisible: !this.state.isDeleteVisible,
     });
 
-    if (this.state.submitted == true) {
+    if (this.state.submitted === true) {
       this.searchBarSoap();
     } else {
       this.getData();
     }
   };
 
-  // showSearchError = () => {
-  //   let search = this.state.searchInput.value;
-  //   return search === `{"!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/"}` ? "Please input a value" : null;
-  // };
+
   showMinPriceError = () => {
     let Minprice = parseInt(this.state.minprice);
     let Maxprice = parseInt(this.state.maxprice);
 
-    //   return  ? "Please input a positive value" : null
-    // }
-     if (Minprice < 0 ){
-      return "Please input a positive value"
-    } if(Maxprice < Minprice ){
-      return "MinPrice should not be more than MaxPrice"
-    }
-  }
   
+    if (Minprice < 0) {
+      return "Please input a positive value";
+    }
+    if (Maxprice < Minprice) {
+      return "MinPrice should not be more than MaxPrice";
+    }
+  };
+
   showMaxPriceError = () => {
     let Minprice = parseInt(this.state.minprice);
     let Maxprice = parseInt(this.state.maxprice);
-   
-    // return Maxprice < 0 ? "Please input a positive value" : null
-    // }
-    // if( Maxprice < Minprice  ){
-    //   return "MaxPrice should not be less than MinPrice"
-    // }
-    if (Maxprice < 0 ){
-      return "Please input a positive value"
-    } if(Maxprice < Minprice ){
-      return "MaxPrice should not be lesser than MinPrice"
+
+
+    if (Maxprice < 0) {
+      return "Please input a positive value";
     }
-  }
+    if (Maxprice < Minprice) {
+      return "MaxPrice should not be lesser than MinPrice";
+    }
+  };
 
   render() {
     return (
       <React.Fragment>
         <Container style={{ height: "100%", width: "100%" }}>
           <Row>
-            <Col xs="12"  className="mt-3 mx-auto" >
-          
-            <Accordion defaultActiveKey="0" >
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Search</Accordion.Header>
-        <Accordion.Body>
-        <div className="row mt-1 p-2 col" style={{fontFamily:"League Spartan"}}>
-        <div className="col-12 col-lg-6" >
-        <label><strong>Search</strong></label>
-                <div>
-                  <input
-                    value={this.state.searchInput}
-                    type="text"
-                    onChange={this.updateSearchFormField}
-                    className="form-control"
-                    name="searchInput"
-                  
-                  />
-                </div>
-                <div className="mt-2">
-                  <label><strong>Country</strong></label>
-                  <select
-                    className="form-select form-control"
-                    value={this.state.searchCountry}
-                    onChange={this.updateSearchFormField}
-                    name="searchCountry"
-                    // name="country" value={this.state.country} onChange={this.updateFormField}
-                  >
-                    <option key="placeholder" name="selectone" value="">
-                      Select One
-                    </option>
-                    {this.showCountries()}
-                  </select>
-                </div>
+            <Col xs="12" className="mt-3 mx-auto">
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Search</Accordion.Header>
+                  <Accordion.Body>
+                    <div className="row mt-1 p-2 col" style={{ fontFamily: "League Spartan" }}>
+                      <div className="col-12 col-lg-6">
+                        <label>
+                          <strong>Search</strong>
+                        </label>
+                        <div>
+                          <input value={this.state.searchInput} type="text" onChange={this.updateSearchFormField} className="form-control" name="searchInput" />
+                        </div>
+                        <div className="mt-2">
+                          <label>
+                            <strong>Country</strong>
+                          </label>
+                          <select
+                            className="form-select form-control"
+                            value={this.state.searchCountry}
+                            onChange={this.updateSearchFormField}
+                            name="searchCountry"
+                          >
+                            <option key="placeholder" name="selectone" value="">
+                              Select One
+                            </option>
+                            {this.showCountries()}
+                          </select>
+                        </div>
 
-                <div className="mt-2">
-                  <label><strong>Color</strong></label>
-                  <select
-                    className="form-select form-control"
-                    value={this.state.searchColor}
-                    onChange={this.updateSearchFormField}
-                    name="searchColor"
-                    // name="country" value={this.state.country} onChange={this.updateFormField}
-                  >
-                    <option key="placeholder" name="selectone" value="">
-                      Select One
-                    </option>
-                    {this.showColor()}
-                  </select>
-                </div>
-             </div>
-
-             <div className="col-12 col-lg-6 mt-3" >
-                <label><strong>Cost</strong></label>
-                  <div>
-                    <label><strong>Min Amount</strong></label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="minprice"
-                      value={this.state.minprice}
-                      placeholder="Min"
-                      onChange={this.updateSearchFormField}
-                    />
-                    {this.showMinPriceError() && this.state.submitted ? (
-                      <div style={{ color: "red" }} className="error">
-                        {this.showMinPriceError()}
+                        <div className="mt-2">
+                          <label>
+                            <strong>Color</strong>
+                          </label>
+                          <select
+                            className="form-select form-control"
+                            value={this.state.searchColor}
+                            onChange={this.updateSearchFormField}
+                            name="searchColor"
+                          >
+                            <option key="placeholder" name="selectone" value="">
+                              Select One
+                            </option>
+                            {this.showColor()}
+                          </select>
+                        </div>
                       </div>
-                    ) : (
-                      ""
-                    )}
-                    <label><strong>Max Amount</strong></label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="maxprice"
-                      value={this.state.maxprice}
-                      placeholder="Max"
-                      onChange={this.updateSearchFormField}
-                    />
-                    {this.showMaxPriceError() && this.state.submitted ? (
-                      <div style={{ color: "red" }} className="error">
-                        {this.showMaxPriceError()}
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                  
 
-              
-               
-                <div className="mt-3">
+                      <div className="col-12 col-lg-6 mt-3">
+                        <label>
+                          <strong>Cost</strong>
+                        </label>
+                        <div>
+                          <label>
+                            <strong>Min Amount</strong>
+                          </label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="minprice"
+                            value={this.state.minprice}
+                            placeholder="Min"
+                            onChange={this.updateSearchFormField}
+                          />
+                          {this.showMinPriceError() && this.state.submitted ? (
+                            <div style={{ color: "red" }} className="error">
+                              {this.showMinPriceError()}
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                          <label>
+                            <strong>Max Amount</strong>
+                          </label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="maxprice"
+                            value={this.state.maxprice}
+                            placeholder="Max"
+                            onChange={this.updateSearchFormField}
+                          />
+                          {this.showMaxPriceError() && this.state.submitted ? (
+                            <div style={{ color: "red" }} className="error">
+                              {this.showMaxPriceError()}
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+
+                        <div className="mt-3">
+                          <label>
+                            <strong>Skin Type</strong>
+                          </label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="checkbox"
+                            onChange={this.updateSkin}
+                            className="form-check-input"
+                            name="searchSkin"
+                            value={"sensitive"}
+                            checked={this.state.searchSkin.includes("sensitive")}
+                          />
+                          <label class="form-check-label">Sensitive</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="checkbox"
+                            onChange={this.updateSkin}
+                            className="form-check-input"
+                            name="searchSkin"
+                            value={"oily"}
+                            checked={this.state.searchSkin.includes("oily")}
+                          />
+                          <label class="form-check-label">Oily</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="checkbox"
+                            onChange={this.updateSkin}
+                            className="form-check-input"
+                            name="searchSkin"
+                            value={"dry"}
+                            checked={this.state.searchSkin.includes("dry")}
+                          />
+                          <label class="form-check-label">Dry</label>
+                        </div>
+                      </div>
+
                 
-                <label><strong>Skin Type</strong></label>
+                      <div className="text-center ms-auto">
+                        <a className="AddBtn btn btn-dark mt-5" style={{ color: "white" }} onClick={this.searchBarSoap}>
+                          Search
+                        </a>
+                      </div>
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
 
-                &nbsp;&nbsp;<input
-                  type="checkbox"
-                  onChange={this.updateSkin}
-                  className="form-check-input"
-                  name="searchSkin"
-                  value={"sensitive"}
-                  checked={this.state.searchSkin.includes("sensitive")}
-                />
-                <label class="form-check-label">Sensitive</label>
-
-                &nbsp;&nbsp;<input
-                  type="checkbox"
-                  onChange={this.updateSkin}
-                  className="form-check-input"
-                  name="searchSkin"
-                  value={"oily"}
-                  checked={this.state.searchSkin.includes("oily")}
-                />
-                <label class="form-check-label">Oily</label>
-
-                &nbsp;&nbsp;<input
-                  type="checkbox"
-                  onChange={this.updateSkin}
-                  className="form-check-input"
-                  name="searchSkin"
-                  value={"dry"}
-                  checked={this.state.searchSkin.includes("dry")}
-                />
-                <label class="form-check-label">Dry</label>
-                </div>
-                </div>
-              
-                {/* </div> */}
-                 {/* end of check */}
-                <div className="text-center ms-auto">
-                  <a className="AddBtn btn btn-dark mt-5" style={{ color: "white" }} onClick={this.searchBarSoap}>
-                    Search
-                  </a>
-                </div>
-                </div>
-             
-              </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
-       </Col>
-       
-            <Col xs="12" >
-              {/* search results */}
-
+            <Col xs="12">
+        
               <div className="m-4 d-flex justify-content-center" style={{ background: "white", height: "85%" }}>
-                {/* <h1 className="AddForm">All Collections</h1> */}
+     
                 <div className="row  d-flex justify-content-center col-sm col-md col-lg">
                   {this.state.collection.length === 0 && <div className="noSearchLabel">No Results Found!</div>}
-                  {/* <ul className="list-group  item"> */}
+        
                   {this.state.collection.map((r) => (
                     <React.Fragment key={r._id}>
                       <div className="list-group-item  item rounded-3 m-2" style={{ background: "white" }}>
-                         {/* <strong>Soap Name: </strong> */}
-                         <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
-                            {r.soap_label}
-                          </h4>
-                          <a className="deleteBtn " style={{textDecoration:"none",fontSize:"20px"}}onClick={() => {
-                              this.view(r);
-                              this.setState({ isDeleteVisible: true });
-                            }}><FontAwesomeIcon icon={faCircleXmark} /></a>
+         
+                        <h4 className="text-center" style={{ color: "black", fontFamily: "League Spartan" }}>
+                          {r.soap_label}
+                        </h4>
+                        <a
+                          className="deleteBtn "
+                          style={{ textDecoration: "none", fontSize: "20px" }}
+                          onClick={() => {
+                            this.view(r);
+                            this.setState({ isDeleteVisible: true });
+                          }}
+                        >
+                          <FontAwesomeIcon icon={faCircleXmark} />
+                        </a>
                         <div className="infoImage mx-auto m-2">
                           {" "}
-                          <img style={{width:"300px", height:"200px"}}  src={r.image_url} alt="new" />
+                          <img style={{ width: "300px", height: "200px" }} src={r.image_url} alt="new" />
                         </div>
 
-                        <div 
-                        // className= "mb-1"
-                        >            
-                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
+                        <div>
+                          <span className="badge bg-dark mx-1" style={{ color: "white", fontFamily: "League Spartan" }}>
                             {r.country_origin}
                           </span>
 
-                          <span className="badge bg-dark mx-1" style={{ color: "white",fontFamily:"League Spartan" }}>
+                          <span className="badge bg-dark mx-1" style={{ color: "white", fontFamily: "League Spartan" }}>
                             ${r.cost}
                           </span>
-                     
-                          {/* <strong>Color: </strong> */}
-                          <span className="badge mx-1" style={{backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }}>
+
+                          <span className="badge mx-1" style={{ backgroundColor: "#ECECEC", color: "black", fontFamily: "League Spartan" }}>
                             {r.color}
                           </span>
 
                           {Object.keys(r.skin_type).map((i) => (
-                            <span className="badge ms-1" style={{ backgroundColor:"#ECECEC", color: "black",fontFamily:"League Spartan" }} key={`${i}`}>
+                            <span className="badge ms-1" style={{ backgroundColor: "#ECECEC", color: "black", fontFamily: "League Spartan" }} key={`${i}`}>
                               {" "}
                               {r.skin_type[i]}
                             </span>
                           ))}
                         </div>
-   
-                    
 
-                     
 
-{/* <div className="d-flex justify-content-between gap-1 mt-1" style={{ fontFamily:"League Spartan" }}> */}
-                                         <div className="d-flex justify-content-between gap-1 mt-4" style={{ fontFamily:"League Spartan" }}>
-                          {/* <InfoModal data={this.state}/> */}
+                        <div className="d-flex justify-content-between gap-1 mt-4" style={{ fontFamily: "League Spartan" }}>
+             
                           <button
                             className="btn  col d-flex  justify-content-center align-items-center"
-                            style={{  height:"30px",backgroundColor:"#ECECEC",color: "black",fontSize:"15px"}}
+                            style={{ height: "30px", backgroundColor: "#ECECEC", color: "black", fontSize: "15px" }}
                             onClick={() => {
                               this.view(r);
                               this.setState({ isEditVisible: true });
@@ -619,37 +570,23 @@ export default class Browse extends React.Component {
                           >
                             Edit
                           </button>
-                      
-                          {/* <button
-                            className="btn btn-light col d-flex  justify-content-center align-items-center "
-                            style={{ height:"30px",color: "black",fontSize:"15px"}}
-                            onClick={() => {
-                              this.view(r);
-                              this.setState({ isDeleteVisible: true });
-                            }}
 
-                            // {this.processDeleteCollection(r)}}
-                          >
-                            Delete
-                          </button> */}
                         </div>
-          
+
                         <button
-                            className=" btn btn-dark mt-1 d-flex  justify-content-center align-items-center col-12"
-                            style={{ height:"30px", color: "white",fontSize:"15px",fontFamily:"League Spartan" }}
-                            onClick={() => {
-                              this.view(r);
-                              this.setState({ isViewVisible: true });
-                            }}
-                          >
-                            More
-                          </button>
-                     
+                          className=" btn btn-dark mt-1 d-flex  justify-content-center align-items-center col-12"
+                          style={{ height: "30px", color: "white", fontSize: "15px", fontFamily: "League Spartan" }}
+                          onClick={() => {
+                            this.view(r);
+                            this.setState({ isViewVisible: true });
+                          }}
+                        >
+                          More
+                        </button>
                       </div>
-                
                     </React.Fragment>
                   ))}
-                  {/* </ul> */}
+             
                 </div>
                 {this.state.isEditVisible && (
                   <EditInfoModal
@@ -670,8 +607,8 @@ export default class Browse extends React.Component {
                   />
                 )}
               </div>
-              </Col>
-              </Row>
+            </Col>
+          </Row>
         </Container>
       </React.Fragment>
     );

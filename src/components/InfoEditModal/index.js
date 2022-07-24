@@ -34,24 +34,7 @@ export default class EditInfoModal extends React.Component {
     console.log("Edit Modal showing");
 
     this.getSingleData();
-    // const { selectedData } = this.props;
-    // console.log(selectedData);
-    // this.setState({
-    //   newName: selectedData.name,
-    //   newEmail: selectedData.email,
-    //   newContactNo: selectedData.contact_no,
-    //   newSoapLabel: selectedData.soap_label,
-    //   newImageUrl: selectedData.image_url,
-    //   newColor: selectedData.color,
-    //   newCountry: selectedData.country_origin,
-    //   newCost: selectedData.cost,
-    //   newSkinType: selectedData.skin_type,
-    //   oilIngredients: selectedData.ingredients.oil_ingredient,
-    //   baseIngredients: selectedData.ingredients.base_ingredient,
-    //   milkIngredients: selectedData.ingredients.milk_ingredient,
-    //   newTreat: selectedData.suitability.treat,
-    //   newRecommended: selectedData.suitability.recommended_use,
-    // });
+   
 
     console.log(this.state);
   }
@@ -228,17 +211,7 @@ export default class EditInfoModal extends React.Component {
     return selectedCountry;
   };
 
-  // let ingredientInfo = i.target.value.split(",");
-  // let oilList = []
-  // for(let word of ingredientInfo){
-  //     oilList.push(word.strip().trim());
-  // }
 
-  // let cloned = [...this.state.oilIngredients, ...oilList];
-  // console.log("oilList: ",oilList);
-  // this.setState({
-  //     'oilIngredients':cloned
-  // })
 
   showSkin = (e) => {
     if (this.state.newSkinType.includes(e.target.value)) {
@@ -348,31 +321,7 @@ export default class EditInfoModal extends React.Component {
     );
   };
 
-  // showNameError = () => {
-  //   if (this.state.newName.length < 3 && this.state.newName === "") {
-  //     return "Name should have and input and should have more than 3 characters";
-  //   } else {
-  //     return null;
-  //   }
-  // };
-
-  // showEmailError = () => {
-  //   let email = this.state.newEmail.includes("@");
-  //   return !email ? "Email error.Please try again" : null;
-  // };
-  // showContactError = () => {
-  //   let contact = this.state.newContactNo.length;
-  //   return contact < 3 ? "Contact should have more than 3 numbers" : null;
-  // };
-  // showLabelError = () => {
-  //   let label = this.state.newSoapLabel.length;
-  //   return label < 3 ? "Soap Label should have more than 3 characters" : null;
-  // };
-
-  // showImageError = () => {
-  //   let inputlength = this.state.newImageUrl.length;
-  //   return inputlength < 3 ? "Input should have more than 3 characters" : null;
-  // };
+ 
   handlePutSoapData = async () => {
     this.setState({
       submitted: true,
@@ -392,7 +341,6 @@ export default class EditInfoModal extends React.Component {
         contact_no: this.state.newContactNo,
         soap_label: this.state.newSoapLabel,
         image_url: this.state.newImageUrl,
-        // description:this.state.newDescription,
         color: this.state.newColor,
         country_origin: this.state.newCountry,
         cost: parseInt(this.state.newCost),
@@ -429,7 +377,7 @@ export default class EditInfoModal extends React.Component {
       <div classname="d-flex justify-content-center">
         <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
           <div classname="d-flex justify-content-center">
-            {/* <div style={{ width:"800px", alignContent:"center"}}> */}
+
             <Modal.Header style={{ background: "white" }} closeButton>
               <Modal.Title style={{ fontFamily: "League Spartan" }}>View</Modal.Title>
             </Modal.Header>
@@ -438,7 +386,7 @@ export default class EditInfoModal extends React.Component {
                 <div className="formNames row border border-dark border-2 m-2 rounded-3 p-3" style={{ backgroundColor: "white" }}>
                   <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
-                  {/* <div className="col-12 col-lg-4"> */}
+
                   <div>
                     <label>
                       <strong>Image URL</strong>
@@ -494,9 +442,7 @@ export default class EditInfoModal extends React.Component {
                     />
                     {this.showError("email")}
                   </div>
-                  {/* </div> */}
-
-                  {/* <div className="col-12 col-lg-4"> */}
+   
                   <div className="mt-2">
                     <label>
                       <strong>Country Origin</strong>
@@ -553,21 +499,11 @@ export default class EditInfoModal extends React.Component {
                     {this.showError("recommended_use")}
                   </div>
 
-                  {/* <div >
-                            <label>Date Posted</label>
-                            <input name="newDate" type="text" value={this.state.newDate}
-                                placeholder="DD-MM-YYYY"
-                                onChange={this.updateFormField}
-                                className="form-control" />
-                        </div> */}
-                  {/* </div> */}
-                  {/* 
-                  <div className="col-12 col-lg-4"> */}
                   <div className="mt-2">
                     <label>
                       <strong>Color</strong>
                     </label>
-                    {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
+
 
                     {this.showColors()}
                     {this.showError("color")}
@@ -614,13 +550,7 @@ export default class EditInfoModal extends React.Component {
                       );
                     })}
                     {this.showError("treat")}
-                    {/* {this.showTreatError() && this.state.submitted ? (
-                  <div style={{ color: "red" }} className="error">
-                    {this.showTreatError()}
-                  </div>
-                ) : (
-                  ""
-                )} */}
+        
                   </div>
                   <div className="mt-2">
                     <label>
@@ -705,16 +635,6 @@ export default class EditInfoModal extends React.Component {
                     />
                     {this.showError("milk_ingredient")}
                   </div>
-                  {/* <div>
-                <label>Skin Type</label>
-                <Select
-                  isMulti={true}
-                  value={this.state.selectedSkin}
-                  onChange={this.handleChange}
-                  options={skinOptions}
-                />
-              </div> */}
-                  {/* </div> */}
 
                   <br />
                   <br />
