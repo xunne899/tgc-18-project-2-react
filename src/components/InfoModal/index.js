@@ -46,9 +46,14 @@ export default class Listing extends React.Component {
       iniComments.push(bodyData);
 
       this.setState({ comments: iniComments });
-    }
-    this.setState({ isLoading: false });
 
+   
+      this.setState({ name: ""})
+      this.setState({ comment : "" });
+    }
+
+    this.setState({ isLoading: false });
+    
     //this.props.setIsViewVisible(false);
   };
 
@@ -262,7 +267,7 @@ export default class Listing extends React.Component {
                   <strong>Username</strong>
                 </div>
               </Form.Label>
-              <Form.Control type="user" placeholder="user" onChange={this.handleNameChange} value={this.state.name} autoFocus />
+              <Form.Control type="user" placeholder="UserName" onChange={this.handleNameChange} value={this.state.name} autoFocus />
             </Form.Group>
             <Form.Group className="m-2" controlId="exampleForm.ControlTextarea1">
               <Form.Label>
@@ -270,7 +275,7 @@ export default class Listing extends React.Component {
                   <strong>Comments</strong>
                 </div>
               </Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={this.handleCommentChange} value={this.state.comment} />
+              <Form.Control as="textarea" placeholder="Input Comments" rows={3} onChange={this.handleCommentChange} value={this.state.comment} />
             </Form.Group>
           </Form>
         </Modal.Body>

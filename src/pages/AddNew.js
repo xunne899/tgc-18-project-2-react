@@ -408,7 +408,7 @@ export default class AddNew extends React.Component {
                     />
                   )}
                 </div>
-                <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
+                <input name="newImageUrl" type="text" placeholder="eg. https://cdn.pixabay.com/photo/2020/03/13/03/58/handmade-soap-4926841_960_720.jpg" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
                 {this.showError("image_url")}
               </div>
              
@@ -418,7 +418,7 @@ export default class AddNew extends React.Component {
                   name="newSoapLabel"
                   type="text"
                   value={this.state.newSoapLabel}
-                  placeholder="Soap Name"
+                  placeholder="eg. Orange Fragrance"
                   onChange={this.updateFormField}
                   className="form-control"
                 />
@@ -427,12 +427,12 @@ export default class AddNew extends React.Component {
            
               <div className="mb-3">
                 <label><strong>Name</strong></label>
-                <input name="newName" type="text" value={this.state.newName} placeholder="Name" onChange={this.updateFormField} className="form-control" />
+                <input name="newName" type="text" value={this.state.newName} placeholder="eg. James" onChange={this.updateFormField} className="form-control" />
                 {this.showError("name")}
               </div>
               <div className="mb-3">
                 <label><strong>Email</strong></label>
-                <input name="newEmail" type="text" value={this.state.newEmail} placeholder="Email" onChange={this.updateFormField} className="form-control" />
+                <input name="newEmail" type="text" value={this.state.newEmail} placeholder="eg. james@hotmail.com.sg" onChange={this.updateFormField} className="form-control" />
                 {this.showError("email")}
               </div>
             {/* </div> */}
@@ -455,7 +455,7 @@ export default class AddNew extends React.Component {
                   name="newCost"
                   type="number"
                   value={parseInt(this.state.newCost)}
-                  placeholder="Cost"
+                  placeholder="eg. 20"
                   onChange={this.updateFormField}
                   className="form-control"
                 />
@@ -467,7 +467,7 @@ export default class AddNew extends React.Component {
                   name="newContactNo"
                   type="text"
                   value={this.state.newContactNo}
-                  placeholder="e.g. 99898989"
+                  placeholder="eg. 99898989"
                   onChange={this.updateFormField}
                   className="form-control"
                 />
@@ -564,7 +564,7 @@ export default class AddNew extends React.Component {
                   type="text"
                   name="oilInput"
                   className="form-control"
-                  placeholder="eg.butter oil <Enter to add>"
+                  placeholder="eg. butter oil <Enter to add>"
                   value={this.state.oilInput}
                   onKeyDown={this.updateOilIngredients}
                   onChange={this.updateFormField}
@@ -590,7 +590,7 @@ export default class AddNew extends React.Component {
                   type="text"
                   name="baseInput"
                   className="form-control"
-                  placeholder="eg.tomato powder <Enter to add>"
+                  placeholder="eg. tomato powder <Enter to add>"
                   value={this.state.baseInput}
                   onKeyDown={this.updateBaseIngredients}
                   onChange={this.updateFormField}

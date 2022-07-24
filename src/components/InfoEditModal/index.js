@@ -202,7 +202,8 @@ export default class EditInfoModal extends React.Component {
     for (let eachOne of this.colors) {
       let selectedRb = (
         <React.Fragment key={eachOne.value}>
-          &nbsp;&nbsp;<input type="radio" name="newColor" value={eachOne.value} onChange={this.updateFormField} checked={this.state.newColor === eachOne.value} />
+          &nbsp;&nbsp;
+          <input type="radio" name="newColor" value={eachOne.value} onChange={this.updateFormField} checked={this.state.newColor === eachOne.value} />
           <span>{eachOne.show}</span>
         </React.Fragment>
       );
@@ -217,9 +218,10 @@ export default class EditInfoModal extends React.Component {
     let selectedCountry = this.countries.map((eachOne) => {
       return (
         <React.Fragment>
-        &nbsp;&nbsp;<option key={eachOne.value} value={eachOne.value}>
-          {eachOne.show}
-        </option>
+          &nbsp;&nbsp;
+          <option key={eachOne.value} value={eachOne.value}>
+            {eachOne.show}
+          </option>
         </React.Fragment>
       );
     });
@@ -429,7 +431,7 @@ export default class EditInfoModal extends React.Component {
           <div classname="d-flex justify-content-center">
             {/* <div style={{ width:"800px", alignContent:"center"}}> */}
             <Modal.Header style={{ background: "white" }} closeButton>
-              <Modal.Title style={{ fontFamily:"League Spartan" }}>View</Modal.Title>
+              <Modal.Title style={{ fontFamily: "League Spartan" }}>View</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{ background: "white" }}>
               <div className="p-3 col-sm col-md col-lg">
@@ -437,107 +439,121 @@ export default class EditInfoModal extends React.Component {
                   <h2 className="title d-flex justify-content-center">Update Soap</h2>
 
                   {/* <div className="col-12 col-lg-4"> */}
-                    <div>
-                      <label><strong>Image URL</strong></label>
-                      <div className="infoPic">
-                        {this.state.newImageUrl !== "" && (
-                          <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>"
-                           style={{ "max-width": "200px" }} 
-                           />
-                        )}
-                      </div>
-                      <input name="newImageUrl" type="text" value={this.state.newImageUrl} onChange={this.updateFormField} className="form-control" />
-                      {this.showError("image_url")}
+                  <div>
+                    <label>
+                      <strong>Image URL</strong>
+                    </label>
+                    <div className="infoPic">
+                      {this.state.newImageUrl !== "" && (
+                        <img className="mb-2" src={this.state.newImageUrl} key={this.state.newImageUrl} alt="<No Image>" style={{ "max-width": "200px" }} />
+                      )}
                     </div>
-                    <div className="mt-2">
-                      <label><strong>Soap Label</strong></label>
-                      <input
-                        name="newSoapLabel"
-                        type="text"
-                        value={this.state.newSoapLabel}
-                        placeholder="Soap Name"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("soap_label")}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Name</strong></label>
-                      <input
-                        name="newName"
-                        type="text"
-                        value={this.state.newName}
-                        placeholder="Name"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("name")}
-                    </div>
-                  
-                    <div className="mt-2" >
-                      <label><strong>Email</strong></label>
-                      <input
-                        name="newEmail"
-                        type="text"
-                        value={this.state.newEmail}
-                        placeholder="Email"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("email")}
-                    </div>
+                    <input
+                      name="newImageUrl"
+                      placeholder="eg. https://cdn.pixabay.com/photo/2020/03/13/03/58/handmade-soap-4926841_960_720.jpg"
+                      type="text"
+                      value={this.state.newImageUrl}
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("image_url")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Soap Label</strong>
+                    </label>
+                    <input
+                      name="newSoapLabel"
+                      type="text"
+                      value={this.state.newSoapLabel}
+                      placeholder="eg. Rose Fragrance"
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("soap_label")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Name</strong>
+                    </label>
+                    <input name="newName" type="text" value={this.state.newName} placeholder="eg. James" onChange={this.updateFormField} className="form-control" />
+                    {this.showError("name")}
+                  </div>
+
+                  <div className="mt-2">
+                    <label>
+                      <strong>Email</strong>
+                    </label>
+                    <input
+                      name="newEmail"
+                      type="text"
+                      value={this.state.newEmail}
+                      placeholder="eg. james@hotmail.com.sg"
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("email")}
+                  </div>
                   {/* </div> */}
 
                   {/* <div className="col-12 col-lg-4"> */}
-                    <div className="mt-2">
-                      <label><strong>Country Origin</strong></label>
-                      <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
-                        <option key="placeholder" name="selectone" value="">
-                          ---Select One---
-                        </option>
-                        {this.showCountries()}
-                      </select>
-                      {this.showError("country_origin")}
-                    </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Country Origin</strong>
+                    </label>
+                    <select className="form-select form-control" name="newCountry" value={this.state.newCountry} onChange={this.updateFormField}>
+                      <option key="placeholder" name="selectone" value="">
+                        ---Select One---
+                      </option>
+                      {this.showCountries()}
+                    </select>
+                    {this.showError("country_origin")}
+                  </div>
 
-                    <div className="mt-2">
-                      <label><strong>Cost</strong></label>
-                      <input
-                        name="newCost"
-                        type="number"
-                        value={parseInt(this.state.newCost)}
-                        placeholder="Cost"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("cost")}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Contact No</strong></label>
-                      <input
-                        name="newContactNo"
-                        type="text"
-                        value={this.state.newContactNo}
-                        placeholder="e.g. 99898989"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("contact_no")}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Recommended Use</strong></label>
-                      <input
-                        name="newRecommended"
-                        type="text"
-                        value={this.state.newRecommended}
-                        placeholder="eg. Use 4 times in a week"
-                        onChange={this.updateFormField}
-                        className="form-control"
-                      />
-                      {this.showError("recommended_use")}
-                    </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Cost</strong>
+                    </label>
+                    <input
+                      name="newCost"
+                      type="number"
+                      value={parseInt(this.state.newCost)}
+                      placeholder="eg. 20"
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("cost")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Contact No</strong>
+                    </label>
+                    <input
+                      name="newContactNo"
+                      type="text"
+                      value={this.state.newContactNo}
+                      placeholder="eg. 99898989"
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("contact_no")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Recommended Use</strong>
+                    </label>
+                    <input
+                      name="newRecommended"
+                      type="text"
+                      value={this.state.newRecommended}
+                      placeholder="eg. Use 4 times in a week"
+                      onChange={this.updateFormField}
+                      className="form-control"
+                    />
+                    {this.showError("recommended_use")}
+                  </div>
 
-                    {/* <div >
+                  {/* <div >
                             <label>Date Posted</label>
                             <input name="newDate" type="text" value={this.state.newDate}
                                 placeholder="DD-MM-YYYY"
@@ -545,137 +561,151 @@ export default class EditInfoModal extends React.Component {
                                 className="form-control" />
                         </div> */}
                   {/* </div> */}
-{/* 
+                  {/* 
                   <div className="col-12 col-lg-4"> */}
-                    <div className="mt-2">
-                      <label><strong>Color</strong></label>
-                      {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
-     
-                      {this.showColors()}
-                      {this.showError("color")}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Skin Type</strong></label>
-                      {this.skinType.map((eachOne) => {
-                        return (
-                          <React.Fragment key={eachOne.value}>
-                            &nbsp;&nbsp;<input
-                              type="checkbox"
-                              name="newSkinType"
-                              value={eachOne.value}
-                              onChange={this.showSkin}
-                              checked={this.state.newSkinType.includes(eachOne.value)}
-                            />
-                            <span>{eachOne.show}</span>
-                          </React.Fragment>
-                        );
-                      })}
-                      {this.showError("skin_type")}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Treat</strong></label>
-                      {this.treat.map((eachOne) => {
-                        return (
-                          <React.Fragment key={eachOne.value}>
-                            &nbsp;&nbsp;<input
-                              type="checkbox"
-                              name="newTreat"
-                              value={eachOne.value}
-                              placeholder="eg. Irritable skin"
-                              onChange={this.showTreatment}
-                              checked={this.state.newTreat.includes(eachOne.value)}
-                            />
-                            <span>{eachOne.show}</span>
-                          </React.Fragment>
-                        );
-                      })}
-                      {this.showError("treat")}
-                      {/* {this.showTreatError() && this.state.submitted ? (
+                  <div className="mt-2">
+                    <label>
+                      <strong>Color</strong>
+                    </label>
+                    {/* <div><input type="color" value={this.state.barColor} onChange={this.clickBarColor}/></div> */}
+
+                    {this.showColors()}
+                    {this.showError("color")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Skin Type</strong>
+                    </label>
+                    {this.skinType.map((eachOne) => {
+                      return (
+                        <React.Fragment key={eachOne.value}>
+                          &nbsp;&nbsp;
+                          <input
+                            type="checkbox"
+                            name="newSkinType"
+                            value={eachOne.value}
+                            onChange={this.showSkin}
+                            checked={this.state.newSkinType.includes(eachOne.value)}
+                          />
+                          <span>{eachOne.show}</span>
+                        </React.Fragment>
+                      );
+                    })}
+                    {this.showError("skin_type")}
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Treat</strong>
+                    </label>
+                    {this.treat.map((eachOne) => {
+                      return (
+                        <React.Fragment key={eachOne.value}>
+                          &nbsp;&nbsp;
+                          <input
+                            type="checkbox"
+                            name="newTreat"
+                            value={eachOne.value}
+                            placeholder="eg. Irritable skin"
+                            onChange={this.showTreatment}
+                            checked={this.state.newTreat.includes(eachOne.value)}
+                          />
+                          <span>{eachOne.show}</span>
+                        </React.Fragment>
+                      );
+                    })}
+                    {this.showError("treat")}
+                    {/* {this.showTreatError() && this.state.submitted ? (
                   <div style={{ color: "red" }} className="error">
                     {this.showTreatError()}
                   </div>
                 ) : (
                   ""
                 )} */}
-                    </div>
-                    <div className="mt-2">
-                      <label><strong>Oil Ingredients</strong></label>
-                      <div class="chipsWrapper" id="chipParent">
-                        {this.state.oilIngredients.map((iType, i) => (
-                          <>
-                            <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
-                              {iType}
-                              <span onClick={() => this.removeOilTag(i)} style={{ marginLeft: "5px" }}>
-                                X
-                              </span>
+                  </div>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Oil Ingredients</strong>
+                    </label>
+                    <div class="chipsWrapper" id="chipParent">
+                      {this.state.oilIngredients.map((iType, i) => (
+                        <>
+                          <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
+                            {iType}
+                            <span onClick={() => this.removeOilTag(i)} style={{ marginLeft: "5px" }}>
+                              X
                             </span>
-                          </>
-                        ))}
-                      </div>
-                      <input
-                        type="text"
-                        name="oilInput"
-                        className="form-control"
-                        placeholder="eg.butter oil <Enter to add>"
-                        value={this.state.oilInput}
-                        onKeyDown={this.updateOilIngredients}
-                        onChange={this.updateFormField}
-                      />
-                      {this.showError("oil_ingredient")}
+                          </span>
+                        </>
+                      ))}
                     </div>
+                    <input
+                      type="text"
+                      name="oilInput"
+                      className="form-control"
+                      placeholder="eg. butter oil <Enter to add>"
+                      value={this.state.oilInput}
+                      onKeyDown={this.updateOilIngredients}
+                      onChange={this.updateFormField}
+                    />
+                    {this.showError("oil_ingredient")}
+                  </div>
 
-                    <div className="mt-2">
-                      <label><strong>Base Ingredients</strong></label>
-                      <div class="chipsWrapper" id="chipParent">
-                        {this.state.baseIngredients.map((iType, i) => (
-                          <>
-                            <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
-                              {iType}
-                              <span onClick={() => this.removeBaseTag(i)} style={{ marginLeft: "5px" }}>
-                                X
-                              </span>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Base Ingredients</strong>
+                    </label>
+                    <div class="chipsWrapper" id="chipParent">
+                      {this.state.baseIngredients.map((iType, i) => (
+                        <>
+                          <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
+                            {iType}
+                            <span onClick={() => this.removeBaseTag(i)} style={{ marginLeft: "5px" }}>
+                              X
                             </span>
-                          </>
-                        ))}
-                      </div>
-                      <input
-                        type="text"
-                        name="baseInput"
-                        className="form-control"
-                        placeholder="eg.tomato powder <Enter to add>"
-                        value={this.state.baseInput}
-                        onKeyDown={this.updateBaseIngredients}
-                        onChange={this.updateFormField}
-                      />
-                      {this.showError("base_ingredient")}
+                          </span>
+                        </>
+                      ))}
                     </div>
+                    <input
+                      type="text"
+                      name="baseInput"
+                      className="form-control"
+                      placeholder="eg. tomato powder <Enter to add>"
+                      value={this.state.baseInput}
+                      onKeyDown={this.updateBaseIngredients}
+                      onChange={this.updateFormField}
+                    />
+                    {this.showError("base_ingredient")}
+                  </div>
 
-                    <div className="mt-2">
-                      <label><strong>Milk Ingredients</strong></label>
-                      <div class="chipsWrapper" id="chipParent">
-                        {this.state.milkIngredients.map((iType, i) => (
-                          <>
-                            <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
-                              {iType}
-                              <span onClick={() => this.removeMilkTag(i)} style={{ marginLeft: "5px" }}>
-                                X
-                              </span>
+                  <div className="mt-2">
+                    <label>
+                      <strong>Milk Ingredients</strong>
+                    </label>
+                    <div class="chipsWrapper" id="chipParent">
+                      {this.state.milkIngredients.map((iType, i) => (
+                        <>
+                          <span key={`${iType}`} className="badge badge-pill bg-dark m-1">
+                            {iType}
+                            <span onClick={() => this.removeMilkTag(i)} style={{ marginLeft: "5px" }}>
+                              X
                             </span>
-                          </>
-                        ))}
-                      </div>
-                       <input
-                        type="text"
-                        name="milkInput"
-                        className="form-control"
-                        placeholder="eg. goat milk <Enter to add>"
-                        value={this.state.milkInput}
-                        onKeyDown={this.updateMilkIngredients}
-                        onChange={this.updateFormField}
-                      />
-                      {this.showError("milk_ingredient")}
+                          </span>
+                        </>
+                      ))}
                     </div>
-                    {/* <div>
+                    <input
+                      type="text"
+                      name="milkInput"
+                      className="form-control"
+                      placeholder="eg. goat milk <Enter to add>"
+                      value={this.state.milkInput}
+                      onKeyDown={this.updateMilkIngredients}
+                      onChange={this.updateFormField}
+                    />
+                    {this.showError("milk_ingredient")}
+                  </div>
+                  {/* <div>
                 <label>Skin Type</label>
                 <Select
                   isMulti={true}
