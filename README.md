@@ -144,7 +144,13 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ### Test Cases
 
-Test case for each feature and its functionality can be found over this link here [here](./test_case.xlsx).
+#### PDF
+
+- Test case for each feature and its functionality can be found here [here](./test_case.pdf).
+
+#### Excel
+
+- Test case for each feature and its functionality can be found here [here](./test_case.xlsx).
 
 ### Mobile Responsiveness
 
