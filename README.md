@@ -136,7 +136,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ### Test Cases
 
-Test case for each feature and its functionality can be found over this link here [here](https://github.com/xunne899/tgc-18-project-2-react/blob/main/test_case.pdf).
+Test case for each feature and its functionality can be found over this link here [here](./test_case.pdf).
 
 ### Mobile Responsiveness
 

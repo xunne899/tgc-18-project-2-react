@@ -375,7 +375,7 @@ export default class EditInfoModal extends React.Component {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (
       <div classname="d-flex justify-content-center">
-        <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible}>
+        <Modal size="lg" show={isViewVisible} onHide={setIsViewVisible} centered>
           <div classname="d-flex justify-content-center">
 
             <Modal.Header style={{ background: "white" }} closeButton>

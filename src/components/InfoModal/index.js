@@ -105,7 +105,7 @@ export default class Listing extends React.Component {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     console.log("Checking comments type==>", this.state.comments, typeof this.state.comments);
     return (
-      <Modal size="lg" style={{ paddingLeft: "0px" }} show={isViewVisible} onHide={setIsViewVisible}>
+      <Modal size="lg" style={{ paddingLeft: "0px" }} show={isViewVisible} onHide={setIsViewVisible} centered>
         <Modal.Header style={{ background: "white" }} closeButton>
           <Modal.Title style={{ fontFamily: "League Spartan" }}>View</Modal.Title>
         </Modal.Header>

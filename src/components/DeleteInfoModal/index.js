@@ -26,7 +26,7 @@ export default class DeleteInfoModal extends React.Component {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (
       <React.Fragment>
-        <Modal show={isViewVisible} onHide={setIsViewVisible}>
+        <Modal show={isViewVisible} onHide={setIsViewVisible} centered>
           <Modal.Header style={{ background: "white" }} closeButton>
             <Modal.Title  className="deleteText d-flex justify-content-center" style={{ fontFamily:"League Spartan",color:"red" }}>
             View
@@ -36,7 +36,8 @@ export default class DeleteInfoModal extends React.Component {
           <Modal.Body style={{ background: "white" }}>
     
             <div className="infoWrapper">
-              <div className="d-flex justify-content-center" style={{ color: "red" }}>
+              <img className="exclamationIcon row mx-auto" src={require('../../images/exclamation.png')} />
+              <div className="d-flex justify-content-center mt-2" style={{ color: "red" }}>
             <h3>Confirm Delete</h3>
             </div>
             <div className="deleteContent d-flex justify-content-center" style={{ color: "red" }}>

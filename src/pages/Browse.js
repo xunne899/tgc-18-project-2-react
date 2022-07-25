@@ -12,6 +12,7 @@ import Accordion from "react-bootstrap/Accordion";
 import InfoModal from "../components/InfoModal";
 import EditInfoModal from "../components/InfoEditModal";
 import DeleteInfoModal from "../components/DeleteInfoModal";
+import Spinner from "../mainpage_components/Spinner";
 
 export default class Browse extends React.Component {
   url = "https://project-2-soap.herokuapp.com/";
@@ -32,6 +33,7 @@ export default class Browse extends React.Component {
     isViewVisible: false,
     isEditVisible: false,
     isDeleteVisible: false,
+    contentLoaded: false,
   };
 
   colors = [
@@ -186,13 +188,25 @@ export default class Browse extends React.Component {
     console.log("Soap listing did mount");
     this.getData();
   }
+
+
   getData = async () => {
     let response = await axios.get(this.url + "soap_listings");
 
     this.setState({
       collection: response.data,
+      contentLoaded: true
     });
   };
+
+  renderSpinner() {
+    if (!this.state.contentLoaded) {
+      return (
+      <div className= "d-flex justify-content-center">
+        <Spinner/>
+      </div>
+    )}
+  }
 
   // rendering all selected countries == dropdown
   showCountries = () => {
@@ -365,7 +379,7 @@ export default class Browse extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Container style={{ height: "100%", width: "100%" }}>
+        {!this.state.contentLoaded ? (this.renderSpinner()) : (<Container style={{ height: "100%", width: "100%" }}>
           <Row>
             <Col xs="12" className="mt-3 mx-auto">
               <Accordion defaultActiveKey="0">
@@ -609,7 +623,8 @@ export default class Browse extends React.Component {
               </div>
             </Col>
           </Row>
-        </Container>
+        </Container>)}
+  
       </React.Fragment>
     );
   }
