@@ -172,7 +172,6 @@ export default class AddNew extends React.Component {
       });
       console.log("Response=>", res);
        Swal.fire({
-        // position: 'top-end',
         fontFamily:"League Spartan",
         icon: 'success',
         title: 'Collection has been added',
