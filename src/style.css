@@ -271,9 +271,9 @@ body {
 .deleteBtn{
   position:absolute;
   top: 2px;
-  right:14px;
-  /* height: 10px; */
-  width:12px;
+  right:13px;
+  /* height: 2px; */
+  width:14px;
   color:rgba(232, 220, 220, 0.5)
 }
 .deleteBtn:hover{
@@ -790,7 +790,7 @@ font-size:0.7rem;
   .deleteBtn{
     position:absolute;
     top:4px;
-    right:12px;
+    right:13px;
     color:rgba(232, 220, 220, 0.5)
   }
   .deleteBtn:hover{
