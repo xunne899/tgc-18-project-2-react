@@ -21,9 +21,9 @@ export default class DeleteInfoModal extends React.Component {
       // position: 'top-end',
       fontFamily:"League Spartan",
       icon: 'success',
-      title: 'Your collection has been deleted',
+      title: 'Collection has been deleted',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1700
     })
     if (res.status == 200) {
   

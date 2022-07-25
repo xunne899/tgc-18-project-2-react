@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import Swal from 'sweetalert2'
 
 
 
@@ -142,7 +143,10 @@ export default class AddNew extends React.Component {
     this.setState({
       errorMsg: {},
     });
-
+    
+  //  if(this.state.submitted ===true && !this.state.errorMsg ){
+ 
+  //  } 
 
     try {
       let res = await axios.post(this.url + "soap_listings", {
@@ -167,6 +171,14 @@ export default class AddNew extends React.Component {
         },
       });
       console.log("Response=>", res);
+       Swal.fire({
+        // position: 'top-end',
+        fontFamily:"League Spartan",
+        icon: 'success',
+        title: 'Collection has been added',
+        showConfirmButton: false,
+        timer: 1700
+      })
 
       this.props.goTo("collection");
     } catch (err) {

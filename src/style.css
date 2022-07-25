@@ -270,7 +270,7 @@ body {
 }
 .deleteBtn{
   position:absolute;
-  top: 2px;
+  top: 2.5px;
   right:13px;
   /* height: 2px; */
   width:13px;
@@ -789,7 +789,7 @@ font-size:0.7rem;
 
   .deleteBtn{
     position:absolute;
-    top:2px;
+    top:2.5px;
     right:13px;
     color:rgba(232, 220, 220, 0.5)
   }
