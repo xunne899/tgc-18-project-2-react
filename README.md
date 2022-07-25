@@ -103,14 +103,14 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ## 3. Features<br>
 
-| Features        | Descriptions                                                                                                                                               |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home         | Main page consist of links to browse, collection and add page
-| Browse          | Users able to browse search soap collection available.                                                                                                     |
-| Search for soap | Users can input field details to search for soap(e.g., skin type, color,ingredients, country).                                                             |
-| Search Results  | Users able to edit, delete, post comments for a particular soap collection.                                                                                |
+| Features        | Descriptions                                                                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Home            | Main page consist of links to browse, collection and add page                                                                                                 |
+| Browse          | Users able to browse search soap collection available.                                                                                                        |
+| Search for soap | Users can input field details to search for soap(e.g., skin type, color,ingredients, country).                                                                |
+| Search Results  | Users able to edit, delete, post comments for a particular soap collection.                                                                                   |
 | Collections     | Users can view the particular soap collection on the main collection page and click to view more details,edit, delete and post comments about the collection. |
-| Add             | Users can add a new customise soap and may sell it online.                                                                                                 |
+| Add             | Users can add a new customise soap and may sell it online.                                                                                                    |
 
 ## 4. User Stories
 
@@ -138,6 +138,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 - SweetAlert2 - alert box for successfully deleted and added
 - Netlify - hosting my webpage project
 - Heroku - hosting backend project
+- createmockup - readme file desktop view layout
 
 ## 6. Testing
 
@@ -170,7 +171,8 @@ Responsiveness testing was done on Small handphones SE, Tablet, General Desktop 
 [Canva](https://www.canva.com)(creating logo brand)<br>
 [CSS loaders](https://cssloaders.github.io/)(loading logo for browse and collection page)<br>
 [SweetAlert2](https://sweetalert2.github.io/)(alert box for successfully deleted and added)<br>
-[React Bootstrap 5.0](https://react-bootstrap.github.io/)(accordian, cards ,modal)
+[React Bootstrap 5.0](https://react-bootstrap.github.io/)(accordian, cards ,modal)<br>
+[createmockup](https://www.createmockup.com/generate/)(readme file desktop view layout)
 
 #### Mentors
 
