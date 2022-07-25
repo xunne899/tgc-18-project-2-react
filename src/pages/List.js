@@ -114,9 +114,9 @@ export default class Listing extends React.Component {
     <React.Fragment key={r._id}>
       <li className="list-group-item item rounded-3 m-2" style={{ background: "white" }}>
 
-                 <h4 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
+                 <h5 className="text-center" style={{ color: "black",fontFamily:"League Spartan" }}>
                   {r.soap_label}
-                </h4>
+                </h5>
                 <a className="deleteBtn " style={{textDecoration:"none",fontSize:"20px"}}onClick={() => {
                     this.view(r);
                     this.setState({ isDeleteVisible: true });
