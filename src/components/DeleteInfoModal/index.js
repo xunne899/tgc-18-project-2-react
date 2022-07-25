@@ -19,6 +19,7 @@ export default class DeleteInfoModal extends React.Component {
     // delete
     Swal.fire({
       // position: 'top-end',
+      fontFamily:"League Spartan",
       icon: 'success',
       title: 'Your collection has been deleted',
       showConfirmButton: false,

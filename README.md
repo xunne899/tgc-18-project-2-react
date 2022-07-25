@@ -6,6 +6,8 @@
 
 <!-- ![Web_view](./images/view.png) -->
 
+![Web_view](./public/images/view.png)
+
 # Content
 
 1. Summary of project
