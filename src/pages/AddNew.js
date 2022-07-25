@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 
 
+
 export default class AddNew extends React.Component {
   url = "https://project-2-soap.herokuapp.com/";
 
@@ -133,6 +134,7 @@ export default class AddNew extends React.Component {
   };
 
   addNew = async () => {
+
     this.setState({
       submitted: true,
     });

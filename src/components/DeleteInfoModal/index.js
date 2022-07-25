@@ -4,6 +4,7 @@ import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Swal from 'sweetalert2'
 
 export default class DeleteInfoModal extends React.Component {
   state = {
@@ -14,9 +15,17 @@ export default class DeleteInfoModal extends React.Component {
     const url =
       "https://project-2-soap.herokuapp.com/";
 
-    let res = await axios.delete(url + `soap_listings/${r._id}`); // delete
-
+    let res = await axios.delete(url + `soap_listings/${r._id}`); 
+    // delete
+    Swal.fire({
+      // position: 'top-end',
+      icon: 'success',
+      title: 'Your collection has been deleted',
+      showConfirmButton: false,
+      timer: 1500
+    })
     if (res.status == 200) {
+  
       this.props.setIsViewVisible(false);
     }
 
