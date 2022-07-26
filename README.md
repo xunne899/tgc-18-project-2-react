@@ -6,6 +6,12 @@
 
 ![Web_view](./public/images/view.png)
 
+### References
+
+- For more details of github frontend react interface please click [here](https://github.com/xunne899/tgc-18-project-2-react)
+
+- For more details of github backend database please click [here](https://github.com/xunne899/tgc-18-project-2-express)
+
 # Content
 
 1. Summary of project
@@ -14,19 +20,17 @@
 4. User Stories
 5. Technologies Used
 6. Test Cases
-7. Deployment
+7. Live Deployment
 8. Credits and Acknowledgement
 
 ## 1. Summary
 
 - Users with skin conditions need suitable soap to prevent further skin complications. Not many soap products in the market allows user to customise their bar soap
-- As a owner of this project i would like to come up with an idea to allow users to create customise bar soap. Also, to source for suitable soap online cater to their skin conditions
+- As a owner of this project i would like to come up with an idea to allow users to create customise bar soap. Also, to source for suitable soap online catering to their skin conditions
 
 ### ERD
 
 ![ERD](./public/images/erd.png)
-
-For more details of backend database please click [here](https://github.com/xunne899/tgc-18-project-2-express)
 
 ## 2. UI/UX
 
@@ -45,7 +49,7 @@ The purpose of this project is to let public, mainly young adults (21 years) to 
 #### 2.2.a. User Goals
 
 - Targeted Audience: Young adults from age 21 to Senior Citizens 65 yers old
-- Users are able to find their desired customised bar soap online to suit their skin conditions
+- Users are able to find their desired customise bar soap online to suit their skin conditions
 - Users are able to interect with the seller via contact information posted onliine(contact number, email, name)
 - Users are able to obtain ingredients information of the soap product they are purchasing
 
@@ -115,7 +119,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 ## 4. User Stories
 
 1. As a user i would like to know ingredients of customise soap that will be beneficial for my skin<br>
-2. As a user i would like to know the recommended usage of the customise soap bar for types of skin<br>
+2. As a user i would like to know the recommended usage of customise soap bar for types of skin<br>
 3. As a user i would like to know the details of the seller, so that i am able to connect with seller to purchase the soap for my skin type
 
 ### 4.1 Acceptance criteria
@@ -125,20 +129,20 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ## 5. Technologies Used
 
-- HTML - styling, font size, color
-- CSS - styling, font size, color
+- HTML - styling, font size,form size, color
+- CSS - styling, font size,form size, color
 - React- frontend programming
 - Axios - importing data, posting data
 - MongoDB - backend database
 - Express Node JS- Backend programming
 - Bootstrap - styling , sizing, aligning content, match its mobile responsiveness
-- React Boostrap 5.0 - accordian, cards ,modal
+- React Boostrap 5.0 - accordian, cards ,modal, forms, col, rows
 - Canva - creating logo brand
 - CSS loaders - loading logo for browse and collection page
 - SweetAlert2 - alert box for successfully deleted and added
 - Netlify - hosting my webpage project
 - Heroku - hosting backend project
-- createmockup - readme file desktop view layout
+- createmockup - readme file, sample of different view layout
 
 ## 6. Testing
 
@@ -158,11 +162,12 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 Responsiveness testing was done on Small handphones SE, Tablet, General Desktop and Laptop size.
 
-## 7. Deployment
+## 7. Live Deployment
 
-- Deployment is through heroku for backend
-- Deployment is through netlify
-<!-- * Link can be found here https://main--project2-soapaura.netlify.app/ -->
+- Deployment is through Netlify for react frontend<br>
+  Link of live Netlify deployment can be found [here](https://main--project2-soapaura.netlify.app)
+- Deployment is through heroku for backend database<br>
+  Link of live HEROKU deployment can be found [here](https://project-2-soap.herokuapp.com/)
 
 ## 8. Credits and Acknowledgement
 
