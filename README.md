@@ -132,10 +132,13 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 - HTML - styling, font size,form size, color
 - CSS - styling, font size,form size, color
 - React- frontend programming
-- Axios - importing data, posting data
+- Axios - importing data, posting data, HTTP client to endpoint
 - MongoDB - backend database
 - Express Node JS- Backend programming
-- Bootstrap - styling , sizing, aligning content, match its mobile responsiveness
+- MongoDB Node Driver
+- CORS
+- doteenv
+- Bootstrap - styling, sizing, aligning content, match its mobile responsiveness
 - React Boostrap 5.0 - accordian, cards ,modal, forms, col, rows
 - Canva - creating logo brand
 - CSS loaders - loading logo for browse and collection page
@@ -143,6 +146,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 - Netlify - hosting my webpage project
 - Heroku - hosting backend project
 - createmockup - readme file, sample of different view layout
+- Github & Gitpod - storing respositories/project
 
 ## 6. Testing
 

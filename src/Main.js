@@ -71,13 +71,13 @@ export default class Main extends React.Component {
             <Navbar.Toggle id="nav-button" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">     
-
+               
                 <Nav.Link className={this.connectTab('home')} onClick={() => {
                    this.setState({
                     current: 'home'
                   })}}>Home</Nav.Link>
                 
-             
+                 
                 <Nav.Link className={this.connectTab('search')} onClick={() => {
                   this.setState({
                     current: 'search'
