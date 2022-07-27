@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -160,7 +160,7 @@ export default class EditInfoModal extends React.Component {
     },
     {
       show: "Skin Abrasion",
-      value: "skin_Abrasion",
+      value: "skin_abrasion",
     },
     {
       show: "Skin Cuts",

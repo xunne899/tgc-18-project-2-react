@@ -75,7 +75,7 @@ Webpage consists of simple 3 components
 
 Navbar is located at the top of webpage.<br>
 Navbar consists of logo and name hyperlinks to respective pages.<br>
-Body consists of the Main picture, Display content, Collection link, Add Item link, Browse Search item link <br>
+Body consists of the Main picture, Display content, Home link, Add Item link, Browse Search item link <br>
 Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ![Skeleton](./public/images/skeleton.png)
@@ -113,7 +113,6 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 | Browse          | Users able to browse search soap collection available.                                                                                                        |
 | Search for soap | Users can input field details to search for soap(e.g., skin type, color,ingredients, country).                                                                |
 | Search Results  | Users able to edit, delete, post comments for a particular soap collection.                                                                                   |
-| Collections     | Users can view the particular soap collection on the main collection page and click to view more details,edit, delete and post comments about the collection. |
 | Add             | Users can add a new customise soap and may sell it online.                                                                                                    |
 
 ## 4. User Stories

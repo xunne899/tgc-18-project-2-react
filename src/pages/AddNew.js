@@ -179,7 +179,7 @@ export default class AddNew extends React.Component {
         timer: 1700
       })
 
-      this.props.goTo("collection");
+      this.props.goTo("search");
     } catch (err) {
       console.log(err);
       if (err.response && err.response.status === 406) {

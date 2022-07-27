@@ -6,9 +6,10 @@ import Logo from "./mainpage_components/Logo";
 
 import Home from './pages/Home';
 import AddNew from './pages/AddNew';
-import Listing from './pages/List';
+
 import Footer from './mainpage_components/Footer';
 import Browse from './pages/Browse';
+
 
 
 export default class Main extends React.Component {
@@ -42,11 +43,6 @@ export default class Main extends React.Component {
         return <Browse goTo={this.changeContent}
                        color="white" 
                        fontFamily ="League Spartan"/>
-      }
-      else if (this.state.current === 'collection') {
-        return <Listing goTo={this.changeContent} 
-                        color="white"
-                        fontFamily ="League Spartan"/>
       }
      else if (this.state.current === 'add') {
       return <AddNew goTo={this.changeContent} 
@@ -82,12 +78,6 @@ export default class Main extends React.Component {
                   this.setState({
                     current: 'search'
                     })}}>Browse</Nav.Link>
-                  
-             
-                <Nav.Link  className={this.connectTab('collection')} onClick={() => {
-                this.setState({
-                  current:'collection'
-                })}}>Collection</Nav.Link>
             
                 <Nav.Link  className={this.connectTab('add')} onClick={() => {
                  this.setState({
