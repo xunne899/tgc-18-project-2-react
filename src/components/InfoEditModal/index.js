@@ -46,7 +46,7 @@ export default class EditInfoModal extends React.Component {
       let res = await axios.get(url + "soap_listings/" + selectedID);
 
       console.log(res);
-      if (res.status == 200) {
+      if (res.status === 200) {
         //res.data;
         this.setState({
           newName: res.data.name,
@@ -357,12 +357,12 @@ export default class EditInfoModal extends React.Component {
         },
       });
       console.log("Response=>", res);
-      if (res.status == 200) {
+      if (res.status === 200) {
         this.props.setIsViewVisible(false);
       }
     } catch (err) {
       console.log(err);
-      if (err.response && err.response.status == 406) {
+      if (err.response && err.response.status === 406) {
         this.setState({
           errorMsg: err.response.data.Errors,
         });

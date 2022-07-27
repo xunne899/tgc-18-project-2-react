@@ -10,11 +10,11 @@ export default function Home(props){
         return (
             <React.Fragment>
             <div>
-              <HomeImage goTo={props.goTo} bgC="white" msg="Customise Your Way to a Better Skin" fontFamily="League Spartan"/>
+              <HomeImage goTo={props.goTo} bgC="white" msg="Customise Your Way To A Better Skin" fontFamily="League Spartan"/>
               </div>
                     <section id="about">
                         <div className="content row justify-content-center ">
-                            <h1>Create your own skin soap now !</h1>
+                            <h1>Create Your Own Skin Soap Now !</h1>
                 
                             <Card className="displayCards m-1 border-0 col-sm-12 col-md-12 col-lg-3" >
                                 <Card.Img className="cardSize m-2"  variant="top" src={'./mag_glass.png'} />

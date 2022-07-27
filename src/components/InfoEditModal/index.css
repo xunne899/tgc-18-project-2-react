@@ -21,7 +21,6 @@
 }
 
 .infoBottomLabel{
-    /* border-bottom: 1px solid rgb(168, 168, 168); */
     margin-bottom:10px;
     text-align: right;
 }
@@ -50,7 +49,6 @@
 .text-right{
     width:60%;
     word-break: break-word;
-    /* text-overflow: ellipsis; */
       
 }
 

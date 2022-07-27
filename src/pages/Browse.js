@@ -115,7 +115,7 @@ export default class Browse extends React.Component {
       inserted += 1;
     }
 
-    if (minprice >= 0 && maxprice > minprice) {
+    if (minprice >= 0  && maxprice > minprice) {
       if (inserted > 0) {
         query += "&";
       }
