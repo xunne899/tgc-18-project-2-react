@@ -1,11 +1,4 @@
 
-/* 
-
-@media only screen and  (max-width: 500px) { 
-
-
-
-} */
 
 
 @media only screen and  (max-width: 600px) { 
@@ -15,7 +8,7 @@
     padding: 0;
     margin: 0;
     overflow-x: hidden !important;
-    /* background-color: #ebd8b8; */
+
   }
 
 .nav-bar {
@@ -71,15 +64,7 @@ align-content:center
 
 .addbg{
   height: 190px;
-  /* background-repeat: no-repeat; */
   background-image: fit-content;
-  /* background-size: contain; */
-  /* background-size: fit-content; */
-  /* background-attachment: fixed; */
-  /* margin: 0; 
-  padding: 0px; */
-  /* overflow-x: hidden !important; */
-  /* margin-right: 200px;  */
 }
 }
 
@@ -93,7 +78,7 @@ body {
     padding: 0;
     margin: 0;
     overflow-x: hidden !important;
-    /* background-color: #ebd8b8; */
+
   }
 
   #page-container {
@@ -106,8 +91,6 @@ body {
   
   #content-wrap {
     padding-bottom: 0.75rem;
-    /* padding: 0;
-    margin: 0;    */
     overflow-x: hidden 
   }
   
@@ -133,9 +116,6 @@ body {
 
 .nav-link{
   text-align: center;
-  /* color:grey! important; */
-  /* font-size:14px;
-  font-weight:300 */
 }
 .nav-bar {
   margin-left: 18px
@@ -173,10 +153,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* width: 200px;
-  height:120px; */
   width: 225px;
-  /* height:150px; */
   height: fit-content;
 
   border-radius: 12px;
@@ -196,8 +173,6 @@ body {
 
 #about {
   background-image:url(../public/bar_soap.jpg);
-  /* width: 100%;
-  height: 150vh; */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; 
@@ -215,7 +190,6 @@ body {
 
 .displayCards{
   background-color: transparent;
-  /* background-color: #ebd8b8; */
   height:36%;
   width: 50%;
   display: flex;
@@ -241,7 +215,6 @@ body {
 #about .content h1 {
   color: white   ;
   font-family:'League Spartan';
-  /* padding-left: 1em; */
   margin-left:10px;
   font-size:1.2rem;
   padding: 8px;
@@ -270,13 +243,12 @@ body {
 .infoPic img{
   width: 100%;
   height:auto;
-  /* transition: 0.5s all ease-in-out; */
+
 }
 .deleteBtn{
   position:absolute;
   top: 2.5px;
   right:13px;
-  /* height: 2px; */
   width:13px;
   color:rgba(232, 220, 220, 0.5)
 }
@@ -329,18 +301,10 @@ body {
     
 
 .addbg{
-  /* height: 280px; */
   margin:0;
   padding:0;
-  /* background-repeat: no-repeat; */
+
   background-image: fit-content;
-  /* background-size: contain; */
-  /* background-size: fit-content; */
-  /* background-attachment: fixed; */
-  /* margin: 0; 
-  padding: 0px; */
-  /* overflow-x: hidden !important; */
-  /* margin-right: 200px;  */
 }
 
 .listlogo{
@@ -378,7 +342,6 @@ body {
 padding: 0;
 margin: 0;
 overflow-x: hidden !important;
-/* background-color: #ebd8b8; */
 }
 
 #page-container {
@@ -389,7 +352,6 @@ margin: 0;
 }
 
 #content-wrap {
-/* padding-bottom: 3rem;    */
 overflow-x: hidden
 }
 
@@ -409,16 +371,12 @@ text-decoration: none;
 display:inline-block;
 color: white;
 padding: 8px;
-/* font-family:Jost, sans-serif; */
 font-family:'League Spartan';
 font-size: 1.2rem;
 }
 
 .nav-link{
 text-align: center;
-/* color:grey! important; */
-/* font-size:14px;
-font-weight:300 */
 }
 .nav-bar {
   margin-left: 18px
@@ -466,8 +424,6 @@ font-family:'League Spartan';
 
 #about {
 background-image:url(../public/bar_soap.jpg);
-/* width: 100%;
-height: 150vh; */
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed; 
@@ -485,7 +441,6 @@ padding: 0px;
 
 .displayCards{
 background-color: transparent;
-/* background-color: #ebd8b8; */
 height:36%;
 width: 50%;
 display: flex;
@@ -540,7 +495,6 @@ font-family:'League Spartan';
 .infoPic img{
   width: 100%;
   height:auto;
-  /* transition: 0.5s all ease-in-out; */
 }
 
 .deleteBtn{
@@ -615,7 +569,6 @@ font-size:0.7rem;
   body {
       padding: 0;
       margin: 0;
-      /* background-color: #ebd8b8; */
       overflow-x: hidden !important;
  
     }
@@ -635,7 +588,6 @@ font-size:0.7rem;
     #main {
       background-color: #212529;
       padding: 5px;
-      /* padding-bottom: 0px; */
       margin:  0;
       
     }
@@ -725,7 +677,7 @@ font-size:0.7rem;
 
     .displayCards{
       background-color: transparent;
-      /* background-color: #ebd8b8; */
+
       height: 19rem;
       width: 18rem;
       display: flex;
@@ -738,8 +690,6 @@ font-size:0.7rem;
     #about {
       background-image:url(../public/bar_soap.jpg);
       width: 100%;
-      /* height: 80vh; */
-      /* height: calc(100vh - 150px); */
       height: max(90vh, fit-content);
       background-repeat: no-repeat;
       background-size: cover;
@@ -771,11 +721,9 @@ font-size:0.7rem;
       padding: 5px 30px;
       font-size: 14px;
       background-color:#212529;
-      /* align-content: center;
-      display: flex; */
+
       font-family:'League Spartan';
       
-  
   }
 
 
@@ -818,16 +766,9 @@ font-size:0.7rem;
   
 
   .addbg{
-    /* height: 500px; */
-    /* background-repeat: no-repeat; */
+
     background-image: fit-content;
-    /* background-size: contain; */
-    /* background-size: fit-content; */
-    /* background-attachment: fixed; */
-    /* margin: 0; 
-    padding: 0px; */
-    /* overflow-x: hidden !important; */
-    /* margin-right: 200px;  */
+  
   }
 
     .footer{

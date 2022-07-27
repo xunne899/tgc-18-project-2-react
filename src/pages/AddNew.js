@@ -144,9 +144,7 @@ export default class AddNew extends React.Component {
       errorMsg: {},
     });
     
-  //  if(this.state.submitted ===true && !this.state.errorMsg ){
- 
-  //  } 
+
 
     try {
       let res = await axios.post(this.url + "soap_listings", {
