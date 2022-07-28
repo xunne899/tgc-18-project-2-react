@@ -70,11 +70,11 @@ Users are able to access to various applications through the navigation bar. The
 Webpage consists of simple 3 components
 
 - Navbar
-- Body - Main picture, Display content
+- Body 
 - Footer
 
 Navbar is located at the top of webpage.<br>
-Navbar consists of logo and name hyperlinks to respective pages.<br>
+Navbar consists of logo, able to link to home page when on click and tab hyperlinks to respective pages.<br>
 Body consists of the Main picture, Display content, Home link, Add Item link, Browse Search item link <br>
 Footer at the bottom page with copyright and font aswesome logo.<br>
 

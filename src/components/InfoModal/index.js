@@ -158,7 +158,7 @@ export default class Listing extends React.Component {
                       .map((item) => {
                         return (this.getUpperCase(item))
                       })
-                      .join(", ")}
+                      .join(", ").replaceAll('_', ' ')}
                   </span>
                 </div>
                 <div className="text-wrap">

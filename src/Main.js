@@ -63,7 +63,10 @@ export default class Main extends React.Component {
         <div id="page-container">
         <div id="content-wrap">
           <Navbar collapseOnSelect expand="lg" id="main">
-            <Navbar.Brand href="#" className="nav-bar" ><Logo LogoFile={require('./images/logo.png')} /></Navbar.Brand>
+            <Navbar.Brand href="#" className="nav-bar" ><a onClick={() => {
+                   this.setState({
+                    current: 'home'
+                  })}}><Logo LogoFile={require('./images/logo.png')}/></a></Navbar.Brand>
             <Navbar.Toggle id="nav-button" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">     
