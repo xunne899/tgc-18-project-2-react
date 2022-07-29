@@ -121,7 +121,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 2. As a user i would like to know the recommended usage of customise soap bar for types of skin<br>
 3. As a user i would like to know the details of the seller, so that i am able to connect with seller to purchase the soap for my skin type
 
-### 4.1 Acceptance criteria
+### 4.1 Acceptance Criteria
 
 1. Webpage allows user's to search for soap bar suitable for their skin type area and able to view the details of the seller and communicate with them<br>
 2. Project Webpage is able to enable users to know ingredient content of the customise soap, allows user to edit or update the collection of the soap.
