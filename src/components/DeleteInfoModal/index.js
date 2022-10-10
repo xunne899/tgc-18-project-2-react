@@ -11,6 +11,8 @@ export default class DeleteInfoModal extends React.Component {
     collection: [],
   };
 
+
+  // delete collection function 
   processDeleteCollection = async (r) => {
     const url = "https://project-2-soap.herokuapp.com/";
 
@@ -29,6 +31,8 @@ export default class DeleteInfoModal extends React.Component {
     }
   };
 
+
+  //display delete modal view
   render() {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (

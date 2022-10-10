@@ -25,13 +25,14 @@ export default class Main extends React.Component {
   
  
 
- 
+ // change content function state
   changeContent = (inpage) => {
     this.setState({
       current: inpage
     })
   }
 
+  // display content 
   showContentpage = () => {
     
     if (this.state.current === 'home') {
@@ -55,7 +56,7 @@ export default class Main extends React.Component {
 
 
 
-
+//display navbar 
   render() {
     return (
 

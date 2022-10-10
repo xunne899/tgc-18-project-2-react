@@ -5,7 +5,7 @@ import HomeImage from '../mainpage_components/HomeImage';
 
 export default function Home(props){
 
- 
+ // home page
 
         return (
             <React.Fragment>

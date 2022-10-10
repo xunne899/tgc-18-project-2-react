@@ -31,11 +31,12 @@ export default class AddNew extends React.Component {
     errorMsg: {},
   };
 
+
   handleChange = (selectedSkin) => {
     this.setState({ selectedSkin });
     console.log(`Option selected:`, selectedSkin);
   };
-
+//display color
   colors = [
     {
       show: "Green",
@@ -58,7 +59,7 @@ export default class AddNew extends React.Component {
       value: "orange",
     },
   ];
-
+// display countries
   countries = [
     {
       show: "Germany",
@@ -93,7 +94,7 @@ export default class AddNew extends React.Component {
       value: "singapore",
     },
   ];
-
+// display skintype
   skinType = [
     {
       show: "Sensitive",
@@ -109,6 +110,7 @@ export default class AddNew extends React.Component {
     },
   ];
 
+  // display treatment
   treat = [
     {
       show: "Irritable Skin",
@@ -127,7 +129,7 @@ export default class AddNew extends React.Component {
       value: "skin_cut",
     },
   ];
-
+// update form field
   updateFormField = (i) => {
     this.setState({
       [i.target.name]: i.target.value,
@@ -145,7 +147,7 @@ export default class AddNew extends React.Component {
     });
     
 
-
+// get url and add following field inputs
     try {
       let res = await axios.post(this.url + "soap_listings", {
         name: this.state.newName,

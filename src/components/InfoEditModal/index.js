@@ -30,6 +30,8 @@ export default class EditInfoModal extends React.Component {
     errorMsg: {},
   };
 
+
+  // starts to load
   componentDidMount() {
     console.log("Edit Modal showing");
 
@@ -39,6 +41,8 @@ export default class EditInfoModal extends React.Component {
     console.log(this.state);
   }
 
+
+  // get data
   getSingleData = async () => {
     const url = "https://project-2-soap.herokuapp.com/";
     const { selectedID } = this.props;
@@ -71,6 +75,8 @@ export default class EditInfoModal extends React.Component {
     }
   };
 
+
+  // function to handle change
   handleChange = (selectedSkin) => {
     this.setState({ selectedSkin });
     console.log(`Option selected:`, selectedSkin);
@@ -214,11 +220,13 @@ export default class EditInfoModal extends React.Component {
 
 
   showSkin = (e) => {
+
+    //find
     if (this.state.newSkinType.includes(e.target.value)) {
       let indexToRemove = this.state.newSkinType.findIndex((eachOne) => {
         return eachOne === e.target.value;
       });
-
+    //cloned
       let cloned = [...this.state.newSkinType.slice(0, indexToRemove), ...this.state.newSkinType.slice(indexToRemove + 1)];
       this.setState({
         newSkinType: cloned,
@@ -235,7 +243,7 @@ export default class EditInfoModal extends React.Component {
     let oilTagList = [...this.state.oilIngredients.slice(0, i), ...this.state.oilIngredients.slice(i + 1)];
     this.setState({ oilIngredients: oilTagList });
   };
-
+// update oil ingredient tag
   updateOilIngredients = (i) => {
     let key = i.key;
     let code = i.code;
@@ -255,7 +263,7 @@ export default class EditInfoModal extends React.Component {
     let baseTagList = [...this.state.baseIngredients.slice(0, i), ...this.state.baseIngredients.slice(i + 1)];
     this.setState({ baseIngredients: baseTagList });
   };
-
+// update base ingredient tag
   updateBaseIngredients = (i) => {
     let key = i.key;
     let code = i.code;
@@ -275,7 +283,7 @@ export default class EditInfoModal extends React.Component {
     let milkTagList = [...this.state.milkIngredients.slice(0, i), ...this.state.milkIngredients.slice(i + 1)];
     this.setState({ milkIngredients: milkTagList });
   };
-
+// update using tag form 
   updateMilkIngredients = (i) => {
     let key = i.key;
     let code = i.code;
@@ -321,7 +329,7 @@ export default class EditInfoModal extends React.Component {
     );
   };
 
- 
+ // pull info from particular soap
   handlePutSoapData = async () => {
     this.setState({
       submitted: true,
@@ -371,6 +379,7 @@ export default class EditInfoModal extends React.Component {
       }
     }
   };
+  // display update view
   render() {
     const { selectedData, isViewVisible, setIsViewVisible } = this.props;
     return (
